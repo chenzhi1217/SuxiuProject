@@ -65,6 +65,8 @@ abstract class BasicFragment<REQUEST : BaseRequest, PRESENT: IPresenter, DATA, B
         mPresenter = getPresenter()
         
         showContentView()
+        
+        
 
         return mParentBinding?.root
     }
