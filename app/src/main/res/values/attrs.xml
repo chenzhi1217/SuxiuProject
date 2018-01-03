@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--页面跳转动画的时间-->
+    <integer name="page_animate_duration">500</integer>
+</resources>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    
+    <!--常用颜色-->
+    <color name="color_white">#FFFFFF</color>
+    <color name="color_black">#000000</color>
+    <color name="color_red">#FF0000</color>
+    <color name="color_gray">#999999</color>
+    <color name="color_hint">#d4d4d4</color>
+    <color name="color_line">#F0F0F0</color>
+    <!--水波纹的颜色-->
+    <color name="color_list_item_click_bg">#2000</color>
+    
+    <!--字体的颜色-->
+    <color name="color_text_red">#FC3232</color>
+</resources>

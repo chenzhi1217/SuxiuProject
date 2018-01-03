@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--标题字体大小-->
+    <dimen name="title_one">22dp</dimen>
+    <dimen name="title_two">18dp</dimen>
+    <dimen name="title_three">14dp</dimen>
+    <dimen name="title_four">12dp</dimen>
+    <!--首页RadioGroup的高度-->
+    <dimen name="main_rg_height">48dp</dimen>
+    
+    <dimen name="title_size">17dp</dimen>
+</resources>
