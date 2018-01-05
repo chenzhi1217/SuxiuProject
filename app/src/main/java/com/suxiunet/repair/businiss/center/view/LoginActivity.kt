@@ -12,7 +12,7 @@ import com.suxiunet.repair.base.BasicActivity
 class LoginActivity : BasicActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setToolBarTitle("")
+        setToolBarTitle("登录")
         startFragment(R.id.fl_basic_act,LoginFragment::class.java,LoginFragment::class.java.simpleName)
     }
 }

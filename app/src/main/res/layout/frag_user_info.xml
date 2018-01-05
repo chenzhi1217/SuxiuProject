@@ -16,8 +16,6 @@
         android:background="@color/home_bg"
         android:orientation="vertical">
 
-        <include layout="@layout/include_common_line"/>
-
         <!--头像-->
         <RelativeLayout
             android:id="@+id/rl_user_head"

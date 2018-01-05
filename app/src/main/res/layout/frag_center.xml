@@ -84,6 +84,7 @@
 
             <!--关于我们-->
             <RelativeLayout
+                android:onClick="@{() ->presenter.aboutUs()}"
                 style="@style/StyleCenterHomeItem">
                 <ImageView
                     android:id="@+id/iv_contact_us"

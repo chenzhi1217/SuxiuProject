@@ -8,6 +8,7 @@
         <item name="colorAccent">@color/colorAccent</item>
         <!--设置页面跳转的动画-->
         <item name="android:windowAnimationStyle">@style/activityAnimation</item>
+        <item name="android:colorControlNormal">@color/color_white</item>
     </style>
 
     <!--Activity跳转的动画-->

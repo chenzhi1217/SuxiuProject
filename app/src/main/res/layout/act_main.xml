@@ -30,12 +30,14 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="hello"
-                    android:textColor="@android:color/white"
+                    android:textColor="@color/color_toobar_title"
                     android:textSize="17dp"/>
 
             </RelativeLayout>
 
         </android.support.v7.widget.Toolbar>
+
+        <include layout="@layout/common_line_march"/>
 
         <FrameLayout
             android:id="@+id/main_framlayout"
@@ -67,7 +69,6 @@
                 android:drawableTop="@drawable/selector_lable_home"
                 android:gravity="center"
                 android:text="首页"
-                android:textColor="@drawable/selector_text_red"
                 android:textSize="12dp"/>
 
             <RadioButton
@@ -79,7 +80,6 @@
                 android:drawableTop="@drawable/selector_lable_order"
                 android:gravity="center"
                 android:text="订单"
-                android:textColor="@drawable/selector_text_red"
                 android:textSize="12dp"/>
 
             <!--android:drawableTop="@drawable/lable_my_selector"-->
@@ -92,7 +92,6 @@
                 android:drawableTop="@drawable/selector_lable_center"
                 android:gravity="center"
                 android:text="我的"
-                android:textColor="@drawable/selector_text_red"
                 android:textSize="12dp"/>
 
         </RadioGroup>

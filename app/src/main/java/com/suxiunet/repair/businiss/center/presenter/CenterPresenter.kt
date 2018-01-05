@@ -6,6 +6,7 @@ import android.net.Uri
 import com.suxiunet.repair.base.BasicPresenter
 import com.suxiunet.repair.base.Constant
 import com.suxiunet.repair.businiss.center.contract.CenterContract
+import com.suxiunet.repair.businiss.center.view.LoginActivity
 import com.suxiunet.repair.businiss.center.view.UserInfoActivity
 
 /**
@@ -28,5 +29,9 @@ class CenterPresenter(activity: Activity, view: CenterContract.View, model: Cent
     fun contactUs() {
         val intent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:"+Constant.companyPhone+""))
         mActivity.startActivity(intent)
+    }
+
+    fun aboutUs() {
+        mActivity.startActivity(Intent(mActivity,LoginActivity::class.java))
     }
 }
