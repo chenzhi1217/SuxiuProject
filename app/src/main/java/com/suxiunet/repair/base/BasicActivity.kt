@@ -18,7 +18,7 @@ import org.jetbrains.annotations.NotNull
  */
 open class BasicActivity : AppCompatActivity() {
     var mBinding: ActBasicBinding? = null
-    private var mFragments = HashMap<String ,BasicFragment<out BaseRequest,out IPresenter,Any,out ViewDataBinding>>()
+    private var mFragments = HashMap<String ,OriginalFragment>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //禁止横屏
@@ -39,7 +39,7 @@ open class BasicActivity : AppCompatActivity() {
         mBinding?.tvBasicActTitle?.text = title
     }
 
-    fun startFragment(@IdRes fragmentViewId: Int, cls: Class<out BasicFragment<out BaseRequest,out IPresenter,Any,out ViewDataBinding>>, tag: String) {
+    fun startFragment(@IdRes fragmentViewId: Int, cls: Class<out OriginalFragment>, tag: String) {
         var fragment = mFragments.get(tag)
         if (fragment == null) {
             try {
@@ -51,7 +51,7 @@ open class BasicActivity : AppCompatActivity() {
         startFragment(fragmentViewId, fragment!!, tag)
     }
 
-    fun startFragment(@IdRes fragmentViewId: Int, fragment: BasicFragment<out BaseRequest,out IPresenter,Any,out ViewDataBinding>, @NotNull tag: String) {
+    fun startFragment(@IdRes fragmentViewId: Int, fragment: OriginalFragment, @NotNull tag: String) {
         if (fragment != null) {
             mFragments.put(tag, fragment)
             supportFragmentManager.beginTransaction().replace(fragmentViewId,fragment,tag).commit()

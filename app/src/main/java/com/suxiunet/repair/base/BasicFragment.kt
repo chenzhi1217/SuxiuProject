@@ -16,7 +16,7 @@ import com.suxiunet.repair.databinding.FragBasicBinding
  * time   : 2018/01/03
  * desc   :
  */
-abstract class BasicFragment<REQUEST : BaseRequest, PRESENT: IPresenter, DATA, BIND : ViewDataBinding> : Fragment() {
+abstract class BasicFragment<REQUEST : BaseRequest, PRESENT: IPresenter, DATA, BIND : ViewDataBinding> : OriginalFragment() {
     lateinit var mParentBinding: FragBasicBinding
     lateinit var mBinding: BIND
     var mPresenter: PRESENT? = null
@@ -61,6 +61,7 @@ abstract class BasicFragment<REQUEST : BaseRequest, PRESENT: IPresenter, DATA, B
         mParentBinding.flBasicFrag.addView(mContentView)
         //设置失败页面
         mParentBinding?.includeCommonError?.ivNetErrorIcon?.setImageResource(getErrorIconResid())
+        mParentBinding?.includeCommonError?.root?.setOnClickListener { initLoadData() }
 
         mPresenter = getPresenter()
         
@@ -157,11 +158,11 @@ abstract class BasicFragment<REQUEST : BaseRequest, PRESENT: IPresenter, DATA, B
     inner class BasicDataCallBack : BasicProxy.ProxyCallBack<REQUEST, DATA> {
         override fun onLoadSuccess(req: REQUEST?, type: BasicProxy.ProxyType, data: DATA?) {
             when (type) {
-                //首次加载数据成功
+            //首次加载数据成功
                 BasicProxy.ProxyType.LOAD_DATA -> {
                     loadDataSuccess(req, data)
                 }
-                //下拉刷新数据成功
+            //下拉刷新数据成功
                 BasicProxy.ProxyType.REFRESH_DATA -> {
                     refreshDataSuccess(req, data)
                 }

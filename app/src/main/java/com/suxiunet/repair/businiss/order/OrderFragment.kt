@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.suxiunet.repair.R
+import com.suxiunet.repair.base.MainActivity
 import com.suxiunet.repair.databinding.FragOrderBinding
 
 /**
@@ -17,6 +18,14 @@ import com.suxiunet.repair.databinding.FragOrderBinding
 class OrderFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val binding = DataBindingUtil.inflate<FragOrderBinding>(inflater, R.layout.frag_order, container, false)
+        (activity as MainActivity).showOrderTitle()
         return binding.root
+    }
+
+    override fun onHiddenChanged(hidden: Boolean) {
+        super.onHiddenChanged(hidden)
+        if (!hidden) {
+            (activity as MainActivity).showOrderTitle()
+        }
     }
 }

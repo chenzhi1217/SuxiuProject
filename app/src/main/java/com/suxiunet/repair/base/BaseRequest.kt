@@ -5,7 +5,7 @@ package com.suxiunet.repair.base
  * time   : 2018/01/03
  * desc   :
  */
-class BaseRequest {
+open class BaseRequest {
     private var curPage: Int = 0
     private var pageSize: Int = 10
 

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--修改昵称fragment-->
+<layout>
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/home_bg">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            android:background="@color/color_white">
+
+            <com.suxiunet.repair.view.ClearEditText
+                android:id="@+id/et_modify_nick_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/left_margin"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="输入新昵称"
+                android:textColorHint="@color/color_hint"
+                android:textColor="@color/color_text_1"
+                android:textSize="@dimen/title_three"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

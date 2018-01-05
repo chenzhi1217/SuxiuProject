@@ -4,11 +4,12 @@ import android.databinding.DataBindingUtil
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.view.View
 import android.widget.RadioGroup
 import com.suxiunet.data.util.Utils
 import com.suxiunet.repair.R
-import com.suxiunet.repair.businiss.center.CenterFragment
-import com.suxiunet.repair.businiss.home.HomeFragment
+import com.suxiunet.repair.businiss.center.view.CenterFragment
+import com.suxiunet.repair.businiss.home.view.HomeFragment
 import com.suxiunet.repair.businiss.order.OrderFragment
 import com.suxiunet.repair.databinding.ActMainBinding
 import java.util.*
@@ -67,18 +68,29 @@ class MainActivity : AppCompatActivity() {
             when (checkedId) {
                 R.id.rb_main_home -> {
                     setCheckedFragment(0)
-                    changeTitle("首页")
                 }
                 R.id.rb_main_order -> {
                     setCheckedFragment(1)
-                    changeTitle("订单")
                 }
                 R.id.rb_main_center ->{
                     setCheckedFragment(2)
-                    changeTitle("个人中心")
                 }
             }
         }
+    }
+
+    fun showHomeTitle() {
+        mBinding?.tbMain?.visibility = View.VISIBLE
+        changeTitle("首页")
+    }
+
+    fun showOrderTitle() {
+        mBinding?.tbMain?.visibility = View.VISIBLE
+        changeTitle("订单")
+    }
+
+    fun showCenterTitle() {
+        mBinding?.tbMain?.visibility = View.GONE
     }
 
     private fun changeTitle(title: String) {

@@ -10,7 +10,7 @@ import com.suxiunet.data.util.Utils
  * time   : 2018/01/03
  * desc   : 添加了了加载中状态，并且控制了只能单个加载
  */ 
-abstract class RefreshProxy<REQUEST, DATA> : BasicProxy<REQUEST, DATA> {
+open abstract class RefreshProxy<REQUEST, DATA> : BasicProxy<REQUEST, DATA> {
 
     private var isLoading: Boolean = false
     private var loadingView: View? = null
