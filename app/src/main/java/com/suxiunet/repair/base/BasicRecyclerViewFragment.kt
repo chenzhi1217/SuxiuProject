@@ -8,6 +8,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
+import com.suxiunet.data.exception.ApiException
 import com.suxiunet.repair.R
 import com.suxiunet.repair.databinding.FragRecyclerviewBasicBinding
 import com.suxiunet.repair.view.CustomRecyclerView
@@ -27,7 +28,7 @@ abstract class BasicRecyclerViewFragment<REQUEST : BaseRequest, PRESENT: IPresen
         super.onViewCreated(view, savedInstanceState)
         //设置下拉刷新
         //TODO 这里执行下拉刷新的逻辑
-        mParentBinding.sfBasicFrag.setOnRefreshListener {  }
+        mParentBinding.sfBasicFrag.setOnRefreshListener { refreshData() }
         mParentBinding.sfBasicFrag.setColorSchemeResources(R.color.color_red)
         //设置空布局页面
         mBinding.includeBasicEmptyLayout.ivEmpty.setImageResource(setEmptyBgResId())
@@ -37,15 +38,40 @@ abstract class BasicRecyclerViewFragment<REQUEST : BaseRequest, PRESENT: IPresen
         mRecyclerView.setEmptyView(mBinding.includeBasicEmptyLayout.root)
         mAdapter = onCreateAdapter()
         mRecyclerView.layoutManager = onCreateLayoutManager()
-
+        
         //设置上拉加载
         if (pageEnable()) {
             //TODO pageSize应该抽到常量类中
             mAdapter.setLoadMoreView(getLoadMoreLoadingLayoutId(), getLoadMoreRetryLayoutId(), getLoadMoreNoDataLayoutId(), 1, 15, object : BaseRecyclerViewAdapter.LoadMoreCallback() {
                 override fun onLoadMore() {
-//                    loadMoreData()
+                    loadMoreData()
                 }
             })
+        }
+    }
+
+    /**
+     * 上拉加载的逻辑
+     */
+    private fun loadMoreData() {
+        if (!mDataProxy.isLoading() && pageEnable()) {
+            //TODO 
+            mDataProxy.request(getRequestData(),BasicProxy.ProxyType.LOAD_MORE_DATA)
+        }
+    }
+
+    /**
+     * 下拉刷新的逻辑
+     */
+    private fun refreshData() {
+        if (pageEnable()) {
+            //重置上拉加载布局和请求对象
+            mAdapter.reSetLoadMoreState()
+            getRequestData().reSetCurPage()
+        }
+        if (!mDataProxy.isLoading() && needNet()) {
+            //TODO 这里要拦截屏幕的触摸事件
+            mDataProxy.request(getRequestData(),BasicProxy.ProxyType.REFRESH_DATA)
         }
     }
 
@@ -153,5 +179,73 @@ abstract class BasicRecyclerViewFragment<REQUEST : BaseRequest, PRESENT: IPresen
      */
     override fun setSwipeRefreshEnable(): Boolean {
         return true
+    }
+
+    override fun onCreateDataCallBack(): BasicProxy.ProxyCallBack<REQUEST, DATA> {
+        return LoadMoreCallBack()
+    }
+
+    /**
+     * 网络请求的结果回掉
+     */
+    inner class LoadMoreCallBack: BasicDataCallBack() {
+        override fun onLoadSuccess(req: REQUEST?, type: BasicProxy.ProxyType, data: DATA?) {
+            if (pageEnable()) {
+                getRequestData().pgDown()
+            }
+            if (type == BasicProxy.ProxyType.LOAD_MORE_DATA) {
+                onLoadMoreSuccess(req,data)
+            } else {
+                super.onLoadSuccess(req, type, data)
+            }
+        }
+
+        override fun onLoadError(req: REQUEST?, type: BasicProxy.ProxyType, e: ApiException?) {
+            if (type == BasicProxy.ProxyType.LOAD_MORE_DATA) {
+                loadMoreError(req,e)
+            } else {
+                super.onLoadError(req, type, e)
+            }
+        }
+    }
+
+    /**
+     * 上拉加载失败
+     */
+    private fun loadMoreError(req: REQUEST?, e: ApiException?) {
+    }
+
+    /**
+     * 上拉加载成功
+     */
+    private fun onLoadMoreSuccess(req: REQUEST?, data: DATA?) {
+    }
+
+    /**
+     * 首次加载数据失败
+     */
+    override fun onLoadDataError(req: REQUEST?, e: ApiException?) {
+        super.onLoadDataError(req, e)
+    }
+    
+    /**
+     * 首次加载数据成功
+     */
+    override fun onLoadDataSuccess(req: REQUEST?, data: DATA?) {
+        super.onLoadDataSuccess(req, data)
+    }
+
+    /**
+     * 下拉刷新失败
+     */
+    override fun onRefreshDataError(req: REQUEST?, e: ApiException?) {
+        super.onRefreshDataError(req, e)
+    }
+
+    /**
+     * 下拉刷新成功
+     */
+    override fun onRefreshDataSuccess(req: REQUEST?, data: DATA?) {
+        super.onRefreshDataSuccess(req, data)
     }
 }

@@ -3,7 +3,6 @@ package com.suxiunet.repair.base
 import android.databinding.DataBindingUtil
 import android.databinding.ViewDataBinding
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,13 +13,13 @@ import com.suxiunet.repair.databinding.FragBasicBinding
 /**
  * author : chenzhi
  * time   : 2018/01/03
- * desc   :
+ * desc   : 所有列表页面的基类
  */
 abstract class BasicFragment<REQUEST : BaseRequest, PRESENT: IPresenter, DATA, BIND : ViewDataBinding> : OriginalFragment() {
     lateinit var mParentBinding: FragBasicBinding
     lateinit var mBinding: BIND
     var mPresenter: PRESENT? = null
-
+    
     lateinit var mDataProxy: RefreshProxy<REQUEST, DATA>
 
     //加载中的view
@@ -41,7 +40,7 @@ abstract class BasicFragment<REQUEST : BaseRequest, PRESENT: IPresenter, DATA, B
         }
     }
 
-    private fun onCreateDataCallBack(): BasicProxy.ProxyCallBack<REQUEST, DATA> {
+    open protected fun onCreateDataCallBack(): BasicProxy.ProxyCallBack<REQUEST, DATA> {
         return BasicDataCallBack()
     }
 
@@ -164,16 +163,17 @@ abstract class BasicFragment<REQUEST : BaseRequest, PRESENT: IPresenter, DATA, B
     /**
      * 网路请求回调接口的实例
      */
-    inner class BasicDataCallBack : BasicProxy.ProxyCallBack<REQUEST, DATA> {
+    open inner class BasicDataCallBack : BasicProxy.ProxyCallBack<REQUEST, DATA> {
         override fun onLoadSuccess(req: REQUEST?, type: BasicProxy.ProxyType, data: DATA?) {
             when (type) {
             //首次加载数据成功
                 BasicProxy.ProxyType.LOAD_DATA -> {
-                    loadDataSuccess(req, data)
+                    onLoadDataSuccess(req, data)
                 }
             //下拉刷新数据成功
                 BasicProxy.ProxyType.REFRESH_DATA -> {
-                    refreshDataSuccess(req, data)
+                    mParentBinding.sfBasicFrag.isRefreshing = false
+                    onRefreshDataSuccess(req, data)
                 }
             }
         }
@@ -181,9 +181,12 @@ abstract class BasicFragment<REQUEST : BaseRequest, PRESENT: IPresenter, DATA, B
         override fun onLoadError(req: REQUEST?, type: BasicProxy.ProxyType, e: ApiException?) {
             when (type) {
                 //首次加载数据失败
-                BasicProxy.ProxyType.LOAD_DATA -> loadDataError(req, e)
+                BasicProxy.ProxyType.LOAD_DATA -> onLoadDataError(req, e)
                 //下拉刷新数据失败
-                BasicProxy.ProxyType.REFRESH_DATA -> refreshDataError(req, e)
+                BasicProxy.ProxyType.REFRESH_DATA -> {
+                    mParentBinding.sfBasicFrag.isRefreshing = false
+                    onRefreshDataError(req, e)
+                }
             }
         }
     }
@@ -191,28 +194,28 @@ abstract class BasicFragment<REQUEST : BaseRequest, PRESENT: IPresenter, DATA, B
     /**
      * 下拉刷新数据失败
      */
-    open protected fun refreshDataError(req: REQUEST?, e: ApiException?) {
+    open protected fun onRefreshDataError(req: REQUEST?, e: ApiException?) {
 
     }
 
     /**
      * 加载数据失败
      */
-    open protected fun loadDataError(req: REQUEST?, e: ApiException?) {
+    open protected fun onLoadDataError(req: REQUEST?, e: ApiException?) {
         showErrorView()
     }
 
     /**
      * 下拉刷新数据成功
      */
-    open protected fun refreshDataSuccess(req: REQUEST?, data: DATA?) {
+    open protected fun onRefreshDataSuccess(req: REQUEST?, data: DATA?) {
 
     }
 
     /**
      * 加载数据成功
      */
-    open protected fun loadDataSuccess(req: REQUEST?, data: DATA?) {
+    open protected fun onLoadDataSuccess(req: REQUEST?, data: DATA?) {
         showContentView()
     }
 }
