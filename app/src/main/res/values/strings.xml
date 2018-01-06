@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">速修</string>
+    
+    <string name="data_is_empty">暂时没有数据</string>
 </resources>

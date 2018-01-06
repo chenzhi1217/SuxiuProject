@@ -62,6 +62,8 @@ abstract class BasicFragment<REQUEST : BaseRequest, PRESENT: IPresenter, DATA, B
         //设置失败页面
         mParentBinding?.includeCommonError?.ivNetErrorIcon?.setImageResource(getErrorIconResid())
         mParentBinding?.includeCommonError?.root?.setOnClickListener { initLoadData() }
+        //设置SwifeRefresh
+        mParentBinding.sfBasicFrag.isEnabled = setSwipeRefreshEnable()
 
         mPresenter = getPresenter()
         
@@ -70,6 +72,13 @@ abstract class BasicFragment<REQUEST : BaseRequest, PRESENT: IPresenter, DATA, B
         
 
         return mParentBinding?.root
+    }
+
+    /**
+     * 下拉刷新控件默认是不可用的
+     */
+    open protected fun setSwipeRefreshEnable(): Boolean {
+        return false
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
