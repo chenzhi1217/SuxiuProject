@@ -21,7 +21,6 @@
             </intent-filter>
         </activity>
         
-        <activity android:name=".businiss.TestActivity"/>
         <!--用户信息-->
         <activity android:name=".businiss.center.view.UserInfoActivity"/>
         <!--修改昵称-->

@@ -55,6 +55,7 @@
 
         <include layout="@layout/include_common_line"/>
 
+        <!--昵称-->
         <RelativeLayout
             android:id="@+id/rl_modify_nick_name"
             android:layout_width="match_parent"
@@ -89,6 +90,48 @@
                 android:layout_marginRight="@dimen/right_margin"
                 android:layout_toLeftOf="@+id/iv_nick_name_next"
                 android:text="月光和我"
+                android:textColor="@color/color_divider_1"
+                android:textSize="@dimen/title_three"/>
+
+        </RelativeLayout>
+
+        <include layout="@layout/include_common_line"/>
+
+        <!--性别-->
+        <RelativeLayout
+            android:id="@+id/rl_modify_sex"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@color/color_white"
+            android:onClick="@{() ->presenter.modifyNickName()}">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/left_margin"
+                android:text="性别"
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/title_three"/>
+
+            <ImageView
+                android:id="@+id/iv_nick_sex_next"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/right_margin"
+                android:src="@mipmap/icon_arrow_right"/>
+
+            <TextView
+                android:id="@+id/tv_user_sex"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/left_margin"
+                android:layout_marginRight="@dimen/right_margin"
+                android:layout_toLeftOf="@+id/iv_nick_sex_next"
+                android:text="男"
                 android:textColor="@color/color_divider_1"
                 android:textSize="@dimen/title_three"/>
 

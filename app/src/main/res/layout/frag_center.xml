@@ -14,7 +14,7 @@
             android:id="@+id/iv_frag_center_bg"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:background="@mipmap/bg_center"
+            android:background="@color/theme_bg"
             app:layout_constraintDimensionRatio="H,2.68:1"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -54,12 +54,12 @@
             
             <include layout="@layout/incluce_common_line_rude"/>
 
-            <!--联系我们-->
+            <!--拨打电话-->
             <RelativeLayout
                 android:onClick="@{() ->presenter.contactUs()}"
                 style="@style/StyleCenterHomeItem">
                 <ImageView
-                    android:id="@+id/iv_about"
+                    android:id="@+id/iv_call"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
@@ -67,8 +67,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:layout_toEndOf="@+id/iv_about"
-                    android:text="联系我们"
+                    android:layout_toEndOf="@+id/iv_call"
+                    android:text="拨打电话"
                     android:textColor="@color/color_text_1"
                     android:textSize="@dimen/title_three"/>
 
@@ -87,6 +87,60 @@
                 android:onClick="@{() ->presenter.aboutUs()}"
                 style="@style/StyleCenterHomeItem">
                 <ImageView
+                    android:id="@+id/iv_about_us"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toEndOf="@+id/iv_about_us"
+                    android:text="关于我们"
+                    android:textColor="@color/color_text_1"
+                    android:textSize="@dimen/title_three"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:src="@mipmap/icon_arrow_right"/>
+
+            </RelativeLayout>
+
+            <include layout="@layout/include_common_line"/>
+
+            <!--意见反馈-->
+            <RelativeLayout
+                style="@style/StyleCenterHomeItem">
+                <ImageView
+                    android:id="@+id/iv_feed_back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toEndOf="@+id/iv_feed_back"
+                    android:text="意见反馈"
+                    android:textColor="@color/color_text_1"
+                    android:textSize="@dimen/title_three"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:src="@mipmap/icon_arrow_right"/>
+
+            </RelativeLayout>
+
+            <include layout="@layout/include_common_line"/>
+
+            <!--联系客服-->
+            <RelativeLayout
+                style="@style/StyleCenterHomeItem">
+                <ImageView
                     android:id="@+id/iv_contact_us"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
@@ -96,10 +150,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_toEndOf="@+id/iv_contact_us"
-                    android:text="关于我们"
+                    android:text="联系客服"
                     android:textColor="@color/color_text_1"
                     android:textSize="@dimen/title_three"/>
-
+                    
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
