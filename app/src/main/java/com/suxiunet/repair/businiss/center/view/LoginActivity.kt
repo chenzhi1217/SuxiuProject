@@ -2,7 +2,7 @@ package com.suxiunet.repair.businiss.center.view
 
 import android.os.Bundle
 import com.suxiunet.repair.R
-import com.suxiunet.repair.base.BasicActivity
+import com.suxiunet.repair.base.baseui.BasicActivity
 
 /**
  * author : chenzhi

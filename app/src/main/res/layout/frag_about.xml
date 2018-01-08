@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--关于我们-->
+<layout>
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/home_bg"
+        android:orientation="vertical">
+
+        <!--头部-->
+        <LinearLayout
+            android:id="@+id/ll_about_head"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_white"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingBottom="50dp">
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="50dp"
+                android:src="@mipmap/app_logo"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/app_name"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="当前版本1.0.0"/>
+
+        </LinearLayout>
+
+        <!--公司简介-->
+        <LinearLayout
+            android:id="@+id/ll_about_company_info"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_white"
+            android:orientation="vertical"
+            android:layout_below="@+id/ll_about_head"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="公司简介"
+                android:textSize="@dimen/title_two"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:lineSpacingMultiplier="1.5"
+                android:text="        上海速修计算机科技有限公司成立于2003年3月，秉承着快乐方式解决“电脑故障维修难题”的服务理念，致力于为用户提供价格便宜、方便快捷、安全可靠的电脑上门维修。"
+                android:textSize="@dimen/title_three"/>
+        </LinearLayout>
+
+        <!--客服电话-->
+        <RelativeLayout
+            android:layout_marginTop="10dp"
+            android:id="@+id/rl_about_phone"
+            style="@style/StyleCenterHomeItem"
+            android:layout_below="@+id/ll_about_company_info"
+            android:background="@color/color_white">/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_toEndOf="@+id/iv_call"
+                android:text="客服电话"
+                android:textColor="@color/color_text_1"
+                android:textSize="@dimen/title_three"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:text="4008-213-267"/>
+
+        </RelativeLayout>
+
+        <!--公司名称-->
+        <TextView
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="20dp"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_text_2"
+            android:textSize="@dimen/title_three"
+            android:text="上海速修计算机科技有限公司"/>
+
+    </RelativeLayout>
+</layout>

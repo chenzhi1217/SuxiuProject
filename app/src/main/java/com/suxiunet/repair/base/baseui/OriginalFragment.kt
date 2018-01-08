@@ -1,4 +1,4 @@
-package com.suxiunet.repair.base
+package com.suxiunet.repair.base.baseui
 
 import android.support.v4.app.Fragment
 

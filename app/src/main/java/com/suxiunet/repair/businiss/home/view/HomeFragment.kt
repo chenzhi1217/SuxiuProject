@@ -5,8 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.suxiunet.repair.R
-import com.suxiunet.repair.base.BasicFragment
-import com.suxiunet.repair.base.MainActivity
+import com.suxiunet.repair.base.baseui.BasicFragment
+import com.suxiunet.repair.base.baseui.MainActivity
 import com.suxiunet.repair.base.RefreshProxy
 import com.suxiunet.repair.businiss.home.contract.HomeContract
 import com.suxiunet.repair.businiss.home.model.HomeModel
@@ -20,7 +20,7 @@ import com.suxiunet.repair.databinding.FragHomeBinding
  * time   : 2017/12/30
  * desc   : 首页
  */
-class HomeFragment : BasicFragment<HomeRequest,HomePresenter,Any,FragHomeBinding>(),HomeContract.View {
+class HomeFragment : BasicFragment<HomeRequest, HomePresenter, Any, FragHomeBinding>(),HomeContract.View {
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         (activity as MainActivity).showHomeTitle()
         return super.onCreateView(inflater, container, savedInstanceState)

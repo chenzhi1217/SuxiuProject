@@ -1,15 +1,12 @@
-package com.suxiunet.repair.base
+package com.suxiunet.repair.base.baseui
 
 import android.databinding.DataBindingUtil
 import android.databinding.ViewDataBinding
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.suxiunet.data.exception.ApiException
-import com.suxiunet.repair.R
-import com.suxiunet.repair.databinding.FragBasicBinding
+import com.suxiunet.repair.base.IPresenter
 
 /**
  * author : chenzhi

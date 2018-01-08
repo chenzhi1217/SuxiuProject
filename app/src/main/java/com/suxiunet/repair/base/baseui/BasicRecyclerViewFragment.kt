@@ -1,6 +1,5 @@
-package com.suxiunet.repair.base
+package com.suxiunet.repair.base.baseui
 
-import android.content.ClipData
 import android.databinding.ViewDataBinding
 import android.os.Bundle
 import android.support.v7.widget.GridLayoutManager
@@ -10,7 +9,13 @@ import android.view.View
 import android.view.ViewGroup
 import com.suxiunet.data.exception.ApiException
 import com.suxiunet.repair.R
+import com.suxiunet.repair.base.BasicRequest
+import com.suxiunet.repair.base.BasicHolder
+import com.suxiunet.repair.base.BasicProxy
+import com.suxiunet.repair.base.IPresenter
+import com.suxiunet.repair.base.adapter.BaseRecyclerViewAdapter
 import com.suxiunet.repair.databinding.FragRecyclerviewBasicBinding
+import com.suxiunet.repair.util.ToastUtil
 import com.suxiunet.repair.view.CustomRecyclerView
 
 /**
@@ -18,7 +23,7 @@ import com.suxiunet.repair.view.CustomRecyclerView
  * time   : 2018/01/06
  * desc   : 所有列表页面的基类
  */
-abstract class BasicRecyclerViewFragment<REQUEST : BaseRequest, PRESENT: IPresenter, DATA,ITEM >: BasicFragment<REQUEST, PRESENT, DATA, FragRecyclerviewBasicBinding>() {
+abstract class BasicRecyclerViewFragment<REQUEST : BasicRequest, PRESENT: IPresenter, DATA,ITEM >: BasicFragment<REQUEST, PRESENT, DATA, FragRecyclerviewBasicBinding>() {
 
     lateinit var mRecyclerView: CustomRecyclerView
     lateinit var mAdapter: BaseRecyclerViewAdapter<ITEM>
@@ -39,6 +44,8 @@ abstract class BasicRecyclerViewFragment<REQUEST : BaseRequest, PRESENT: IPresen
         mAdapter = onCreateAdapter()
         mRecyclerView.layoutManager = onCreateLayoutManager()
         
+        mAdapter.setViewTypeMapper(onCreateViewTypeMapper())
+        
         //设置上拉加载
         if (pageEnable()) {
             //TODO pageSize应该抽到常量类中
@@ -50,13 +57,16 @@ abstract class BasicRecyclerViewFragment<REQUEST : BaseRequest, PRESENT: IPresen
         }
     }
 
+    abstract fun onCreateViewTypeMapper(): BaseRecyclerViewAdapter.ViewTypeMapper<ITEM>?
+
+
     /**
      * 上拉加载的逻辑
      */
     private fun loadMoreData() {
         if (!mDataProxy.isLoading() && pageEnable()) {
             //TODO 
-            mDataProxy.request(getRequestData(),BasicProxy.ProxyType.LOAD_MORE_DATA)
+            mDataProxy.request(getRequestData(), BasicProxy.ProxyType.LOAD_MORE_DATA)
         }
     }
 
@@ -71,7 +81,7 @@ abstract class BasicRecyclerViewFragment<REQUEST : BaseRequest, PRESENT: IPresen
         }
         if (!mDataProxy.isLoading() && needNet()) {
             //TODO 这里要拦截屏幕的触摸事件
-            mDataProxy.request(getRequestData(),BasicProxy.ProxyType.REFRESH_DATA)
+            mDataProxy.request(getRequestData(), BasicProxy.ProxyType.REFRESH_DATA)
         }
     }
 
@@ -143,7 +153,7 @@ abstract class BasicRecyclerViewFragment<REQUEST : BaseRequest, PRESENT: IPresen
     /**
      * 创建RecycleView的Adapter
      */
-    private fun onCreateAdapter():BaseRecyclerViewAdapter<ITEM> {
+    private fun onCreateAdapter(): BaseRecyclerViewAdapter<ITEM> {
         return object : BaseRecyclerViewAdapter<ITEM>(mRecyclerView) {
             override fun onCreateItemHolder(parent: ViewGroup?, viewType: Int): BasicHolder<out ITEM, out ViewDataBinding> {
                 return this@BasicRecyclerViewFragment.onCreateViewHolder(parent,viewType)
@@ -213,12 +223,20 @@ abstract class BasicRecyclerViewFragment<REQUEST : BaseRequest, PRESENT: IPresen
      * 上拉加载失败
      */
     private fun loadMoreError(req: REQUEST?, e: ApiException?) {
+        ToastUtil.showToast(e?.message?:"网络异常")
+        mAdapter.setLoadMoreFailed()
     }
 
     /**
      * 上拉加载成功
      */
     private fun onLoadMoreSuccess(req: REQUEST?, data: DATA?) {
+        var loadMoreData = converDataToList(data)
+        if (loadMoreData != null && loadMoreData.size > 0) {
+            mAdapter.dataList.addAll(loadMoreData)
+        }
+        checkIsLastPage(loadMoreData)
+        mAdapter.notifyDataSetChanged()
     }
 
     /**
@@ -233,6 +251,7 @@ abstract class BasicRecyclerViewFragment<REQUEST : BaseRequest, PRESENT: IPresen
      */
     override fun onLoadDataSuccess(req: REQUEST?, data: DATA?) {
         super.onLoadDataSuccess(req, data)
+        setInitData(data)
     }
 
     /**
@@ -240,6 +259,7 @@ abstract class BasicRecyclerViewFragment<REQUEST : BaseRequest, PRESENT: IPresen
      */
     override fun onRefreshDataError(req: REQUEST?, e: ApiException?) {
         super.onRefreshDataError(req, e)
+        ToastUtil.showToast(e?.message?:"网络异常")
     }
 
     /**
@@ -247,5 +267,34 @@ abstract class BasicRecyclerViewFragment<REQUEST : BaseRequest, PRESENT: IPresen
      */
     override fun onRefreshDataSuccess(req: REQUEST?, data: DATA?) {
         super.onRefreshDataSuccess(req, data)
+        setInitData(data)
     }
+
+    /**
+     * 将网络加载的数据设置到Adapter中去
+     * @param data
+     */
+    protected fun setInitData(data: DATA?) {
+        val items = converDataToList(data)
+        if (mRecyclerView.adapter == null) {
+            mRecyclerView.adapter = mAdapter
+        }
+        mAdapter.setItems(items)
+
+        //判断是否为最后一页
+        checkIsLastPage(items)
+        mAdapter.notifyDataSetChanged()
+    }
+
+    private fun checkIsLastPage(items: List<ITEM>?) {
+        if (pageEnable()) {
+            if (items == null || items?.size == 0) {
+                mAdapter.setNoMoreData()
+            } else {
+                mAdapter.setLoadMoreFinished()
+            }
+        }
+    }
+
+    abstract fun converDataToList(data: DATA?): List<ITEM>?
 }

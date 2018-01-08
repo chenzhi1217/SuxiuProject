@@ -2,11 +2,11 @@ package com.suxiunet.repair.businiss.center.presenter
 
 import android.app.Activity
 import android.content.Intent
-import android.graphics.ColorSpace
 import android.provider.MediaStore
 import com.suxiunet.repair.base.BasicPresenter
 import com.suxiunet.repair.businiss.center.contract.UserInfoContract
 import com.suxiunet.repair.businiss.center.view.ModifyNickNameActivity
+import com.suxiunet.repair.businiss.center.view.ModifySexActivity
 import com.suxiunet.repair.businiss.center.view.UserInfoFragment
 
 /**
@@ -28,6 +28,13 @@ class UserInfoPresenter(activity: Activity, view: UserInfoContract.View, model: 
      * 更改昵称
      */
     fun modifyNickName() {
-        mActivity.startActivityForResult(Intent(mActivity,ModifyNickNameActivity::class.java),UserInfoFragment.REQUEST_MODIFY_CODE)
+        mActivity.startActivityForResult(Intent(mActivity,ModifyNickNameActivity::class.java),UserInfoFragment.REQUEST_MODIFY_NICK_NAME_CODE)
+    }
+
+    /**
+     * 修改昵称
+     */
+    fun modifySex() {
+        mActivity.startActivityForResult(Intent(mActivity,ModifySexActivity::class.java),UserInfoFragment.REQUEST_MODIFY_SEX_CODE)
     }
 }

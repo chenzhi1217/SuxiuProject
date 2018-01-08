@@ -68,8 +68,8 @@ open abstract class RefreshProxy<REQUEST, DATA> : BasicProxy<REQUEST, DATA> {
     fun setLoadingView(view: View) {
         this.loadingView = view
     }
-
     /**
+
      * 控制加载中弹框的显示预隐藏
      */
     fun switchLoadingView(isLoadData: Boolean,switch:Boolean) {

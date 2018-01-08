@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--修改性别-->
+<layout>
+    <data>
+        <variable name="fragment" 
+                  type="com.suxiunet.repair.businiss.center.view.ModifySexFragment"/>
+    </data>
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/home_bg">
+
+        <!--男-->
+        <RelativeLayout
+            android:onClick="@{() ->fragment.switchCheck(0)}"
+            android:id="@+id/rl_modify_nick_name"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@color/color_white">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/left_margin"
+                android:text="男"
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/title_three"/>
+
+            <ImageView
+                android:id="@+id/iv_modify_sex_men"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/right_margin"
+                android:src="@mipmap/icon_choose_nomal"/>
+
+        </RelativeLayout>
+
+        <!--女-->
+        <RelativeLayout
+            android:onClick="@{() ->fragment.switchCheck(1)}"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@color/color_white">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/left_margin"
+                android:text="女"
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/title_three"/>
+
+            <ImageView
+                android:id="@+id/iv_modify_sex_women"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/right_margin"
+                android:src="@mipmap/icon_choose_select"/>
+
+        </RelativeLayout>
+        
+        <!--保密-->
+        <RelativeLayout
+            android:onClick="@{() ->fragment.switchCheck(2)}"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@color/color_white">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/left_margin"
+                android:text="保密"
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/title_three"/>
+
+            <ImageView
+                android:id="@+id/iv_modify_sex_secret"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/right_margin"
+                android:src="@mipmap/icon_choose_nomal"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+</layout>

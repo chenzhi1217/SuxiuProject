@@ -5,7 +5,7 @@ import android.app.Application
 /**
  * author : chenzhi
  * time   : 2018/01/03
- * desc   :
+ * desc   : 
  */
 class SuXiuApplication : Application() {
     companion object {

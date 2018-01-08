@@ -6,7 +6,7 @@ import android.content.Intent
 import android.databinding.DataBindingUtil
 import android.view.LayoutInflater
 import com.suxiunet.repair.R
-import com.suxiunet.repair.base.NomalFragment
+import com.suxiunet.repair.base.baseui.NomalFragment
 import com.suxiunet.repair.businiss.center.contract.UserInfoContract
 import com.suxiunet.repair.businiss.center.model.UserInfoModel
 import com.suxiunet.repair.businiss.center.presenter.UserInfoPresenter
@@ -28,7 +28,9 @@ class UserInfoFragment: NomalFragment<UserInfoPresenter, FragUserInfoBinding>(),
         //调用相册的请求码
         val REQUEST_IMAGE_CODE = 0x0000_0010
         //修改昵称的请求码
-        var REQUEST_MODIFY_CODE = 0X0000_0011
+        var REQUEST_MODIFY_NICK_NAME_CODE = 0X0000_0011
+        //修改昵称的请求码
+        var REQUEST_MODIFY_SEX_CODE = 0X0000_0012
     }
     override fun initView() {
         mBinding.presenter = mPresenter
@@ -57,7 +59,7 @@ class UserInfoFragment: NomalFragment<UserInfoPresenter, FragUserInfoBinding>(),
                     
                 }
                 //修改昵称的回调
-                REQUEST_MODIFY_CODE ->{
+                REQUEST_MODIFY_NICK_NAME_CODE ->{
                     
                 }
             }

@@ -5,11 +5,15 @@
     <dimen name="title_two">18dp</dimen>
     <dimen name="title_three">14dp</dimen>
     <dimen name="title_four">12dp</dimen>
+    <dimen name="button_text_size">14dp</dimen>
     <!--首页RadioGroup的高度-->
     <dimen name="main_rg_height">48dp</dimen>
     
     <dimen name="title_size">17dp</dimen>
+    <dimen name="item_order_list_height">30dp</dimen>
     
     <dimen name="left_margin">10dp</dimen>
     <dimen name="right_margin">10dp</dimen>
+    <dimen name="top_margin">10dp</dimen>
+    <dimen name="bottom_margin">10dp</dimen>
 </resources>

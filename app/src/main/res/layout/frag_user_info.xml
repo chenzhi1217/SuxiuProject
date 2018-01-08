@@ -16,6 +16,8 @@
         android:background="@color/home_bg"
         android:orientation="vertical">
 
+        <include layout="@layout/incluce_common_line_rude"/>
+        
         <!--头像-->
         <RelativeLayout
             android:id="@+id/rl_user_head"
@@ -53,7 +55,7 @@
 
         </RelativeLayout>
 
-        <include layout="@layout/include_common_line"/>
+        <include layout="@layout/incluce_common_line_rude"/>
 
         <!--昵称-->
         <RelativeLayout
@@ -103,7 +105,7 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:background="@color/color_white"
-            android:onClick="@{() ->presenter.modifyNickName()}">
+            android:onClick="@{() ->presenter.modifySex()}">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -193,6 +195,7 @@
             android:paddingRight="100dp"
             android:paddingTop="15dp"
             android:text="退出登录"
+            android:textSize="@dimen/button_text_size"
             android:onClick="@{() ->fragment.quitLogin()}"
             android:textColor="@color/color_white"/>
 

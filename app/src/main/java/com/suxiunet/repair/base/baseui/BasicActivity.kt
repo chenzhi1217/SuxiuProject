@@ -1,8 +1,7 @@
-package com.suxiunet.repair.base
+package com.suxiunet.repair.base.baseui
 
 import android.content.pm.ActivityInfo
 import android.databinding.DataBindingUtil
-import android.databinding.ViewDataBinding
 import android.os.Bundle
 import android.support.annotation.IdRes
 import android.support.v7.app.AppCompatActivity
@@ -18,7 +17,7 @@ import org.jetbrains.annotations.NotNull
  */
 open class BasicActivity : AppCompatActivity() {
     var mBinding: ActBasicBinding? = null
-    private var mFragments = HashMap<String ,OriginalFragment>()
+    private var mFragments = HashMap<String , OriginalFragment>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //禁止横屏

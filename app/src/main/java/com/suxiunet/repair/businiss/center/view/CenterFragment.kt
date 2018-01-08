@@ -1,14 +1,12 @@
 package com.suxiunet.repair.businiss.center.view
 
-import android.databinding.DataBindingUtil
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.suxiunet.repair.R
-import com.suxiunet.repair.base.MainActivity
-import com.suxiunet.repair.base.NomalFragment
+import com.suxiunet.repair.base.baseui.MainActivity
+import com.suxiunet.repair.base.baseui.NomalFragment
 import com.suxiunet.repair.businiss.center.contract.CenterContract
 import com.suxiunet.repair.businiss.center.model.CenterModel
 import com.suxiunet.repair.businiss.center.presenter.CenterPresenter

@@ -1,4 +1,4 @@
-package com.suxiunet.repair.base
+package com.suxiunet.repair.base.baseui
 
 import android.databinding.DataBindingUtil
 import android.databinding.ViewDataBinding
@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.suxiunet.data.exception.ApiException
 import com.suxiunet.repair.R
+import com.suxiunet.repair.base.*
 import com.suxiunet.repair.databinding.FragBasicBinding
 
 /**
@@ -15,7 +16,7 @@ import com.suxiunet.repair.databinding.FragBasicBinding
  * time   : 2018/01/03
  * desc   : 所有列表页面的基类
  */
-abstract class BasicFragment<REQUEST : BaseRequest, PRESENT: IPresenter, DATA, BIND : ViewDataBinding> : OriginalFragment() {
+abstract class BasicFragment<REQUEST : BasicRequest, PRESENT: IPresenter, DATA, BIND : ViewDataBinding> : OriginalFragment() {
     lateinit var mParentBinding: FragBasicBinding
     lateinit var mBinding: BIND
     var mPresenter: PRESENT? = null
@@ -63,6 +64,7 @@ abstract class BasicFragment<REQUEST : BaseRequest, PRESENT: IPresenter, DATA, B
         mParentBinding?.includeCommonError?.root?.setOnClickListener { initLoadData() }
         //设置SwifeRefresh
         mParentBinding.sfBasicFrag.isEnabled = setSwipeRefreshEnable()
+        mParentBinding.sfBasicFrag.setColorSchemeResources(R.color.theme_bg)
 
         mPresenter = getPresenter()
         

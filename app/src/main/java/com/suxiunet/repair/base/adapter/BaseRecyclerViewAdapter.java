@@ -1,4 +1,4 @@
-package com.suxiunet.repair.base;
+package com.suxiunet.repair.base.adapter;
 
 import android.databinding.ViewDataBinding;
 import android.support.annotation.LayoutRes;
@@ -9,6 +9,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.suxiunet.repair.base.BasicHolder;
+import com.suxiunet.repair.base.LoadMoreViewHolder;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.suxiunet.repair.base
+package com.suxiunet.repair.base.baseui
 
 import android.databinding.DataBindingUtil
 import android.support.v7.app.AppCompatActivity
@@ -10,7 +10,7 @@ import com.suxiunet.data.util.Utils
 import com.suxiunet.repair.R
 import com.suxiunet.repair.businiss.center.view.CenterFragment
 import com.suxiunet.repair.businiss.home.view.HomeFragment
-import com.suxiunet.repair.businiss.order.OrderFragment
+import com.suxiunet.repair.businiss.order.orderhome.view.OrderHomeFragment
 import com.suxiunet.repair.databinding.ActMainBinding
 import java.util.*
 
@@ -27,10 +27,10 @@ class MainActivity : AppCompatActivity() {
         initToolBar()
         initFragment()
     }
-
+    
     private fun initFragment() {
         val homeFragment = HomeFragment()
-        val orderFragment = OrderFragment()
+        val orderFragment = OrderHomeFragment()
         val centerFragment = CenterFragment()
         mFragments.add(homeFragment)
         mFragments.add(orderFragment)
@@ -80,17 +80,17 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun showHomeTitle() {
-        mBinding?.tbMain?.visibility = View.VISIBLE
+        mBinding?.llToolbarMain?.visibility = View.VISIBLE
         changeTitle("首页")
     }
 
     fun showOrderTitle() {
-        mBinding?.tbMain?.visibility = View.VISIBLE
+        mBinding?.llToolbarMain?.visibility = View.VISIBLE
         changeTitle("订单")
     }
 
     fun showCenterTitle() {
-        mBinding?.tbMain?.visibility = View.GONE
+        mBinding?.llToolbarMain?.visibility = View.GONE
     }
 
     private fun changeTitle(title: String) {

@@ -26,7 +26,7 @@
     <color name="color_text_red">#F7585C</color>
     
     <!--默认背景色-->
-    <color name="home_bg">#F7F7F7</color>
+    <color name="home_bg">#F3F3F3</color>
     <color name="color_transparent">#00000000</color>
     <!--button的背景色-->
     <color name="color_button_bg">#ff6602</color>

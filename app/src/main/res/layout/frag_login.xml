@@ -117,7 +117,7 @@
             android:layout_marginRight="50dp"
             android:text="登录"
             android:textColor="@color/color_white"
-            android:textSize="@dimen/title_two"
+            android:textSize="@dimen/button_text_size"
             android:layout_marginTop="20dp"/>
 
     </LinearLayout>
