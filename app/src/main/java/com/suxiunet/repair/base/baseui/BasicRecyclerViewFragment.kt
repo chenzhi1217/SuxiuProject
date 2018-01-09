@@ -31,6 +31,7 @@ abstract class BasicRecyclerViewFragment<REQUEST : BasicRequest, PRESENT: IPrese
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initView()
         //设置下拉刷新
         //TODO 这里执行下拉刷新的逻辑
         mParentBinding.sfBasicFrag.setOnRefreshListener { refreshData() }
@@ -56,6 +57,8 @@ abstract class BasicRecyclerViewFragment<REQUEST : BasicRequest, PRESENT: IPrese
             })
         }
     }
+
+    abstract fun initView()
 
     abstract fun onCreateViewTypeMapper(): BaseRecyclerViewAdapter.ViewTypeMapper<ITEM>?
 

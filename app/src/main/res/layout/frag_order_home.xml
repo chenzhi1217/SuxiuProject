@@ -2,7 +2,7 @@
 <!--订单首页-->
 <layout>
     <data>
-
+        
     </data>
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -21,7 +21,7 @@
             android:textSize="@dimen/title_two"
             app:tabTextColor="@color/color_black"
             app:tabTextAppearance="@style/TabText"
-            app:tabMode="scrollable">
+            app:tabMode="fixed">
 
         </android.support.design.widget.TabLayout>
 

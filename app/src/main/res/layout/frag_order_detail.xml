@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--订单详情-->
+<layout>
+    <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!--订单状态-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/shape_corners_white"
+                android:padding="10dp">
+
+                <ImageView
+                    android:id="@+id/iv_order_detail_logo"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@mipmap/app_logo"/>
+
+                <TextView
+                    android:id="@+id/tv_order_detail_state"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_toRightOf="@+id/iv_order_detail_logo"
+                    android:text="待付款订单"
+                    android:textColor="@color/theme_bg"
+                    android:textSize="16dp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_order_detail_state"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="@dimen/top_margin"
+                    android:layout_toRightOf="@+id/iv_order_detail_logo"
+                    android:text="请注意客服来电，与您进一步确认维修信息"
+                    android:textColor="@color/color_text_3"
+                    android:textSize="@dimen/title_four"
+                    android:textStyle="bold"/>
+
+
+            </RelativeLayout>
+
+            <!--订单详细信息-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/left_margin"
+                android:layout_marginRight="@dimen/right_margin"
+                android:background="@drawable/shape_corners_white"
+                android:orientation="vertical">
+
+                <!--头部信息-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/left_margin"
+                        android:text="订单号：5056652569"
+                        android:textColor="@color/color_black"
+                        android:textSize="16dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/left_margin"
+                        android:layout_marginTop="5dp"
+                        android:text="2018-02-03"/>
+
+                </LinearLayout>
+
+                <include layout="@layout/include_common_line"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingBottom="@dimen/bottom_margin">
+                    <!---->
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/item_order_list_height">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/left_margin"
+                            android:text="机器类型"
+                            android:textColor="@color/color_text_2"
+                            android:textSize="@dimen/title_four"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="@dimen/right_margin"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="联想e550"
+                            android:textColor="@color/color_text_2"
+                            android:textSize="@dimen/title_four"/>
+
+
+                    </RelativeLayout>
+
+                    <!--维修工程师-->
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/item_order_list_height">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/left_margin"
+                            android:text="维修工程师编号"
+                            android:textColor="@color/color_text_2"
+                            android:textSize="@dimen/title_four"/>
+
+                        <TextView
+                            android:id="@+id/item_refund_record_pay_style"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="@dimen/right_margin"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="0029527"
+                            android:textColor="@color/color_text_3"
+                            android:textSize="@dimen/title_four"/>
+
+
+                    </RelativeLayout>
+
+                    <!--维修工程师联系方式-->
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/item_order_list_height">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/left_margin"
+                            android:text="联系方式"
+                            android:textColor="@color/color_text_2"
+                            android:textSize="@dimen/title_four"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="@dimen/right_margin"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="18226189999"
+                            android:textColor="@color/color_text_3"
+                            android:textSize="@dimen/title_four"/>
+
+
+                    </RelativeLayout>
+
+                    <!--还款状态-->
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/item_order_list_height">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/left_margin"
+                            android:text="下单时间"
+                            android:textColor="@color/color_text_2"
+                            android:textSize="@dimen/title_four"/>
+
+                        <TextView
+                            android:id="@+id/refund_record_status"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="@dimen/right_margin"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="2018-01-01"
+                            android:textColor="@color/color_text_3"
+                            android:textSize="@dimen/title_four"/>
+
+
+                    </RelativeLayout>
+
+                    <!--还款状态-->
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/item_order_list_height">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/left_margin"
+                            android:text="故障详细"
+                            android:textColor="@color/color_text_2"
+                            android:textSize="@dimen/title_four"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="@dimen/right_margin"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="屏幕破碎"
+                            android:textColor="@color/color_text_3"
+                            android:textSize="@dimen/title_four"/>
+
+                    </RelativeLayout>
+
+                    <!--维修金额-->
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/item_order_list_height">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/left_margin"
+                            android:text="维修金额"
+                            android:textColor="@color/color_text_2"
+                            android:textSize="@dimen/title_four"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="@dimen/right_margin"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="￥588"
+                            android:textColor="@color/color_red"
+                            android:textSize="@dimen/title_four"/>
+
+                    </RelativeLayout>
+
+                    <include layout="@layout/include_common_line"/>
+
+                    <!--支付按钮-->
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:paddingBottom="10dp"
+                        android:paddingTop="10dp">
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="@dimen/right_margin"
+                            android:background="@drawable/shape_user_info_bt"
+                            android:paddingBottom="5dp"
+                            android:paddingLeft="15dp"
+                            android:paddingRight="15dp"
+                            android:paddingTop="5dp"
+                            android:text="立即支付"
+                            android:textColor="@color/color_white"
+                            android:textSize="@dimen/title_four"/>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <!--联系我们-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/left_margin"
+                android:layout_marginRight="@dimen/right_margin"
+                android:layout_marginTop="@dimen/top_margin"
+                android:layout_marginBottom="@dimen/bottom_margin"
+                android:background="@drawable/shape_corners_white"
+                android:orientation="vertical"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:text="联系我们"
+                    android:textColor="@color/theme_bg"
+                    android:textSize="@dimen/title_three"/>
+
+                <include layout="@layout/include_common_line_mp"/>
+
+                <!--联系客服-->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10dp"
+                    android:paddingTop="10dp"
+                    android:background="?android:attr/selectableItemBackground">
+
+                    <ImageView
+                        android:id="@+id/iv_phone_icon"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:src="@mipmap/icon_phone_sf"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/iv_phone_icon"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:text="联系师傅"
+                        android:textColor="@color/theme_bg"
+                        android:textSize="@dimen/title_four"/>
+
+                </RelativeLayout>
+
+                <include layout="@layout/include_common_line_mp"/>
+
+                <!--联系客服-->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:background="?android:attr/selectableItemBackground">
+
+                    <ImageView
+                        android:id="@+id/iv_qq_icon"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:src="@mipmap/icon_qq"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/iv_qq_icon"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:text="开始聊天"
+                        android:textColor="@color/theme_bg"
+                        android:textSize="@dimen/title_four"/>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+        
+    </ScrollView>
+</layout>

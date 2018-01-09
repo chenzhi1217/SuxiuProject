@@ -33,6 +33,8 @@
         <activity android:name=".businiss.center.view.FeedBackActivity"/>
         <!--关于我们-->
         <activity android:name=".businiss.center.view.AboutActivity"/>
+        <!--订单详情-->
+        <activity android:name=".businiss.order.orderlist.view.OrderDetailActivity"/>
     </application>
 
 </manifest>

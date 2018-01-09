@@ -20,7 +20,9 @@ import com.suxiunet.repair.businiss.request.HomeRequest
  * desc   : 订单列表
  */
 class OrderListFragment: BasicRecyclerViewFragment<HomeRequest, OrderListPresenter, Any, Any>(),OrderListContract.View {
-    
+    override fun initView() {
+    }
+
     companion object {
         val TYPE_ITEM_ORDER_LIST = R.layout.item_order_list
     }
@@ -46,7 +48,7 @@ class OrderListFragment: BasicRecyclerViewFragment<HomeRequest, OrderListPresent
     }
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): BasicHolder<out Any, out ViewDataBinding> {
-        return OrderListHolder(parent!!,viewType)
+        return OrderListHolder(parent!!,viewType,mPresenter)
     }
 
     override fun converDataToList(data: Any?): List<Any>? {
