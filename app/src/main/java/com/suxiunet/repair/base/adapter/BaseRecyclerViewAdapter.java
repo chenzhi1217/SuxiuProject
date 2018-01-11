@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.suxiunet.repair.R;
 import com.suxiunet.repair.base.BasicHolder;
 import com.suxiunet.repair.base.LoadMoreViewHolder;
 

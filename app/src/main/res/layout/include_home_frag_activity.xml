@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools" android:id="@+id/rl_frag_home_activity"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/color_white"
+        android:paddingLeft="@dimen/left_margin"
+        android:paddingRight="@dimen/right_margin" tools:showIn="@layout/frag_home">
+
+        <ImageView
+            android:id="@+id/item_home_post_speaker_img"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/icon_speaker"/>
+
+        <com.suxiunet.repair.view.MarqueeTextView
+            android:id="@+id/item_home_post_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_toEndOf="@+id/item_home_post_speaker_img"
+            android:ellipsize="marquee"
+            android:focusable="true"
+            android:marqueeRepeatLimit="-1"
+            android:singleLine="true"
+            android:text="公告：春节期间下单，全部八折优惠 春节期间下单，全部八折优惠"
+            android:textColor="@color/theme_bg"/>
+
+    </RelativeLayout>
+</layout>

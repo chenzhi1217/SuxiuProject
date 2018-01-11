@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.net.Uri
+import android.provider.ContactsContract
 import com.suxiunet.repair.util.ToastUtil
 import com.suxiunet.repair.base.BasicPresenter
 import com.suxiunet.repair.base.Constant
@@ -19,6 +20,7 @@ import com.suxiunet.repair.businiss.center.view.UserInfoActivity
  * desc   : 个人中心
  */
 class CenterPresenter(activity: Activity, view: CenterContract.View, model: CenterContract.Model) : BasicPresenter<CenterContract.View, CenterContract.Model>(activity, view, model) {
+    val WEIXIN_CHATTING_MIMETYPE = "vnd.android.cursor.item/vnd.com.tencent.mm.chatting.profile"//微信聊天
 
     /**
      * 跳转到个人中心页面

@@ -21,7 +21,7 @@
             <android.support.v7.widget.Toolbar
                 android:id="@+id/tb_main"
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
+                android:layout_height="@dimen/toolbar_height"
                 android:background="?attr/colorPrimary">
 
                 <RelativeLayout
@@ -42,8 +42,6 @@
                 </RelativeLayout>
 
             </android.support.v7.widget.Toolbar>
-
-            <include layout="@layout/common_line_march"/>
         </LinearLayout>
 
         <FrameLayout

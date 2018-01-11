@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/color_white"
+        android:orientation="vertical" tools:showIn="@layout/frag_home">
+
+        <RelativeLayout
+            android:id="@+id/item_home_win_beans_ll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingEnd="15dp"
+            android:paddingStart="15dp">
+
+            <ImageView
+                android:id="@+id/item_win_beans_avatar_img"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/icon_user_default"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/item_win_beans_avatar_img"
+                android:gravity="center_vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/item_win_beans_avatar_img"
+                    android:text="总下单次数"
+                    android:textColor="@color/color_text_2"
+                    android:textSize="@dimen/title_three"
+                />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/left_margin"
+                    android:drawablePadding="3dp"
+                    android:text="5"
+                    android:textColor="@color/theme_bg"
+                    android:textSize="@dimen/title_two"/>
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/iv_frag_home_logo"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/right_margin"
+                android:src="@mipmap/app_logo"/>
+
+        </RelativeLayout>
+    </LinearLayout>
+</layout>

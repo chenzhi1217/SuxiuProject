@@ -14,9 +14,10 @@ import com.suxiunet.repair.databinding.FragOrderDetailBinding
  */
 class OrderDetailFragment: NomalFragment<OrderDetailPresenter,FragOrderDetailBinding>(),OrderDetailContract.View{
     override fun initView() {
+        mBinding.presenter = mPresenter
     }
 
-    override fun getPresenter(): OrderDetailPresenter? {
+        override fun getPresenter(): OrderDetailPresenter? {
         return OrderDetailPresenter(activity,this,OrderDetailModel())
     }
 

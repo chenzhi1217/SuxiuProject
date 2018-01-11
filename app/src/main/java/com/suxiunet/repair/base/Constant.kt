@@ -15,5 +15,7 @@ class Constant {
          * 公司QQ
          */
         var companyQQ = "3111678874"
+        
+        var companyWx = "suxiupc"
     }
 }

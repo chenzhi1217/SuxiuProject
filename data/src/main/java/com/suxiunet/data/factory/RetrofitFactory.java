@@ -23,7 +23,7 @@ public class RetrofitFactory {
                 .connectTimeout(20, TimeUnit.SECONDS)
                 .retryOnConnectionFailure(true)
                 .build();
-
+    
         Retrofit retrofit = new Retrofit.Builder()
                 .client(client)
                 .addConverterFactory(GsonConverterFactory.create())

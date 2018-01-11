@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <!--首页公告-->
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/color_white"
+        android:paddingLeft="@dimen/left_margin"
+        android:paddingRight="@dimen/right_margin">
+
+        <ImageView
+            android:id="@+id/item_home_post_speaker_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/icon_speaker"/>
+
+        <com.suxiunet.repair.view.MarqueeTextView
+            android:id="@+id/item_home_post_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight="5dp"
+            android:layout_toEndOf="@+id/item_home_post_speaker_img"
+            android:ellipsize="marquee"
+            android:focusable="true"
+            android:marqueeRepeatLimit="-1"
+            android:singleLine="true"
+            android:text="公告：Dota2梦幻联赛、CSGO DreamHack猜四强活动火热进行中，免费竞猜赢饰品，不容错过！请至活动页面查看详情~"
+            android:textColor="@color/color_text_1"/>
+
+    </RelativeLayout>
+</layout>

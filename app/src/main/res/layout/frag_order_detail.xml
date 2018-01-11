@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--订单详情-->
 <layout>
+    <data>
+        <variable name="presenter"
+                  type="com.suxiunet.repair.businiss.order.orderlist.presenter.OrderDetailPresenter"/>
+    </data>
     <ScrollView
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
@@ -102,7 +106,7 @@
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:layout_marginLeft="@dimen/left_margin"
-                            android:text="机器类型"
+                            android:text="设备型号"
                             android:textColor="@color/color_text_2"
                             android:textSize="@dimen/title_four"/>
 
@@ -123,6 +127,7 @@
 
                     <!--维修工程师-->
                     <RelativeLayout
+                        
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/item_order_list_height">
 
@@ -131,7 +136,7 @@
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:layout_marginLeft="@dimen/left_margin"
-                            android:text="维修工程师编号"
+                            android:text="工程师工号"
                             android:textColor="@color/color_text_2"
                             android:textSize="@dimen/title_four"/>
 
@@ -153,6 +158,7 @@
 
                     <!--维修工程师联系方式-->
                     <RelativeLayout
+                        android:visibility="gone"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/item_order_list_height">
 
@@ -190,7 +196,7 @@
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:layout_marginLeft="@dimen/left_margin"
-                            android:text="下单时间"
+                            android:text="故障详细"
                             android:textColor="@color/color_text_2"
                             android:textSize="@dimen/title_four"/>
 
@@ -203,7 +209,7 @@
                             android:layout_marginRight="@dimen/right_margin"
                             android:ellipsize="end"
                             android:maxLines="1"
-                            android:text="2018-01-01"
+                            android:text="外屏破碎"
                             android:textColor="@color/color_text_3"
                             android:textSize="@dimen/title_four"/>
 
@@ -220,7 +226,7 @@
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:layout_marginLeft="@dimen/left_margin"
-                            android:text="故障详细"
+                            android:text="维修方案"
                             android:textColor="@color/color_text_2"
                             android:textSize="@dimen/title_four"/>
 
@@ -232,7 +238,7 @@
                             android:layout_marginRight="@dimen/right_margin"
                             android:ellipsize="end"
                             android:maxLines="1"
-                            android:text="屏幕破碎"
+                            android:text="更换总成对换（质保180）"
                             android:textColor="@color/color_text_3"
                             android:textSize="@dimen/title_four"/>
 
@@ -273,8 +279,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_vertical"
-                        android:paddingBottom="10dp"
-                        android:paddingTop="10dp">
+                        android:layout_marginTop="@dimen/top_margin">
 
 
                         <TextView
@@ -293,6 +298,192 @@
                             android:textSize="@dimen/title_four"/>
 
                     </RelativeLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+            
+            <!--维修信息-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/left_margin"
+                android:layout_marginRight="@dimen/right_margin"
+                android:background="@drawable/shape_corners_white"
+                android:layout_marginTop="@dimen/top_margin"
+                android:orientation="vertical">
+
+                <!--头部信息-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/left_margin"
+                        android:text="维修信息"
+                        android:textColor="@color/color_black"
+                        android:textSize="16dp"/>
+                    
+
+                </LinearLayout>
+
+                <include layout="@layout/include_common_line"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingBottom="@dimen/bottom_margin">
+                    <!---->
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/item_order_list_height">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/left_margin"
+                            android:text="联系人"
+                            android:textColor="@color/color_text_2"
+                            android:textSize="@dimen/title_four"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="@dimen/right_margin"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="王思聪"
+                            android:textColor="@color/color_text_2"
+                            android:textSize="@dimen/title_four"/>
+
+
+                    </RelativeLayout>
+
+                    <!--维修工程师-->
+                    <RelativeLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/item_order_list_height">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/left_margin"
+                            android:text="联系电话"
+                            android:textColor="@color/color_text_2"
+                            android:textSize="@dimen/title_four"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="@dimen/right_margin"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="18226189999"
+                            android:textColor="@color/color_text_3"
+                            android:textSize="@dimen/title_four"/>
+
+
+                    </RelativeLayout>
+
+                    <!--维修工程师联系方式-->
+                    <RelativeLayout
+                        android:visibility="gone"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/item_order_list_height">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/left_margin"
+                            android:text="服务地址"
+                            android:textColor="@color/color_text_2"
+                            android:textSize="@dimen/title_four"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="@dimen/right_margin"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="上海市浦东新区地铁10号线"
+                            android:textColor="@color/color_text_3"
+                            android:textSize="@dimen/title_four"/>
+
+
+                    </RelativeLayout>
+
+                    <!--还款状态-->
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/item_order_list_height">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/left_margin"
+                            android:text="下单时间"
+                            android:textColor="@color/color_text_2"
+                            android:textSize="@dimen/title_four"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="@dimen/right_margin"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="2018-01-08 17：32"
+                            android:textColor="@color/color_text_3"
+                            android:textSize="@dimen/title_four"/>
+
+
+                    </RelativeLayout>
+
+                    <!--还款状态-->
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/item_order_list_height">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/left_margin"
+                            android:text="预约时间"
+                            android:textColor="@color/color_text_2"
+                            android:textSize="@dimen/title_four"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="@dimen/right_margin"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="2018-01-08 19：30"
+                            android:textColor="@color/color_text_3"
+                            android:textSize="@dimen/title_four"/>
+
+                    </RelativeLayout>
+
+
 
                 </LinearLayout>
             </LinearLayout>
@@ -323,6 +514,7 @@
 
                 <!--联系客服-->
                 <RelativeLayout
+                    android:onClick="@{() ->presenter.contactMaster()}"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingBottom="10dp"
@@ -342,7 +534,7 @@
                         android:layout_toRightOf="@+id/iv_phone_icon"
                         android:paddingLeft="15dp"
                         android:paddingRight="15dp"
-                        android:text="联系师傅"
+                        android:text="联系工程师"
                         android:textColor="@color/theme_bg"
                         android:textSize="@dimen/title_four"/>
 
@@ -352,6 +544,7 @@
 
                 <!--联系客服-->
                 <RelativeLayout
+                    android:onClick="@{() ->presenter.contactCustomerService()}"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingTop="10dp"

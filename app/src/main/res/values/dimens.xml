@@ -6,6 +6,7 @@
     <dimen name="title_three">14dp</dimen>
     <dimen name="title_four">12dp</dimen>
     <dimen name="button_text_size">14dp</dimen>
+    <dimen name="toolbar_height">45dp</dimen>
     <!--首页RadioGroup的高度-->
     <dimen name="main_rg_height">48dp</dimen>
     

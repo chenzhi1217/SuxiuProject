@@ -14,50 +14,129 @@
             android:id="@+id/iv_frag_center_bg"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:background="@mipmap/bg_center"
+            android:background="@color/theme_bg"
             app:layout_constraintDimensionRatio="H,2.68:1"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
 
-        <ImageView
-            android:id="@+id/iv_frag_center_user"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:src="@mipmap/icon_user_default"
-            android:onClick="@{() ->presenter.goUserInfo()}"
-            app:layout_constraintBottom_toBottomOf="@id/iv_frag_center_bg"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/iv_frag_center_bg"/>
-
-        <TextView
-            android:id="@+id/tv_frag_center_nick_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:text="立即登录"
-            android:textColor="@color/color_black"
-            android:textSize="@dimen/title_three"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/iv_frag_center_user"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="@id/iv_frag_center_bg"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent">
+
+
+            <ImageView
+                android:id="@+id/iv_frag_center_user"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:onClick="@{() ->presenter.goUserInfo()}"
+                android:src="@mipmap/icon_user_default"
+            />
+
+            <TextView
+                android:id="@+id/tv_frag_center_nick_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/top_margin"
+                android:text="立即登录"
+                android:textColor="@color/color_white"
+                android:textSize="@dimen/title_three"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_frag_center_user"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_frag_center_nick_name"
-            android:layout_marginTop="15dp"
-            android:orientation="vertical">
-            
+            app:layout_constraintTop_toBottomOf="@+id/iv_frag_center_bg">
+
             <include layout="@layout/incluce_common_line_rude"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <!--待付款-->
+                <LinearLayout
+                    android:clickable="true"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingBottom="10dp"
+                    android:paddingTop="10dp">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@mipmap/icon_wait_order"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="待付款"
+                        android:textColor="@color/color_text_1"
+                        android:textSize="@dimen/title_three"/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/color_line"/>
+
+                <!--已完成订单-->
+                <LinearLayout
+                    android:clickable="true"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingBottom="10dp"
+                    android:paddingTop="10dp">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@mipmap/icon_complete_order"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="已完成"
+                        android:textColor="@color/color_text_1"
+                        android:textSize="@dimen/title_three"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <include layout="@layout/incluce_common_line_rude"/>
+
 
             <!--拨打电话-->
             <RelativeLayout
-                android:onClick="@{() ->presenter.contactUs()}"
-                style="@style/StyleCenterHomeItem">
+                style="@style/StyleCenterHomeItem"
+                android:onClick="@{() ->presenter.contactUs()}">
                 <ImageView
                     android:id="@+id/iv_call"
                     android:layout_width="20dp"
@@ -68,10 +147,10 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
                     android:layout_marginLeft="10dp"
                     android:layout_toEndOf="@+id/iv_call"
                     android:text="拨打电话"
-                    android:layout_centerVertical="true"
                     android:textColor="@color/color_text_1"
                     android:textSize="@dimen/title_three"/>
 
@@ -83,7 +162,7 @@
                     android:src="@mipmap/icon_arrow_right"/>
 
             </RelativeLayout>
-            
+
             <include layout="@layout/include_common_line"/>
 
             <!--关于我们-->
@@ -92,26 +171,27 @@
                 android:layout_alignParentTop="true" android:layout_centerHorizontal="true"
                 android:onClick="@{() ->presenter.aboutUs()}">
                 <ImageView
+                    android:id="@+id/iv_about_us"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_centerVertical="true"
-                    android:id="@+id/iv_about_us"/>
+                    android:src="@mipmap/icon_about"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
                     android:layout_marginLeft="10dp"
                     android:layout_toEndOf="@+id/iv_about_us"
                     android:text="关于速修"
-                    android:layout_centerVertical="true"
                     android:textColor="@color/color_text_1"
                     android:textSize="@dimen/title_three"/>
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
                     android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
                     android:src="@mipmap/icon_arrow_right"/>
 
             </RelativeLayout>
@@ -120,8 +200,8 @@
 
             <!--意见反馈-->
             <RelativeLayout
-                android:onClick="@{() ->presenter.feedBack()}"
-                style="@style/StyleCenterHomeItem">
+                style="@style/StyleCenterHomeItem"
+                android:onClick="@{() ->presenter.feedBack()}">
                 <ImageView
                     android:id="@+id/iv_feed_back"
                     android:layout_width="20dp"
@@ -132,10 +212,10 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
                     android:layout_marginLeft="10dp"
                     android:layout_toEndOf="@+id/iv_feed_back"
                     android:text="意见反馈"
-                    android:layout_centerVertical="true"
                     android:textColor="@color/color_text_1"
                     android:textSize="@dimen/title_three"/>
 
@@ -152,24 +232,25 @@
 
             <!--联系客服-->
             <RelativeLayout
-                android:onClick="@{() ->presenter.contactCustomerService()}"
-                style="@style/StyleCenterHomeItem">
+                style="@style/StyleCenterHomeItem"
+                android:onClick="@{() ->presenter.contactCustomerService()}">
                 <ImageView
                     android:id="@+id/iv_contact_us"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    android:layout_centerVertical="true"/>
+                    android:layout_centerVertical="true"
+                    android:src="@mipmap/icon_contact"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
                     android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
                     android:layout_toEndOf="@+id/iv_contact_us"
                     android:text="联系客服"
                     android:textColor="@color/color_text_1"
                     android:textSize="@dimen/title_three"/>
-                    
+
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -178,7 +259,7 @@
                     android:src="@mipmap/icon_arrow_right"/>
 
             </RelativeLayout>
-            
+
             <include layout="@layout/include_common_line"/>
 
 

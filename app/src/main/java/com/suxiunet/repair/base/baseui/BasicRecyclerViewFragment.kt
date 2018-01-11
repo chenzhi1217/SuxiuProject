@@ -35,7 +35,6 @@ abstract class BasicRecyclerViewFragment<REQUEST : BasicRequest, PRESENT: IPrese
         //设置下拉刷新
         //TODO 这里执行下拉刷新的逻辑
         mParentBinding.sfBasicFrag.setOnRefreshListener { refreshData() }
-        mParentBinding.sfBasicFrag.setColorSchemeResources(R.color.color_red)
         //设置空布局页面
         mBinding.includeBasicEmptyLayout.ivEmpty.setImageResource(setEmptyBgResId())
         mBinding.includeBasicEmptyLayout.tvEmpty.text = getString(setEmptyInfoResId())

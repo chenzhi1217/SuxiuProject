@@ -2,4 +2,11 @@
 <resources>
     <!--页面跳转动画的时间-->
     <integer name="page_animate_duration">500</integer>
+
+    <!--自定义轮播图的属性-->
+    <declare-styleable name="carousel">
+        <attr name="selPoiColor" format="reference"></attr>
+        <attr name="nomPoiColor" format="reference"></attr>
+        <attr name="pointBg" format="reference"></attr>
+    </declare-styleable>
 </resources>
