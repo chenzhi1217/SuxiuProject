@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
+        <variable name="presenter" 
+                  type="com.suxiunet.repair.businiss.home.presenter.HomePresenter"/>
     </data>
     <ScrollView
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -36,7 +38,7 @@
             <include
                 android:id="@+id/include_order_count"
                 layout="@layout/include_item_frag_home_order_count"
-                android:visibility="gone"/>
+                android:visibility="visible"/>
 
             <include layout="@layout/incluce_common_line_rude"/>
 
@@ -50,6 +52,7 @@
 
                 <!--联系客服-->
                 <LinearLayout
+                    android:onClick="@{() ->presenter.placeOrder()}"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"

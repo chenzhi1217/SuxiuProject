@@ -25,8 +25,8 @@ public interface UserApi {
      */
     @FormUrlEncoded
     @POST("dnwx/app/user/login")
-    Observable<ApiResponse<UserInfoEntity>> login(@Field("loginName") String loginName, @Field("loginType") String loginType, @Field("checkCode") String checkCode);
-
+    Observable<ApiResponse<UserInfoEntity>> login(@Field("loginId") String loginName, @Field("loginType") String loginType, @Field("checkCode") String checkCode);
+    
     /**
      * 退出登录
      * @return

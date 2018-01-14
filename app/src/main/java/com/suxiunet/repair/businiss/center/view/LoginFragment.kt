@@ -2,6 +2,7 @@ package com.suxiunet.repair.businiss.center.view
 
 import com.suxiunet.data.entity.user.UserInfoEntity
 import com.suxiunet.data.exception.ApiException
+import com.suxiunet.data.util.CacheUtil
 import com.suxiunet.data.util.SpUtil
 import com.suxiunet.repair.R
 import com.suxiunet.repair.base.SuXiuKey
@@ -40,9 +41,10 @@ class LoginFragment: NomalFragment<LoginPresenter, FragLoginBinding>(),LoginCont
      * 登录成功
      */
     override fun loginSuccess(data: UserInfoEntity?) {
+        //将用户信息保存到本地
+        CacheUtil.getInstance().saveCacheData(data,CacheUtil.USER_INFO)
         //将token保存到本地
         SpUtil.putString(context,SpUtil.TOKEN_KEY,data?.token)
-        SpUtil.getString(context,SpUtil.TOKEN_KEY,"")
         //销毁当前页面
         activity.finish()
     }

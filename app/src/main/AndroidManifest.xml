@@ -5,6 +5,8 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/app_logo"
@@ -35,6 +37,8 @@
         <activity android:name=".businiss.center.view.AboutActivity"/>
         <!--订单详情-->
         <activity android:name=".businiss.order.orderlist.view.OrderDetailActivity"/>
+        <!--一键下单-->
+        <activity android:name=".businiss.home.view.PlaceOrderActivity"/>
     </application>
 
 </manifest>

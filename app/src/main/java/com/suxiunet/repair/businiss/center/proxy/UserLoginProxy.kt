@@ -22,7 +22,7 @@ class UserLoginProxy: RefreshProxy<LoginRequest, UserInfoEntity> {
     }
     
     override fun getObservable(request: LoginRequest): Observable<UserInfoEntity> {
-        return mUserApiImpl.login(request.getLoginName(),"USER",request.getCheckCode())
+        return mUserApiImpl.login(request.getLoginName(),"C",request.getCheckCode())
                 .map(object : Func1<ApiResponse<UserInfoEntity>,UserInfoEntity>{
                     override fun call(t: ApiResponse<UserInfoEntity>?): UserInfoEntity {
                         return t?.retData?:UserInfoEntity()

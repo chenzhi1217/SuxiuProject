@@ -131,14 +131,14 @@ abstract class BasicFragment<REQUEST : BasicRequest, PRESENT: IPresenter, DATA, 
     /**
      * 显示加载成功的布局
      */
-    protected fun showContentView() {
+    open protected fun showContentView() {
         switchView(mContentView, mErrorView, mLoadingView)
     }
 
     /**
      * 显示加载失败的布局
      */
-    protected fun showErrorView() {
+    open protected fun showErrorView() {
         switchView(mErrorView, mContentView, mLoadingView)
     }
 

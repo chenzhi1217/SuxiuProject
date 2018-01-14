@@ -36,6 +36,7 @@ class HomeFragment : BasicFragment<HomeRequest, HomePresenter, Any, FragHomeBind
         var animation = YAnimation()
         animation.repeatCount = Animation.INFINITE
         mBinding.includeOrderCount.ivFragHomeLogo.startAnimation(animation)
+        mBinding.presenter = mPresenter
     }
     override fun onCreateProxy(): RefreshProxy<HomeRequest, Any> {
         return HomeProxy(context)
@@ -77,5 +78,9 @@ class HomeFragment : BasicFragment<HomeRequest, HomePresenter, Any, FragHomeBind
      */
     fun setActivityData() {
         mBinding.includeActivity.itemHomePostTv.isMarqueeEnable = true
+    }
+
+    override fun showErrorView() {
+        showContentView()
     }
 }

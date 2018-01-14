@@ -1,5 +1,7 @@
 package com.suxiunet.repair.businiss.center.view
 
+import android.view.Menu
+import android.view.MenuInflater
 import com.suxiunet.repair.R
 import com.suxiunet.repair.base.baseui.NomalFragment
 import com.suxiunet.repair.businiss.center.contract.ModifyNickNameContract
@@ -15,6 +17,13 @@ import com.suxiunet.repair.databinding.FragModifyNickNameBinding
 class ModifyNickNameFragment: NomalFragment<ModifyNickNamePresenter, FragModifyNickNameBinding>(),ModifyNickNameContract.View {
     override fun initView() {
         
+    }
+
+    /**
+     * 创建ToolBar菜单按钮
+     */
+    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
+        inflater?.inflate(R.menu.confirm_menu,menu)
     }
 
     override fun getPresenter(): ModifyNickNamePresenter? {

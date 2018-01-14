@@ -196,7 +196,7 @@
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:layout_marginLeft="@dimen/left_margin"
-                            android:text="故障详细"
+                            android:text="故障描述"
                             android:textColor="@color/color_text_2"
                             android:textSize="@dimen/title_four"/>
 
@@ -390,6 +390,36 @@
                             android:ellipsize="end"
                             android:maxLines="1"
                             android:text="18226189999"
+                            android:textColor="@color/color_text_3"
+                            android:textSize="@dimen/title_four"/>
+
+
+                    </RelativeLayout>
+
+                    <!--维修工程师-->
+                    <RelativeLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/item_order_list_height">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/left_margin"
+                            android:text="服务地址"
+                            android:textColor="@color/color_text_2"
+                            android:textSize="@dimen/title_four"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="@dimen/right_margin"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="上海市杨浦区"
                             android:textColor="@color/color_text_3"
                             android:textSize="@dimen/title_four"/>
 
