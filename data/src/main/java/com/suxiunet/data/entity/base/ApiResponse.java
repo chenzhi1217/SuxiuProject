@@ -9,37 +9,37 @@ public class ApiResponse<T> {
     /**
      * 根据code判断请求的成功与失败
      */
-    private int code;//比如200代表成功 
+    private int retCode;//比如200代表成功 
     /**
      * 用于存放失败信息
      */
-    private String message;
+    private String retMsg;
     /**
      * 网络请求返回的数据
      */
-    private T data;
+    private T retData;
 
-    public int getCode() {
-        return code;
+    public int getRetCode() {
+        return retCode;
     }
 
-    public void setCode(int code) {
-        this.code = code;
+    public void setRetCode(int retCode) {
+        this.retCode = retCode;
     }
 
-    public String getMessage() {
-        return message;
+    public String getRetMsg() {
+        return retMsg;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public void setRetMsg(String retMsg) {
+        this.retMsg = retMsg;
     }
 
-    public T getData() {
-        return data;
+    public T getRetData() {
+        return retData;
     }
 
-    public void setData(T data) {
-        this.data = data;
+    public void setRetData(T retData) {
+        this.retData = retData;
     }
 }

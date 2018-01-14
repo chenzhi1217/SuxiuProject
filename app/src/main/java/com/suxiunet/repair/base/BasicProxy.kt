@@ -3,6 +3,7 @@ package com.suxiunet.repair.base
 import android.content.Context
 import com.suxiunet.data.exception.ApiException
 import com.suxiunet.data.util.Utils
+import com.suxiunet.repair.base.baseui.SuXiuApplication
 import rx.Observable
 import rx.Subscriber
 import rx.android.schedulers.AndroidSchedulers

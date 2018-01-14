@@ -2,7 +2,7 @@
 <layout xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
+        
     </data>
 
     <LinearLayout
@@ -37,6 +37,7 @@
                 android:src="@mipmap/icon_phone"/>
 
             <EditText
+                android:id="@+id/et_login_phone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
@@ -74,6 +75,7 @@
                 android:src="@mipmap/icon_email"/>
 
             <EditText
+                android:id="@+id/et_login_checkcode"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
@@ -110,6 +112,7 @@
         </RelativeLayout>
 
         <Button
+            android:id="@+id/bt_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/shape_user_info_bt"

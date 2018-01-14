@@ -5,6 +5,8 @@ import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.net.Uri
 import android.provider.ContactsContract
+import android.text.TextUtils
+import com.suxiunet.data.util.SpUtil
 import com.suxiunet.repair.util.ToastUtil
 import com.suxiunet.repair.base.BasicPresenter
 import com.suxiunet.repair.base.Constant
@@ -23,17 +25,24 @@ class CenterPresenter(activity: Activity, view: CenterContract.View, model: Cent
     val WEIXIN_CHATTING_MIMETYPE = "vnd.android.cursor.item/vnd.com.tencent.mm.chatting.profile"//微信聊天
 
     /**
-     * 跳转到个人中心页面
+     * 点击用户头像
      */
     fun goUserInfo() {
-        mActivity.startActivity(Intent(mActivity, UserInfoActivity::class.java))
+        val token = SpUtil.getString(mActivity, SpUtil.TOKEN_KEY, "")
+        if (TextUtils.isEmpty(token)) {
+            //未登录跳转到登录页面
+            mActivity.startActivity(Intent(mActivity, LoginActivity::class.java))
+        } else {
+            //已经登录跳转到个人中心页面
+            mActivity.startActivity(Intent(mActivity, UserInfoActivity::class.java))
+        }
     }
 
     /**
      * 联系我们
      */
     fun contactUs() {
-        val intent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:"+Constant.companyPhone+""))
+        val intent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + Constant.companyPhone + ""))
         mActivity.startActivity(intent)
     }
 
@@ -42,14 +51,14 @@ class CenterPresenter(activity: Activity, view: CenterContract.View, model: Cent
      */
     fun aboutUs() {
 //        mActivity.startActivity(Intent(mActivity,LoginActivity::class.java))
-        mActivity.startActivity(Intent(mActivity,AboutActivity::class.java))
+        mActivity.startActivity(Intent(mActivity, AboutActivity::class.java))
     }
 
     /**
      * 用户反馈
      */
     fun feedBack() {
-        mActivity.startActivity(Intent(mActivity,FeedBackActivity::class.java))
+        mActivity.startActivity(Intent(mActivity, FeedBackActivity::class.java))
     }
 
     /**
@@ -57,11 +66,11 @@ class CenterPresenter(activity: Activity, view: CenterContract.View, model: Cent
      */
     fun contactCustomerService() {
         try {
-            val url = "mqqwpa://im/chat?chat_type=wpa&uin="+Constant.companyQQ+""
+            val url = "mqqwpa://im/chat?chat_type=wpa&uin=" + Constant.companyQQ + ""
             mActivity.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
         } catch (e: ActivityNotFoundException) {
             ToastUtil.showToast("您还没有安装手机QQ")
         }
     }
-   
+
 }

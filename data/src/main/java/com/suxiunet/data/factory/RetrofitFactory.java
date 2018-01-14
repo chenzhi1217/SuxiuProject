@@ -3,6 +3,9 @@ package com.suxiunet.data.factory;
 import android.content.Context;
 import android.support.annotation.NonNull;
 
+import com.suxiunet.data.intercepter.ApiInterceptor;
+import com.suxiunet.data.intercepter.LogInterceptor;
+
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
@@ -22,6 +25,8 @@ public class RetrofitFactory {
         OkHttpClient client = new OkHttpClient.Builder()
                 .connectTimeout(20, TimeUnit.SECONDS)
                 .retryOnConnectionFailure(true)
+                .addInterceptor(new ApiInterceptor())
+                .addInterceptor(new LogInterceptor())
                 .build();
     
         Retrofit retrofit = new Retrofit.Builder()
@@ -29,7 +34,7 @@ public class RetrofitFactory {
                 .addConverterFactory(GsonConverterFactory.create())
                 .addConverterFactory(ScalarsConverterFactory.create())
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-                .baseUrl("https://api.91zdan.com")
+                .baseUrl("http://119.28.52.119:8080/")
                 .build();
         return retrofit.create(clazz);
     }

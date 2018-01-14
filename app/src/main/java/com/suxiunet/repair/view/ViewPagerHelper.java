@@ -18,7 +18,7 @@ import android.widget.LinearLayout;
 import com.bumptech.glide.Glide;
 import com.suxiunet.data.util.DensityUtil;
 import com.suxiunet.repair.R;
-import com.suxiunet.repair.base.SuXiuApplication;
+import com.suxiunet.repair.base.baseui.SuXiuApplication;
 
 import java.util.ArrayList;
 import java.util.List;

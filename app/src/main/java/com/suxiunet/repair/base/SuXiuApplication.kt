@@ -7,6 +7,7 @@ import android.app.Application
  * time   : 2018/01/03
  * desc   : 
  */
+/*
 class SuXiuApplication : Application() {
     companion object {
         lateinit var appContext: SuXiuApplication
@@ -17,3 +18,4 @@ class SuXiuApplication : Application() {
         appContext = this
     }
 }
+*/

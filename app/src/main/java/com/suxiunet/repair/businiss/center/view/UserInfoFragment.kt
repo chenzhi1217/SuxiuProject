@@ -5,6 +5,8 @@ import android.app.Dialog
 import android.content.Intent
 import android.databinding.DataBindingUtil
 import android.view.LayoutInflater
+import com.suxiunet.data.exception.ApiException
+import com.suxiunet.data.util.SpUtil
 import com.suxiunet.repair.R
 import com.suxiunet.repair.base.baseui.NomalFragment
 import com.suxiunet.repair.businiss.center.contract.UserInfoContract
@@ -13,6 +15,7 @@ import com.suxiunet.repair.businiss.center.presenter.UserInfoPresenter
 import com.suxiunet.repair.databinding.DialogQuitLoginBinding
 import com.suxiunet.repair.databinding.FragUserInfoBinding
 import com.suxiunet.repair.util.DialogUtils
+import com.suxiunet.repair.util.ToastUtil
 
 /**
  * author : chenzhi
@@ -40,6 +43,10 @@ class UserInfoFragment: NomalFragment<UserInfoPresenter, FragUserInfoBinding>(),
         mDialogBinding = DataBindingUtil.inflate<DialogQuitLoginBinding>(LayoutInflater.from(activity), R.layout.dialog_quit_login, null, false)
         mBottomDialog = DialogUtils.getInstance().setBottomDialog(activity, mDialogBinding.root, true, R.style.Dialog_animal)
         mDialogBinding.tvCancel.setOnClickListener { mBottomDialog?.dismiss() }
+        mDialogBinding.tvQuitLogin.setOnClickListener { 
+            //退出登录
+            mPresenter?.quitLogin()
+        }
     }
 
     override fun getPresenter(): UserInfoPresenter? {
@@ -71,5 +78,20 @@ class UserInfoFragment: NomalFragment<UserInfoPresenter, FragUserInfoBinding>(),
      */
     fun quitLogin() {
         mBottomDialog?.show()
+    }
+
+    /**
+     * 退出登录成功
+     */
+    override fun quitLoginSuccess() {
+        ToastUtil.showToast("退出成功")
+        SpUtil.putString(context,SpUtil.TOKEN_KEY,"")
+        activity.finish()
+    }
+
+    /**
+     * 退出登录失败
+     */
+    override fun quitLoginError(e: ApiException?) {
     }
 }

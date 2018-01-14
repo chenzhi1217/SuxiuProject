@@ -1,5 +1,6 @@
 package com.suxiunet.repair.businiss.center.contract
 
+import com.suxiunet.data.exception.ApiException
 import com.suxiunet.repair.base.IModel
 import com.suxiunet.repair.base.IView
 
@@ -9,7 +10,10 @@ import com.suxiunet.repair.base.IView
  * desc   : 用户信息
  */
 interface UserInfoContract {
-    interface View: IView
+    interface View: IView{
+        fun quitLoginSuccess()
+        fun quitLoginError(e: ApiException?)
+    }
     
     interface Model:IModel
 }

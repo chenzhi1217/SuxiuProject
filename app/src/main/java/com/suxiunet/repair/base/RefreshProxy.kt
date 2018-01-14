@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.View
 import com.suxiunet.data.exception.ApiException
 import com.suxiunet.data.util.Utils
+import com.suxiunet.repair.base.baseui.SuXiuApplication
 
 /**
  * author : chenzhi
