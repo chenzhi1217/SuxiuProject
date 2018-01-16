@@ -33,4 +33,14 @@ public interface UserApi {
      */
     @POST("dnwx/app/user/loginout")
     Observable<ApiResponse<Object>> quitLogin();
+
+    /**
+     * 意见返回
+     * @param suggestions
+     * @param loginId
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("dnwx/app/user/suggestions")
+    Observable<ApiResponse<Object>> submitSuggestions(@Field("suggestions") String suggestions, @Field("loginId") String loginId);
 }

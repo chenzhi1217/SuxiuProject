@@ -47,4 +47,7 @@ dependencies {
     //图片加载框架
     compile 'com.github.bumptech.glide:glide:3.7.0'
     compile 'com.github.bumptech.glide:okhttp-integration:1.4.0'
+    /*高德定位功能*/
+    compile 'com.amap.api:location:3.6.1'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
 }

@@ -41,4 +41,15 @@ public class UserApiImpl implements UserApi {
     public Observable<ApiResponse<Object>> quitLogin() {
         return mApi.quitLogin();
     }
+
+    /**
+     * 意见返回
+     * @param suggestions 意见详情
+     * @param loginId     用户id
+     * @return
+     */
+    @Override
+    public Observable<ApiResponse<Object>> submitSuggestions(String suggestions, String loginId) {
+        return mApi.submitSuggestions(suggestions,loginId);
+    }
 }

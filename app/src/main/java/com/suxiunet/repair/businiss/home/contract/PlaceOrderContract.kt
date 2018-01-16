@@ -9,6 +9,9 @@ import com.suxiunet.repair.base.IView
  * desc   : 一键下单
  */
 interface PlaceOrderContract {
-    interface View: IView
+    interface View: IView{
+        fun locationSuccess(addr: String ,street: String?)
+        fun locationError(errInfo: String?)
+    }
     interface Model: IModel
 }

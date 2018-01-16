@@ -10,6 +10,7 @@
         android:background="@color/home_bg">
 
         <EditText
+            android:id="@+id/et_feed_back_content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
@@ -23,6 +24,7 @@
             android:background="@color/color_white"/>
 
         <Button
+            android:id="@+id/bt_feed_back"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/shape_user_info_bt"

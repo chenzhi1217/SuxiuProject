@@ -38,7 +38,7 @@
             <include
                 android:id="@+id/include_order_count"
                 layout="@layout/include_item_frag_home_order_count"
-                android:visibility="visible"/>
+                android:visibility="gone"/>
 
             <include layout="@layout/incluce_common_line_rude"/>
 

@@ -1,6 +1,9 @@
 package com.suxiunet.data.util;
 
 import android.os.Environment;
+import android.view.View;
+import android.view.ViewGroup;
+
 import com.suxiunet.data.DatasConstant;
 
 import java.io.File;
