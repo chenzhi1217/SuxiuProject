@@ -30,6 +30,7 @@ class UserInfoFragment: NomalFragment<UserInfoPresenter, FragUserInfoBinding>(),
     var mBottomDialog: Dialog? = null
     
     companion object {
+        val PAGE_REQUEST_CODE = 0X0000_0018
         //调用相册的请求码
         val REQUEST_IMAGE_CODE = 0x0000_0010
         //修改昵称的请求码
@@ -87,9 +88,35 @@ class UserInfoFragment: NomalFragment<UserInfoPresenter, FragUserInfoBinding>(),
      */
     override fun quitLoginSuccess() {
         ToastUtil.showToast("退出成功")
-        //清楚token和用户信息
-        SpUtil.putString(context,SpUtil.TOKEN_KEY,"")
-        CacheUtil.getInstance().saveCacheData(null,CacheUtil.USER_INFO)
+        clearUserInfo()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        //初始化用户数据
+        try {
+            val userInfo = CacheUtil.getInstance().getCacheData(CacheUtil.USER_INFO, UserInfoEntity::class.java)
+            mBinding.tvUserNickName.text = userInfo?.loginName
+            mBinding.tvUserPhone.text = userInfo?.loginId
+            when(userInfo?.gender){
+                "1" -> mBinding.tvUserSex.text = "男"
+                "2" -> mBinding.tvUserSex.text = "女"
+                else -> mBinding.tvUserSex.text = "保密"
+            }
+        } catch (e: Exception) {
+        }
+    }
+
+    /**
+     * 清除用户信息
+     */
+    private fun clearUserInfo() {
+        //清除token和用户信息
+        try {
+            SpUtil.putString(context, SpUtil.TOKEN_KEY, "")
+            CacheUtil.getInstance().saveCacheData(null, CacheUtil.USER_INFO)
+        } catch (e: Exception) {
+        }
         activity.finish()
     }
 
@@ -97,5 +124,7 @@ class UserInfoFragment: NomalFragment<UserInfoPresenter, FragUserInfoBinding>(),
      * 退出登录失败
      */
     override fun quitLoginError(e: ApiException?) {
+        ToastUtil.showToast(e?.displayMessage?:"退出失败")
+        clearUserInfo()
     }
 }

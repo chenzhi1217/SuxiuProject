@@ -36,6 +36,7 @@ public interface UserApi {
 
     /**
      * 意见返回
+     *
      * @param suggestions
      * @param loginId
      * @return
@@ -43,4 +44,22 @@ public interface UserApi {
     @FormUrlEncoded
     @POST("dnwx/app/user/suggestions")
     Observable<ApiResponse<Object>> submitSuggestions(@Field("suggestions") String suggestions, @Field("loginId") String loginId);
+
+    /**
+     * 修改昵称
+     * @param name
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("dnwx/app/user/modifyUserInfo")
+    Observable<ApiResponse<Object>> modifyNickName(@Field("loginId") String loginId, @Field("loginName") String name);
+
+    /**
+     * 修改性别
+     * @param gender 1:男 2：女 3：保密
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("dnwx/app/user/modifyUserInfo")
+    Observable<ApiResponse<Object>> modifyGender(@Field("loginId") String loginId, @Field("gender") String gender);
 }

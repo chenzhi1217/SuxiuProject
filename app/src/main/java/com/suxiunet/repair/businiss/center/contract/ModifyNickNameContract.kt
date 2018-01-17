@@ -1,5 +1,6 @@
 package com.suxiunet.repair.businiss.center.contract
 
+import com.suxiunet.data.exception.ApiException
 import com.suxiunet.repair.base.IModel
 import com.suxiunet.repair.base.IView
 
@@ -9,6 +10,9 @@ import com.suxiunet.repair.base.IView
  * desc   : 修改昵称
  */
 interface ModifyNickNameContract {
-    interface View: IView
+    interface View: IView{
+        fun modifySuccess(newName: String)
+        fun modifyError(e: ApiException?)
+    }
     interface Model: IModel
 }

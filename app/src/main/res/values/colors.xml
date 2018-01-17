@@ -25,6 +25,9 @@
     <color name="color_text_2">#666666</color>
     <color name="color_text_3">#8E8E8E</color>
     <color name="color_text_red">#F7585C</color>
+
+    <color name="color_default_info">#bbbbbb</color>
+    <color name="color_layout_bg">#F7F7F7</color>
     
     <!--默认背景色-->
     <color name="home_bg">#F3F3F3</color>

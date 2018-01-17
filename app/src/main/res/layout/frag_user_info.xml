@@ -91,7 +91,6 @@
                 android:layout_marginLeft="@dimen/left_margin"
                 android:layout_marginRight="@dimen/right_margin"
                 android:layout_toLeftOf="@+id/iv_nick_name_next"
-                android:text="月光和我"
                 android:textColor="@color/color_divider_1"
                 android:textSize="@dimen/title_three"/>
 
@@ -133,7 +132,6 @@
                 android:layout_marginLeft="@dimen/left_margin"
                 android:layout_marginRight="@dimen/right_margin"
                 android:layout_toLeftOf="@+id/iv_nick_sex_next"
-                android:text="男"
                 android:textColor="@color/color_divider_1"
                 android:textSize="@dimen/title_three"/>
 
@@ -175,7 +173,6 @@
                 android:layout_marginLeft="@dimen/left_margin"
                 android:layout_marginRight="@dimen/right_margin"
                 android:layout_toLeftOf="@+id/iv_nick_phone_next"
-                android:text="138556988752"
                 android:textColor="@color/color_divider_1"
                 android:textSize="@dimen/title_three"/>
 

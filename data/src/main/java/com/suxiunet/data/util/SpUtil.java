@@ -12,6 +12,7 @@ public class SpUtil {
     private static SharedPreferences mSp;
 
     public static final String TOKEN_KEY = "token_key";
+    public static final String LOGIN_ID_KEY = "login_id_key";
 
     /**
      * 向SP中保存String类型数据

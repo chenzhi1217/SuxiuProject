@@ -45,6 +45,7 @@ class LoginFragment: NomalFragment<LoginPresenter, FragLoginBinding>(),LoginCont
         CacheUtil.getInstance().saveCacheData(data,CacheUtil.USER_INFO)
         //将token保存到本地
         SpUtil.putString(context,SpUtil.TOKEN_KEY,data?.token)
+        SpUtil.putString(context,SpUtil.LOGIN_ID_KEY,data?.loginId)
         //销毁当前页面
         activity.finish()
     }

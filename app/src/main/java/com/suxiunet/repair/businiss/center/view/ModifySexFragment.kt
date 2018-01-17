@@ -1,12 +1,19 @@
 package com.suxiunet.repair.businiss.center.view
 
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.widget.ImageView
+import com.suxiunet.data.entity.user.UserInfoEntity
+import com.suxiunet.data.exception.ApiException
+import com.suxiunet.data.util.CacheUtil
 import com.suxiunet.repair.R
 import com.suxiunet.repair.base.baseui.NomalFragment
 import com.suxiunet.repair.businiss.center.contract.ModifySexContract
 import com.suxiunet.repair.businiss.center.model.ModifySexModel
 import com.suxiunet.repair.businiss.center.presenter.ModifySexPresenter
 import com.suxiunet.repair.databinding.FragModifySexBinding
+import com.suxiunet.repair.util.ToastUtil
 
 /**
  * author : chenzhi
@@ -15,7 +22,7 @@ import com.suxiunet.repair.databinding.FragModifySexBinding
  */
 class ModifySexFragment: NomalFragment<ModifySexPresenter, FragModifySexBinding>(),ModifySexContract.View {
     //记录当前选中的选项
-    var checkIndex: Int = 0
+    var checkIndex: Int = 0 
     lateinit var images: ArrayList<ImageView>
     
     override fun initView() {
@@ -25,6 +32,48 @@ class ModifySexFragment: NomalFragment<ModifySexPresenter, FragModifySexBinding>
         images.add(mBinding.ivModifySexWomen)
         images.add(mBinding.ivModifySexSecret)
         initCheckState()
+    }
+
+    /**
+     * 创建ToolBar菜单按钮
+     */
+    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
+        inflater?.inflate(R.menu.confirm_menu,menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        if (item?.itemId == R.id.confirm_modify) {
+            //拿到当前选中的性别
+            val gendentState = getGendentState()
+            mPresenter?.modifyGendent(gendentState)
+        }
+        return true
+    }
+
+    /**
+     * 修改性别成功
+     */
+    override fun modifyGendentSuccess(gendent: String) {
+        //更改本地的用户信息
+        val userInfo = CacheUtil.getInstance().getCacheData(CacheUtil.USER_INFO, UserInfoEntity::class.java)
+        userInfo.gender = gendent
+        CacheUtil.getInstance().saveCacheData(userInfo, CacheUtil.USER_INFO)
+        activity.finish()
+    }
+
+    /**
+     * 修改性别失败
+     */
+    override fun modifyGendentError(e: ApiException?) {
+        ToastUtil.showToast(e?.displayMessage?:"修改失败")
+    }
+
+    fun getGendentState(): String {
+        when (checkIndex) {
+            0 -> return "1"
+            1 -> return "2"
+            else -> return "3"
+        }
     }
 
     /**

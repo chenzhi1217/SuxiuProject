@@ -60,7 +60,7 @@ abstract class BasicFragment<REQUEST : BasicRequest, PRESENT: IPresenter, DATA, 
         mContentView = mBinding?.root
         mParentBinding.flBasicFrag.addView(mContentView)
         //设置失败页面
-        mParentBinding?.includeCommonError?.ivNetErrorIcon?.setImageResource(getErrorIconResid())
+        mParentBinding?.includeCommonError?.ivNetError?.setImageResource(getErrorIconResid())
         mParentBinding?.includeCommonError?.root?.setOnClickListener { initLoadData() }
         //设置SwifeRefresh
         mParentBinding.sfBasicFrag.isEnabled = setSwipeRefreshEnable()
@@ -120,7 +120,7 @@ abstract class BasicFragment<REQUEST : BasicRequest, PRESENT: IPresenter, DATA, 
      * 失败页面的icon
      */
     open protected fun getErrorIconResid(): Int {
-        return R.mipmap.ic_launcher
+        return R.mipmap.icon_net_error
     }
 
     /**

@@ -52,4 +52,24 @@ public class UserApiImpl implements UserApi {
     public Observable<ApiResponse<Object>> submitSuggestions(String suggestions, String loginId) {
         return mApi.submitSuggestions(suggestions,loginId);
     }
+
+    /**
+     * 修改昵称
+     * @param name
+     * @return
+     */
+    @Override
+    public Observable<ApiResponse<Object>> modifyNickName(String loginId,String name) {
+        return mApi.modifyNickName(loginId,name);
+    }
+
+    /**
+     * 修改昵称
+     * @param gender 1:男 2：女 3：保密
+     * @return
+     */
+    @Override
+    public Observable<ApiResponse<Object>> modifyGender(String loginId,String gender) {
+        return mApi.modifyGender(loginId,gender);
+    }
 }

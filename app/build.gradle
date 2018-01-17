@@ -5,6 +5,14 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
+    signingConfigs {
+        suxiu {
+            keyAlias 'suxiu_keystore'
+            keyPassword 'suxiu123456'
+            storeFile file('E:/suxiu_keystore/suxiu_keystore.jks')
+            storePassword 'suxiu123456'
+        }
+    }
     compileSdkVersion 26
     buildToolsVersion "26.0.2"
     defaultConfig {
@@ -19,26 +27,26 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.suxiu
+        }
+        debug {
+            signingConfig signingConfigs.suxiu
         }
     }
-
     dataBinding {
         enabled = true
     }
-
 }
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     implementation project(':data')
     //databinding
     kapt "com.android.databinding:compiler:2.3.1"
-//    compile "org.jetbrains.kotlin:kotlin-stdlib:1.1.51"
-
+    //    compile "org.jetbrains.kotlin:kotlin-stdlib:1.1.51"
     //kotlin
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
 }

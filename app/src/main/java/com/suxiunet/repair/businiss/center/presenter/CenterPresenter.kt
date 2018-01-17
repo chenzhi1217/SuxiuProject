@@ -11,10 +11,7 @@ import com.suxiunet.repair.util.ToastUtil
 import com.suxiunet.repair.base.BasicPresenter
 import com.suxiunet.repair.base.Constant
 import com.suxiunet.repair.businiss.center.contract.CenterContract
-import com.suxiunet.repair.businiss.center.view.AboutActivity
-import com.suxiunet.repair.businiss.center.view.FeedBackActivity
-import com.suxiunet.repair.businiss.center.view.LoginActivity
-import com.suxiunet.repair.businiss.center.view.UserInfoActivity
+import com.suxiunet.repair.businiss.center.view.*
 
 /**
  * author : chenzhi
@@ -27,14 +24,14 @@ class CenterPresenter(activity: Activity, view: CenterContract.View, model: Cent
     /**
      * 点击用户头像
      */
-    fun goUserInfo() {
+    fun goUserInfo(fragment: CenterFragment) {
         val token = SpUtil.getString(mActivity, SpUtil.TOKEN_KEY, "")
         if (TextUtils.isEmpty(token)) {
             //未登录跳转到登录页面
             mActivity.startActivity(Intent(mActivity, LoginActivity::class.java))
         } else {
             //已经登录跳转到个人中心页面
-            mActivity.startActivity(Intent(mActivity, UserInfoActivity::class.java))
+            fragment.startActivityForResult(Intent(mActivity, UserInfoActivity::class.java),UserInfoFragment.PAGE_REQUEST_CODE)
         }
     }
 
