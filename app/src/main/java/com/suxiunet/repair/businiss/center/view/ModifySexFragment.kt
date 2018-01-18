@@ -70,9 +70,9 @@ class ModifySexFragment: NomalFragment<ModifySexPresenter, FragModifySexBinding>
 
     fun getGendentState(): String {
         when (checkIndex) {
-            0 -> return "1"
-            1 -> return "2"
-            else -> return "3"
+            0 -> return "0"
+            1 -> return "1"
+            else -> return "2"
         }
     }
 

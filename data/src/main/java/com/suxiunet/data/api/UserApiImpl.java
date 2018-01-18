@@ -72,4 +72,19 @@ public class UserApiImpl implements UserApi {
     public Observable<ApiResponse<Object>> modifyGender(String loginId,String gender) {
         return mApi.modifyGender(loginId,gender);
     }
+
+    /**
+     * 下单接口
+     * @param contacts 联系人
+     * @param contactTel 联系人电话
+     * @param appointmentTime 预约上门时间
+     * @param serviceMode  服务方式
+     * @param machineType 机器型号
+     * @param companyAdr 地址
+     * @return
+     */
+    @Override
+    public Observable<ApiResponse<Object>> placeOrder(String contacts, String contactTel, String appointmentTime, String serviceMode, String machineType, String companyAdr) {
+        return mApi.placeOrder(contacts,contactTel,appointmentTime,serviceMode,machineType,companyAdr);
+    }
 }

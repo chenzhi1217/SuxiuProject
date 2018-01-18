@@ -62,4 +62,18 @@ public interface UserApi {
     @FormUrlEncoded
     @POST("dnwx/app/user/modifyUserInfo")
     Observable<ApiResponse<Object>> modifyGender(@Field("loginId") String loginId, @Field("gender") String gender);
+
+    /**
+     * 下单接口
+     * @param contacts 联系人
+     * @param contactTel 联系人电话
+     * @param appointmentTime 预约上门时间
+     * @param serviceMode  服务方式
+     * @param machineType 机器型号
+     * @param companyAdr 地址
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("dnwx/app/order/order")
+    Observable<ApiResponse<Object>> placeOrder(@Field("contacts") String contacts, @Field("contactTel") String contactTel, @Field("appointmentTime") String appointmentTime, @Field("serviceMode") String serviceMode, @Field("machineType") String machineType, @Field("companyAdr") String companyAdr);
 }

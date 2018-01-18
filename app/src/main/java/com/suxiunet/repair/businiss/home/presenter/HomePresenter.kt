@@ -2,7 +2,10 @@ package com.suxiunet.repair.businiss.home.presenter
 
 import android.app.Activity
 import android.content.Intent
+import android.text.TextUtils
+import com.suxiunet.data.util.SpUtil
 import com.suxiunet.repair.base.BasicPresenter
+import com.suxiunet.repair.businiss.center.view.LoginActivity
 import com.suxiunet.repair.businiss.home.contract.HomeContract
 import com.suxiunet.repair.businiss.home.view.PlaceOrderActivity
 
@@ -18,7 +21,12 @@ class HomePresenter : BasicPresenter<HomeContract.View, HomeContract.Model> {
      * 一键下单
      */
     fun placeOrder() {
-        mActivity.startActivity(Intent(mActivity,PlaceOrderActivity::class.java))
+        val token = SpUtil.getString(mActivity, SpUtil.TOKEN_KEY, "")
+        if (TextUtils.isEmpty(token)) {
+            mActivity.startActivity(Intent(mActivity,LoginActivity::class.java))
+        } else {
+            mActivity.startActivity(Intent(mActivity,PlaceOrderActivity::class.java))
+        }
     }
     
 }

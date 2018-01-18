@@ -65,7 +65,8 @@
         <!--关于我们-->
         <activity android:name=".businiss.center.view.AboutActivity"/>
         <!--订单详情-->
-        <activity android:name=".businiss.order.orderlist.view.OrderDetailActivity"/>
+        <activity android:name=".businiss.order.orderlist.view.OrderDetailActivity"
+            android:windowSoftInputMode="stateHidden|stateUnchanged"/>
         <!--一键下单-->
         <activity android:name=".businiss.home.view.PlaceOrderActivity"/>
     </application>

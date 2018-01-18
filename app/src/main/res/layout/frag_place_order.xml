@@ -30,166 +30,22 @@
 
             </RelativeLayout>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/color_line"
-                android:paddingBottom="5dp"
-                android:paddingLeft="15dp"
-                android:paddingTop="5dp"
-                android:text="基本信息"
-                android:textColor="@color/color_text_1"
-                android:textSize="@dimen/title_three"/>
+            <!--基本信息-->
+            <include 
+                android:id="@+id/include_basic_info"
+                layout="@layout/include_place_order_baisc_info"/>
 
-            <!--姓名-->
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@null"
-                android:hint="请输入姓名"
-                android:maxLines="1"
-                android:padding="15dp"
-                android:textColorHint="@color/color_hint"
-                android:textSize="@dimen/title_three"/>
-            <include layout="@layout/include_common_line"/>
+            <!--设备信息-->
+            <include 
+                android:id="@+id/include_equipment_info"
+                layout="@layout/include_place_order_equipment_info"/>
 
-            <!--手机号-->
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@null"
-                android:hint="请输入能联系到您的手机号"
-                android:inputType="phone"
-                android:maxLines="1"
-                android:padding="15dp"
-                android:textColorHint="@color/color_hint"
-                android:textSize="@dimen/title_three"/>
-            <include layout="@layout/include_common_line"/>
+            <!--地址信息-->
+            <include 
+                android:id="@+id/include_addr_info"
+                layout="@layout/include_place_order_addr_info"/>
 
-            <!--手机号-->
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="请选择预约上门时间"
-                android:maxLines="1"
-                android:padding="15dp"
-                android:textColorHint="@color/color_hint"
-                android:textSize="@dimen/title_three"/>
-            <include layout="@layout/include_common_line"/>
-
-            <!--维修方式-->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="15dp"
-                    android:text="服务方式："
-                    android:textColor="@color/color_text_1"/>
-                <RadioGroup
-                    android:id="@+id/rg_repair_style"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:paddingBottom="10dp"
-                    android:paddingLeft="15dp"
-                    android:paddingTop="10dp">
-
-                    <RadioButton
-                        android:id="@+id/rb_repair_sm"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:button="@null"
-                        android:checked="true"
-                        android:drawableLeft="@drawable/selector_choose"
-                        android:drawablePadding="10dp"
-                        android:gravity="center"
-                        android:text="上门"/>
-
-                    <RadioButton
-                        android:id="@+id/rb_repair_sx"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:button="@null"
-                        android:drawableLeft="@drawable/selector_choose"
-                        android:drawablePadding="10dp"
-                        android:text="送修"/>
-
-                </RadioGroup>
-            </LinearLayout>
-
-            <include layout="@layout/include_common_line"/>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/color_line"
-                android:paddingBottom="5dp"
-                android:paddingLeft="15dp"
-                android:paddingRight="10dp"
-                android:paddingTop="5dp">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:background="@color/color_line"
-                    android:text="地址信息"
-                    android:textColor="@color/color_text_1"
-                    android:textSize="@dimen/title_three"/>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true">
-
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="重新定位"
-                        android:textColor="@color/color_text_1"
-                        android:textSize="@dimen/title_three"/>
-
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_marginLeft="10dp"
-                        android:src="@mipmap/icon_position"/>
-                </LinearLayout>
-
-
-            </RelativeLayout>
-            <!--地址-->
-            <EditText
-                android:id="@+id/et_place_order_addr"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@null"
-                android:gravity="start"
-                android:hint="省、市、区"
-                android:maxLines="2"
-                android:padding="15dp"
-                android:textColorHint="@color/color_hint"
-                android:textSize="@dimen/title_three"/>
-            <include layout="@layout/include_common_line"/>
-            <EditText
-                android:id="@+id/et_place_order_street"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@null"
-                android:gravity="start"
-                android:hint="详细地址"
-                android:lines="2"
-                android:maxLines="2"
-                android:padding="15dp"
-                android:textColorHint="@color/color_hint"
-                android:textSize="@dimen/title_three"/>
-            <include layout="@layout/include_common_line"/>
-
+            <!--故障描述-->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -200,8 +56,8 @@
                 android:text="故障描述"
                 android:textColor="@color/color_text_1"
                 android:textSize="@dimen/title_three"/>
-            <!--故障描述-->
             <EditText
+                android:id="@+id/et_place_order_describe"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
@@ -217,10 +73,10 @@
                 android:padding="15dp"
                 android:textColorHint="@color/color_hint"
                 android:textSize="@dimen/title_three"/>
-
-
+            
+            <!--提交按钮-->
             <Button
-                android:id="@+id/bt_login"
+                android:id="@+id/bt_place_order"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"

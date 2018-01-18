@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--设备信息-->
+<layout>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" tools:showIn="@layout/frag_place_order">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_line"
+            android:paddingBottom="5dp"
+            android:paddingLeft="15dp"
+            android:paddingTop="5dp"
+            android:text="设备信息"
+            android:textColor="@color/color_text_1"
+            android:textSize="@dimen/title_three"/>
+
+        <!--机器类型-->
+        <EditText
+            android:id="@+id/et_place_order_equipment_model"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:hint="请填写设备型号"
+            android:maxLines="1"
+            android:padding="15dp"
+            android:textColorHint="@color/color_hint"
+            android:textSize="@dimen/title_three"/>
+        <include layout="@layout/include_common_line"/>
+    </LinearLayout>
+</layout>
