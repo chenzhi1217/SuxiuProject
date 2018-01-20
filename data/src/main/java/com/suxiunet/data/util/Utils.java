@@ -1,10 +1,12 @@
 package com.suxiunet.data.util;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.annotation.DrawableRes;
+import android.view.WindowManager;
 import android.widget.RadioButton;
 
 /**
@@ -43,5 +45,15 @@ public class Utils {
         }
 
         return true;
+    }
+
+    /**
+     * 禁止一进Activity就弹出软键盘
+     *
+     * @param activity
+     */
+    public static void notAllowSoftInput(Activity activity) {
+        //禁止默认弹出软键盘
+        activity.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
     }
 }

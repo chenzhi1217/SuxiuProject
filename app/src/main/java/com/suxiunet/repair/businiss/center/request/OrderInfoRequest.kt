@@ -8,6 +8,11 @@ import com.suxiunet.repair.base.BasicRequest
  * desc   : 订单信息类
  */
 class OrderInfoRequest : BasicRequest() {
+    var loginId = ""
+    /**
+     * 公司名称
+     */
+    var company = ""
     /**
      * 联系人
      */
@@ -25,6 +30,10 @@ class OrderInfoRequest : BasicRequest() {
      */
     var serviceMode = ""
     /**
+     * 设备类型
+     */
+    var machineMode = ""
+    /**
      * 机器型号
      */
     var machineType = ""
@@ -32,4 +41,8 @@ class OrderInfoRequest : BasicRequest() {
      * 地址
      */
     var companyAdr = ""
+    /**
+     * 描述
+     */
+    var desc = ""
 }

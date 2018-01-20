@@ -25,6 +25,7 @@
                 android:padding="10dp">
 
                 <ImageView
+                    android:visibility="gone"
                     android:id="@+id/iv_order_detail_logo"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
@@ -34,7 +35,6 @@
                     android:id="@+id/tv_order_detail_state"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
                     android:layout_toRightOf="@+id/iv_order_detail_logo"
                     android:text="待付款订单"
                     android:textColor="@color/theme_bg"
@@ -45,7 +45,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/tv_order_detail_state"
-                    android:layout_marginLeft="20dp"
                     android:layout_marginTop="@dimen/top_margin"
                     android:layout_toRightOf="@+id/iv_order_detail_logo"
                     android:text="请注意客服来电，与您进一步确认维修信息"

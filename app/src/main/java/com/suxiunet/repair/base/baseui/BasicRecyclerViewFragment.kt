@@ -178,8 +178,8 @@ abstract class BasicRecyclerViewFragment<REQUEST : BasicRequest, PRESENT: IPrese
     /**
      * 空布局时显示的icon
      */
-    private fun setEmptyBgResId(): Int {
-        return R.mipmap.ic_launcher
+    open protected fun setEmptyBgResId(): Int {
+        return R.mipmap.icon_empty_common
     }
 
     override fun getContentLayoutId(): Int {

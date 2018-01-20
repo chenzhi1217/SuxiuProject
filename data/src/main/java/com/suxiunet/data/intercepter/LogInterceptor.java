@@ -18,13 +18,13 @@ public class LogInterceptor implements Interceptor {
         Request request = chain.request();
 //        LogUtils.i(request.body());
         Response response = chain.proceed(chain.request());
-
+        
         okhttp3.MediaType mediaType = response.body().contentType();
         String content = response.body().string();
-  
+        
 //        LogUtils.i(request.toString());
 //        LogUtils.json(content);
-
+        
         /*if (response.code() != 200) {
             throw new ApiException(response.message(), response.code());
         }*/

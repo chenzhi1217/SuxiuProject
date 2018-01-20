@@ -1,6 +1,7 @@
 package com.suxiunet.repair.businiss.order.orderlist.holder
 
 import android.view.ViewGroup
+import com.suxiunet.data.entity.order.OrderInfoEntity
 import com.suxiunet.repair.base.BasicHolder
 import com.suxiunet.repair.businiss.order.orderlist.presenter.OrderListPresenter
 import com.suxiunet.repair.databinding.ItemOrderListBinding
@@ -10,7 +11,7 @@ import com.suxiunet.repair.databinding.ItemOrderListBinding
  * time   : 2018/01/08
  * desc   : 订单列表条目
  */
-class OrderListHolder(parent: ViewGroup, resId: Int) : BasicHolder<Any, ItemOrderListBinding>(parent, resId) {
+class OrderListHolder(parent: ViewGroup, resId: Int) : BasicHolder<OrderInfoEntity, ItemOrderListBinding>(parent, resId) {
     
     var mPresenter: OrderListPresenter? = null
     
@@ -18,7 +19,7 @@ class OrderListHolder(parent: ViewGroup, resId: Int) : BasicHolder<Any, ItemOrde
         this.mPresenter = presenter
         mBinding.presenter = mPresenter
     }
-    override fun bindData(data: Any?) {
-
+    override fun bindData(data: OrderInfoEntity?) {
+        mBinding.data = data
     }
 }

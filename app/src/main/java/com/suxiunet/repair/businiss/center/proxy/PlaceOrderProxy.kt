@@ -20,7 +20,7 @@ class PlaceOrderProxy: RefreshProxy<OrderInfoRequest,Any> {
     }
 
     override fun getObservable(request: OrderInfoRequest): Observable<Any> {
-        return mUserApiImpl.placeOrder(request.contacts,request.contactTel,request.appointmentTime,request.serviceMode,request.machineType,request.companyAdr)
+        return mUserApiImpl.placeOrder(request.loginId,request.company,request.contacts,request.contactTel,request.appointmentTime,request.serviceMode, request.machineMode,request.machineType,request.companyAdr, request.desc)
                 .map(object : Func1<ApiResponse<Any>,Any>{
                     override fun call(t: ApiResponse<Any>?): Any {
                         return t?.retData?:Any()

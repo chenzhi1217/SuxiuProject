@@ -20,6 +20,19 @@
 
         <!--姓名-->
         <EditText
+            android:id="@+id/et_place_company_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:hint="请输入单位名称，个人可不填写"
+            android:maxLines="1"
+            android:padding="15dp"
+            android:textColorHint="@color/color_hint"
+            android:textSize="@dimen/title_three"/>
+        <include layout="@layout/include_common_line"/>
+
+        <!--姓名-->
+        <EditText
             android:id="@+id/et_place_order_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -54,6 +67,7 @@
             android:maxLines="1"
             android:padding="15dp"
             android:textColorHint="@color/color_hint"
+            android:textColor="@color/color_text_1"
             android:textSize="@dimen/title_three"/>
         <include layout="@layout/include_common_line"/>
 
@@ -86,7 +100,7 @@
                     android:drawableLeft="@drawable/selector_choose"
                     android:drawablePadding="10dp"
                     android:gravity="center"
-                    android:text="上&#160;&#160;&#8210;门"/>
+                    android:text="上&#160;&#160;门"/>
 
                 <RadioButton
                     android:id="@+id/rb_repair_sx"
@@ -96,7 +110,7 @@
                     android:button="@null"
                     android:drawableLeft="@drawable/selector_choose"
                     android:drawablePadding="10dp"
-                    android:text="送&#160;&#160;&#8210;修"/>
+                    android:text="送&#160;&#160;修"/>
 
             </RadioGroup>
         </LinearLayout>

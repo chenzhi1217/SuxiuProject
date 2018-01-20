@@ -20,7 +20,19 @@
             android:textColor="@color/color_text_1"
             android:textSize="@dimen/title_three"/>
 
-        <!--机器类型-->
+        <TextView
+            android:id="@+id/tv_place_order_equipment_model"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:hint="请选择设备类型"
+            android:maxLines="1"
+            android:padding="15dp"
+            android:textColorHint="@color/color_hint"
+            android:textColor="@color/color_text_1"
+            android:textSize="@dimen/title_three"/>
+
+        <!--机器型号-->
         <EditText
             android:id="@+id/et_place_order_equipment_model"
             android:layout_width="match_parent"

@@ -84,7 +84,8 @@ public class UserApiImpl implements UserApi {
      * @return
      */
     @Override
-    public Observable<ApiResponse<Object>> placeOrder(String contacts, String contactTel, String appointmentTime, String serviceMode, String machineType, String companyAdr) {
-        return mApi.placeOrder(contacts,contactTel,appointmentTime,serviceMode,machineType,companyAdr);
+    public Observable<ApiResponse<Object>> placeOrder(String loginId,String company,String contacts, String contactTel, String appointmentTime, String serviceMode,String machineMode, String machineType, String companyAdr,String desc) {
+        return mApi.placeOrder(loginId,company,contacts,contactTel,appointmentTime,serviceMode,machineMode,machineType,companyAdr,desc);
     }
+    
 }

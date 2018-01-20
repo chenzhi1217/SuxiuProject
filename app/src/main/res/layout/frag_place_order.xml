@@ -36,12 +36,12 @@
                 layout="@layout/include_place_order_baisc_info"/>
 
             <!--设备信息-->
-            <include 
+            <include
                 android:id="@+id/include_equipment_info"
                 layout="@layout/include_place_order_equipment_info"/>
 
             <!--地址信息-->
-            <include 
+            <include
                 android:id="@+id/include_addr_info"
                 layout="@layout/include_place_order_addr_info"/>
 

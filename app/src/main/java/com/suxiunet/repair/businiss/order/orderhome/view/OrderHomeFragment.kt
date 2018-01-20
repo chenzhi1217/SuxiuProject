@@ -46,11 +46,11 @@ class OrderHomeFragment: NomalFragment<OrderHomePresenter,FragOrderHomeBinding>(
     
     private fun initFragment() {
         mFragments = ArrayList()
-        mFragments.add(OrderListFragment())
-        mFragments.add(OrderListFragment())
-        mFragments.add(OrderListFragment())
-        mFragments.add(OrderListFragment())
-        mFragments.add(OrderListFragment())
+        mFragments.add(OrderListFragment("A"))
+        mFragments.add(OrderListFragment("B"))
+        mFragments.add(OrderListFragment("C"))
+        mFragments.add(OrderListFragment("D"))
+        mFragments.add(OrderListFragment("E"))
     }
     
     private fun initTitle() {
