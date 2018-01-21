@@ -6,7 +6,10 @@ import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.annotation.DrawableRes;
+import android.text.Selection;
+import android.text.Spannable;
 import android.view.WindowManager;
+import android.widget.EditText;
 import android.widget.RadioButton;
 
 /**
@@ -55,5 +58,18 @@ public class Utils {
     public static void notAllowSoftInput(Activity activity) {
         //禁止默认弹出软键盘
         activity.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
+    }
+
+    /**
+     * 让EidtText中的光标停留在最后端
+     *
+     * @param edit
+     */
+    public static void setCursorLocationEnd(EditText edit) {
+        CharSequence text = edit.getText();
+        if (text instanceof Spannable) {
+            Spannable spanText = (Spannable) text;
+            Selection.setSelection(spanText, text.length());
+        }
     }
 }

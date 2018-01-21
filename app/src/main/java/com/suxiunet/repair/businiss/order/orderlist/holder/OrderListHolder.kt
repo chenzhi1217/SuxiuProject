@@ -20,6 +20,17 @@ class OrderListHolder(parent: ViewGroup, resId: Int) : BasicHolder<OrderInfoEnti
         mBinding.presenter = mPresenter
     }
     override fun bindData(data: OrderInfoEntity?) {
+        //A:台式机 B：笔记本 C:服务器  D：其它
         mBinding.data = data
+        if (data != null) {
+            var machineMode = ""
+            when (mBinding.data.machineMode) {
+                "A" -> machineMode = "台式机"
+                "B" -> machineMode = "笔记本"
+                "C" -> machineMode = "服务器"
+                "D" -> machineMode = "其它"
+            }
+            mBinding.tvItemOrderEquitModel.text = machineMode
+        }
     }
 }

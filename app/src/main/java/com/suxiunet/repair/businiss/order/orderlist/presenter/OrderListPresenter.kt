@@ -29,7 +29,9 @@ class OrderListPresenter : BasicPresenter<OrderListContract.View, OrderListContr
     /**
      * 进入订单详情
      */
-    fun goOrderDetail() {
-        mActivity.startActivity(Intent(mActivity,OrderDetailActivity::class.java))
+    fun goOrderDetail(data: OrderInfoEntity) {
+        val intent = Intent(mActivity, OrderDetailActivity::class.java)
+        intent.putExtra(OrderDetailActivity.ORDER_INFO_KEY,data)
+        mActivity.startActivity(intent)
     }
 }

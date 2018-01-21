@@ -99,8 +99,8 @@ class UserInfoFragment: NomalFragment<UserInfoPresenter, FragUserInfoBinding>(),
             mBinding.tvUserNickName.text = userInfo?.loginName
             mBinding.tvUserPhone.text = userInfo?.loginId
             when(userInfo?.gender){
-                "1" -> mBinding.tvUserSex.text = "男"
-                "2" -> mBinding.tvUserSex.text = "女"
+                "0" -> mBinding.tvUserSex.text = "男"
+                "1" -> mBinding.tvUserSex.text = "女"
                 else -> mBinding.tvUserSex.text = "保密"
             }
         } catch (e: Exception) {

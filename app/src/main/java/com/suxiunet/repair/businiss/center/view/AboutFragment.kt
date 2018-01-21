@@ -1,5 +1,6 @@
 package com.suxiunet.repair.businiss.center.view
 
+import android.widget.TextView
 import com.suxiunet.repair.R
 import com.suxiunet.repair.base.baseui.NomalFragment
 import com.suxiunet.repair.businiss.center.contract.AboutContract

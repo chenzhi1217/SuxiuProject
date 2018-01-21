@@ -28,20 +28,56 @@ public class OrderInfoEntity extends BasicDataEntity {
      * 联系电话
      */
     private String contactTel;
+    /**
+     * 服务方式
+     */
     private String serviceMode;
+    /**
+     * 机器类型  台式，笔记本，服务器，其它
+     */
     private String machineMode;
+    /**
+     * 机器型号
+     */
     private String machineType;
     private String maintenancePlan;
     private String orderSource;
     private String maintenanceAmt;
     private String maintenanceMaster;
     private String warranty;
+    /**
+     * 预约时间
+     */
     private String appointmentTime;
     private String payType;
     private String creatTime;
     private String updateTime;
     private String status;
     private String protStatus;
+    /**
+     * 故障描述
+     */
+    private String faultDesc;
+    /**
+     * 师傅工号
+     */
+    private String masterId;
+
+    public String getMasterId() {
+        return masterId;
+    }
+
+    public void setMasterId(String masterId) {
+        this.masterId = masterId;
+    }
+
+    public String getFaultDesc() {
+        return faultDesc;
+    }
+
+    public void setFaultDesc(String faultDesc) {
+        this.faultDesc = faultDesc;
+    }
 
     public String getOrderNo() {
         return orderNo;

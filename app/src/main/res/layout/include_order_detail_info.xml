@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--订单详情-详细信息-->
+<layout>
+    <data>
+        <variable name="data"
+                  type="com.suxiunet.data.entity.order.OrderInfoEntity"/>
+    </data>
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/left_margin"
+        android:layout_marginRight="@dimen/right_margin"
+        android:background="@drawable/shape_corners_white"
+        android:orientation="vertical" tools:showIn="@layout/frag_order_detail">
+
+        <!--头部信息-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/left_margin"
+                    android:text="订单号："
+                    android:textColor="@color/color_black"
+                    android:textSize="16dp"/>
+                
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/left_margin"
+                    android:text="@{data.orderNo}"
+                    android:textColor="@color/color_black"
+                    android:textSize="16dp"/>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/left_margin"
+                android:layout_marginTop="5dp"
+                android:text="@{data.creatTime}"/>
+
+        </LinearLayout>
+
+        <include layout="@layout/include_common_line"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/bottom_margin">
+
+            <!--设备类型-->
+            <RelativeLayout
+                android:id="@+id/rl_order_detail_sblx"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/item_order_list_height">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/left_margin"
+                    android:text="设备类型"
+                    android:textColor="@color/color_text_2"
+                    android:textSize="@dimen/title_four"/>
+
+                <TextView
+                    android:id="@+id/tv_equit_sblx"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/right_margin"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:textColor="@color/color_text_2"
+                    android:textSize="@dimen/title_four"
+                    tools:text="台式机"/>
+
+
+            </RelativeLayout>
+
+            <!--设备型号-->
+            <RelativeLayout
+                android:id="@+id/rl_order_detail_sbxh"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/item_order_list_height">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/left_margin"
+                    android:text="设备型号"
+                    android:textColor="@color/color_text_2"
+                    android:textSize="@dimen/title_four"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/right_margin"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:textColor="@color/color_text_2"
+                    android:textSize="@dimen/title_four"
+                    android:text="@{data.machineType}"/>
+
+
+            </RelativeLayout>
+
+            <!--故障描述-->
+            <RelativeLayout
+                android:id="@+id/rl_order_detail_desc"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/item_order_list_height">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/left_margin"
+                    android:text="故障描述"
+                    android:textColor="@color/color_text_2"
+                    android:textSize="@dimen/title_four"/>
+
+                <TextView
+                    android:id="@+id/refund_record_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/right_margin"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="@{data.faultDesc}"
+                    android:textColor="@color/color_text_3"
+                    android:textSize="@dimen/title_four"/>
+
+
+            </RelativeLayout>
+
+            <!--维修工程师-->
+            <RelativeLayout
+                android:id="@+id/rl_order_detail_master_code"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/item_order_list_height">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/left_margin"
+                    android:text="工程师工号"
+                    android:textColor="@color/color_text_2"
+                    android:textSize="@dimen/title_four"/>
+
+                <TextView
+                    android:id="@+id/item_refund_record_pay_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/right_margin"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:textColor="@color/color_text_3"
+                    android:textSize="@dimen/title_four"
+                    tools:text="@{data.masterId}"/>
+
+
+            </RelativeLayout>
+
+            <!--维修金额-->
+            <RelativeLayout
+                android:id="@+id/rl_order_detail_price"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/item_order_list_height">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/left_margin"
+                    android:text="维修金额"
+                    android:textColor="@color/color_text_2"
+                    android:textSize="@dimen/title_four"/>
+
+                <TextView
+                    android:id="@+id/tv_order_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/right_margin"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    tools:text="￥588"
+                    android:textColor="@color/color_red"
+                    android:textSize="@dimen/title_four"/>
+
+            </RelativeLayout>
+
+            <include layout="@layout/include_common_line"/>
+
+            <!--支付按钮-->
+            <RelativeLayout
+                android:id="@+id/rl_order_detail_pay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/top_margin"
+                android:gravity="center_vertical">
+
+
+                <TextView
+                    android:id="@+id/tv_order_detail_pay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/right_margin"
+                    android:background="@drawable/shape_user_info_bt"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:paddingTop="5dp"
+                    android:text="立即支付"
+                    android:textColor="@color/color_white"
+                    android:textSize="@dimen/title_four"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+</layout>

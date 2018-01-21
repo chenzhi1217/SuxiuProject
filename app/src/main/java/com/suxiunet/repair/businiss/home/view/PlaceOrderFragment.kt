@@ -10,6 +10,7 @@ import android.widget.DatePicker
 import android.widget.RadioGroup
 import com.suxiunet.data.exception.ApiException
 import com.suxiunet.data.util.SpUtil
+import com.suxiunet.data.util.Utils
 import com.suxiunet.repair.R
 import com.suxiunet.repair.base.baseui.NomalFragment
 import com.suxiunet.repair.businiss.home.contract.PlaceOrderContract
@@ -42,7 +43,7 @@ class PlaceOrderFragment: NomalFragment<PlaceOrderPresenter,FragPlaceOrderBindin
     var mTimeDialog: Dialog?= null
 
     /**
-     * 定位成功
+     * 订单提交成功成功
      */
     override fun placeOrderSuccess() {
         ToastUtil.showToast("下单成功")
@@ -63,6 +64,8 @@ class PlaceOrderFragment: NomalFragment<PlaceOrderPresenter,FragPlaceOrderBindin
         stopAnima()
         mBinding.includeAddrInfo.etPlaceOrderAddr.setText(addr?:"")
         mBinding.includeAddrInfo.etPlaceOrderStreet.setText(street?:"")
+        Utils.setCursorLocationEnd(mBinding.includeAddrInfo.etPlaceOrderAddr)
+        Utils.setCursorLocationEnd(mBinding.includeAddrInfo.etPlaceOrderStreet)
     }
 
     /**
@@ -195,7 +198,7 @@ class PlaceOrderFragment: NomalFragment<PlaceOrderPresenter,FragPlaceOrderBindin
                 val describe = mBinding.etPlaceOrderDescribe.text.toString().trim()
                 
                 //提交订单信息   style A:上门  B：送修  C：其他
-                mPresenter?.placeOrder(company,name, phone, "2017-15-02", mServiceType,mEquipType, equipModel, addrs, street, describe)
+                mPresenter?.placeOrder(company,name, phone, time, mServiceType,mEquipType, equipModel, addrs, street, describe)
             }
             R.id.ll_location_again ->{
                 startAnima()

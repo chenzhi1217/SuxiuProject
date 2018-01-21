@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--订单详情-联系我们-->
+<layout>
+    <data>
+        <variable name="presenter"
+                  type="com.suxiunet.repair.businiss.order.orderlist.presenter.OrderDetailPresenter"/>
+    </data>
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/bottom_margin"
+        android:layout_marginLeft="@dimen/left_margin"
+        android:layout_marginRight="@dimen/right_margin"
+        android:layout_marginTop="@dimen/top_margin"
+        android:background="@drawable/shape_corners_white"
+        android:orientation="vertical"
+        
+        android:paddingTop="10dp" tools:showIn="@layout/frag_order_detail">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="联系我们"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:textColor="@color/theme_bg"
+            android:textSize="@dimen/title_three"/>
+
+        <include layout="@layout/include_common_line_mp"/>
+
+        <!--联系客服-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:onClick="@{() ->presenter.contactCustomerService()}"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp">
+
+            <ImageView
+                android:id="@+id/iv_qq_icon"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@mipmap/icon_contact"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/iv_qq_icon"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:text="开始聊天"
+                android:textColor="@color/color_text_1"
+                android:textSize="@dimen/title_four"/>
+
+        </RelativeLayout>
+
+        <include layout="@layout/include_common_line_mp"/>
+        
+        <!--联系师傅-->
+        <RelativeLayout
+            android:visibility="gone"
+            android:id="@+id/rl_contant_master"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:onClick="@{() ->presenter.contactMaster()}"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp">
+
+            <ImageView
+                android:id="@+id/iv_phone_icon"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@mipmap/icon_phone"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/iv_phone_icon"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:text="联系工程师"
+                android:textColor="@color/color_text_1"
+                android:textSize="@dimen/title_four"/>
+
+        </RelativeLayout>
+
+        
+
+        
+
+    </LinearLayout>
+</layout>

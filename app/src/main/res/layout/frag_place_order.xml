@@ -70,7 +70,7 @@
                 android:lines="3"
                 android:maxLength="50"
                 android:maxLines="3"
-                android:padding="15dp"
+                android:padding="10dp"
                 android:textColorHint="@color/color_hint"
                 android:textSize="@dimen/title_three"/>
             

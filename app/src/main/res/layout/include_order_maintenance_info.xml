@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--订单详情-维修信息-->
+<layout>
+    <data>
+        <variable name="data" 
+                  type="com.suxiunet.data.entity.order.OrderInfoEntity"/>
+    </data>
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/left_margin"
+        android:layout_marginRight="@dimen/right_margin"
+        android:layout_marginTop="@dimen/top_margin"
+        android:background="@drawable/shape_corners_white"
+        android:orientation="vertical" tools:showIn="@layout/frag_order_detail">
+
+        <!--头部信息-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/left_margin"
+                android:text="维修信息"
+                android:textColor="@color/color_black"
+                android:textSize="16dp"/>
+
+
+        </LinearLayout>
+
+        <include layout="@layout/include_common_line"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/bottom_margin">
+            <!---->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/item_order_list_height">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/left_margin"
+                    android:text="联系人"
+                    android:textColor="@color/color_text_2"
+                    android:textSize="@dimen/title_four"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/right_margin"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="@{data.contacts}"
+                    android:textColor="@color/color_text_2"
+                    android:textSize="@dimen/title_four"/>
+
+
+            </RelativeLayout>
+
+            <!--维修工程师-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/item_order_list_height">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/left_margin"
+                    android:text="联系电话"
+                    android:textColor="@color/color_text_2"
+                    android:textSize="@dimen/title_four"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/right_margin"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="@{data.contactTel}"
+                    android:textColor="@color/color_text_3"
+                    android:textSize="@dimen/title_four"/>
+
+
+            </RelativeLayout>
+
+            <!--维修工程师-->
+            <RelativeLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/item_order_list_height">
+
+                <TextView
+                    android:id="@+id/tv_addr_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/left_margin"
+                    android:text="服务地址"
+                    android:textColor="@color/color_text_2"
+                    android:textSize="@dimen/title_four"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/left_margin"
+                    android:layout_marginRight="@dimen/right_margin"
+                    android:layout_toRightOf="@+id/tv_addr_title"
+                    android:ellipsize="end"
+                    android:gravity="right"
+                    android:maxLines="1"
+                    android:text="@{data.companyAdr}"
+                    android:textColor="@color/color_text_3"
+                    android:textSize="@dimen/title_four"/>
+
+
+            </RelativeLayout>
+
+
+            <!--下单时间-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/item_order_list_height">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/left_margin"
+                    android:text="下单时间"
+                    android:textColor="@color/color_text_2"
+                    android:textSize="@dimen/title_four"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/right_margin"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="@{data.creatTime}"
+                    android:textColor="@color/color_text_3"
+                    android:textSize="@dimen/title_four"/>
+
+
+            </RelativeLayout>
+
+            <!--还款状态-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/item_order_list_height">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/left_margin"
+                    android:text="预约时间"
+                    android:textColor="@color/color_text_2"
+                    android:textSize="@dimen/title_four"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/right_margin"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="@{data.appointmentTime}"
+                    android:textColor="@color/color_text_3"
+                    android:textSize="@dimen/title_four"/>
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+    </LinearLayout>
+</layout>

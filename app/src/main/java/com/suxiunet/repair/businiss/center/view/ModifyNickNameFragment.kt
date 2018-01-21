@@ -6,6 +6,8 @@ import android.view.MenuItem
 import com.suxiunet.data.entity.user.UserInfoEntity
 import com.suxiunet.data.exception.ApiException
 import com.suxiunet.data.util.CacheUtil
+import com.suxiunet.data.util.SpUtil
+import com.suxiunet.data.util.Utils
 import com.suxiunet.repair.R
 import com.suxiunet.repair.base.baseui.NomalFragment
 import com.suxiunet.repair.businiss.center.contract.ModifyNickNameContract
@@ -23,6 +25,10 @@ import okhttp3.Cache
 class ModifyNickNameFragment: NomalFragment<ModifyNickNamePresenter, FragModifyNickNameBinding>(),ModifyNickNameContract.View {
 
     override fun initView() {
+        //初始化数据展示
+        val userInfo = CacheUtil.getInstance().getCacheData(CacheUtil.USER_INFO, UserInfoEntity::class.java)
+        mBinding.etModifyNickName.setText(userInfo.loginName)
+        Utils.setCursorLocationEnd(mBinding.etModifyNickName)
     }
 
     /**

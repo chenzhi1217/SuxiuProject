@@ -31,6 +31,13 @@ class ModifySexFragment: NomalFragment<ModifySexPresenter, FragModifySexBinding>
         images.add(mBinding.ivModifySexMen)
         images.add(mBinding.ivModifySexWomen)
         images.add(mBinding.ivModifySexSecret)
+        //初始化性别数据展示
+        val userInfo = CacheUtil.getInstance().getCacheData(CacheUtil.USER_INFO, UserInfoEntity::class.java)
+        when (userInfo.gender) {
+            "0" -> checkIndex = 0
+            "1" -> checkIndex = 1
+            else -> checkIndex = 2
+        }
         initCheckState()
     }
 

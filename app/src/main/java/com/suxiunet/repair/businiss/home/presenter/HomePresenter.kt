@@ -8,6 +8,7 @@ import com.suxiunet.repair.base.BasicPresenter
 import com.suxiunet.repair.businiss.center.view.LoginActivity
 import com.suxiunet.repair.businiss.home.contract.HomeContract
 import com.suxiunet.repair.businiss.home.view.PlaceOrderActivity
+import com.suxiunet.repair.util.ToastUtil
 
 /**
  * author : chenzhi
@@ -28,5 +29,5 @@ class HomePresenter : BasicPresenter<HomeContract.View, HomeContract.Model> {
             mActivity.startActivity(Intent(mActivity,PlaceOrderActivity::class.java))
         }
     }
-    
+
 }
