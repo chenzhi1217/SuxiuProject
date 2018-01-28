@@ -118,6 +118,7 @@
 
                 <!--一键下单-->
                 <LinearLayout
+                    android:visibility="gone"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -142,12 +143,14 @@
                 </LinearLayout>
 
                 <View android:layout_width="1dp"
+                      android:visibility="gone"
                       android:layout_height="match_parent"
                       android:background="@color/color_line"/>
 
 
                 <!--联系客服-->
                 <LinearLayout
+                    android:visibility="gone"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -176,9 +179,11 @@
 
             <View android:layout_width="match_parent"
                   android:layout_height="1dp"
+                  android:visibility="gone"
                   android:background="@color/color_line"/>
 
             <LinearLayout
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:orientation="horizontal">

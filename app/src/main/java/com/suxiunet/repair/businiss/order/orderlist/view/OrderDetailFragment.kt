@@ -1,6 +1,10 @@
 package com.suxiunet.repair.businiss.order.orderlist.view
 
+import android.annotation.SuppressLint
+import android.os.Handler
+import android.os.Message
 import android.view.View
+import com.alipay.sdk.app.PayTask
 import com.suxiunet.data.entity.order.OrderInfoEntity
 import com.suxiunet.repair.R
 import com.suxiunet.repair.base.baseui.NomalFragment
@@ -8,6 +12,13 @@ import com.suxiunet.repair.businiss.order.orderlist.contract.OrderDetailContract
 import com.suxiunet.repair.businiss.order.orderlist.model.OrderDetailModel
 import com.suxiunet.repair.businiss.order.orderlist.presenter.OrderDetailPresenter
 import com.suxiunet.repair.databinding.FragOrderDetailBinding
+import android.widget.Toast
+import android.text.TextUtils
+import com.suxiunet.data.entity.order.OrderSignEntity
+import com.suxiunet.data.exception.ApiException
+import com.suxiunet.repair.ali.PayResult
+import com.suxiunet.repair.util.ToastUtil
+
 
 /**
  * author : chenzhi
@@ -15,6 +26,36 @@ import com.suxiunet.repair.databinding.FragOrderDetailBinding
  * desc   : 订单详情
  */
 class OrderDetailFragment: NomalFragment<OrderDetailPresenter,FragOrderDetailBinding>(),OrderDetailContract.View{
+    
+    private var mHandler = @SuppressLint("HandlerLeak")
+    object : Handler() {
+        override fun handleMessage(msg: Message?) {
+            super.handleMessage(msg)
+            when (msg?.what) {
+                SDK_PAY_FLAG -> {
+                    val payResult = PayResult(msg?.obj as Map<String, String>)
+                    /**
+                     * 对于支付结果，请商户依赖服务端的异步通知结果。同步通知结果，仅作为支付结束的通知。
+                     */
+                    val resultInfo = payResult.getResult()// 同步返回需要验证的信息
+                    val resultStatus = payResult.getResultStatus()
+                    // 判断resultStatus 为9000则代表支付成功
+                    if (TextUtils.equals(resultStatus, "9000")) {
+                        // 该笔订单是否真实支付成功，需要依赖服务端的异步通知。
+                        Toast.makeText(activity, "支付成功", Toast.LENGTH_SHORT).show()
+                    } else {
+                        // 该笔订单真实的支付结果，需要依赖服务端的异步通知。
+                        Toast.makeText(activity, "支付失败", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
+        }
+    }
+    
+    companion object {
+        val SDK_PAY_FLAG = 100
+    }
+    
     var mOrderInfo: OrderInfoEntity? = null
     override fun initView() {
         //拿到订单详情数据
@@ -23,6 +64,14 @@ class OrderDetailFragment: NomalFragment<OrderDetailPresenter,FragOrderDetailBin
         mBinding.data = mOrderInfo
         initData(mOrderInfo)
         initLayout(mOrderInfo?.status)
+        
+        //设置支付点击事件的监听
+        mBinding.includeOrderDetailInfo.tvOrderDetailPay.setOnClickListener {
+            if (mOrderInfo != null) {
+                val orderNo = mOrderInfo!!.orderNo
+                mPresenter?.getOrderSign(orderNo,"0.01","维修费用","显示器问题")
+            }
+        }
     }
 
     private fun initData(orderInfo: OrderInfoEntity?) {
@@ -57,8 +106,12 @@ class OrderDetailFragment: NomalFragment<OrderDetailPresenter,FragOrderDetailBin
                 mBinding.includeOrderDetailContactUs.rlContantMaster.visibility = View.VISIBLE
             }
             //待付款，已完成  设备类型、设备型号、故障描述、工程师编号、维修金额
-            "C","D" -> {
+            "C" -> {
                 
+            }
+
+            "D" ->{
+                mBinding.includeOrderDetailInfo.rlOrderDetailPay.visibility = View.GONE
             }
         }
     }
@@ -69,5 +122,39 @@ class OrderDetailFragment: NomalFragment<OrderDetailPresenter,FragOrderDetailBin
 
     override fun getContentLayoutId(): Int {
         return R.layout.frag_order_detail
+    }
+
+    /**
+     * 调起支付宝支付
+     */
+    fun payByAli(orderInfo: String) {
+        val runnable = Runnable {
+            val alipay = PayTask(activity)
+            var result = alipay.payV2(orderInfo, true)
+            
+            var msg = Message()
+            msg.what = SDK_PAY_FLAG
+            msg.obj = result
+        }
+
+        val payThread = Thread(runnable)
+        payThread.start()
+    }
+
+    /**
+     * 获取验签成功
+     */
+    override fun getSignSuccess(data: OrderSignEntity?) {
+//        ToastUtil.showToast("验签成功")
+        if (data != null) {
+            payByAli(data.body)
+        }
+    }
+
+    /**
+     * 获取验签失败
+     */
+    override fun getSignError(e: ApiException?) {
+        ToastUtil.showToast("验签失败")
     }
 }

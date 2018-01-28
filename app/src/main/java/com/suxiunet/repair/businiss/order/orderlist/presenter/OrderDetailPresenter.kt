@@ -4,9 +4,14 @@ import android.app.Activity
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.net.Uri
+import com.suxiunet.data.entity.order.OrderSignEntity
+import com.suxiunet.data.exception.ApiException
 import com.suxiunet.repair.base.BasicPresenter
+import com.suxiunet.repair.base.BasicProxy
 import com.suxiunet.repair.base.Constant
 import com.suxiunet.repair.businiss.order.orderlist.contract.OrderDetailContract
+import com.suxiunet.repair.businiss.order.orderlist.proxy.OrderSignProxy
+import com.suxiunet.repair.businiss.order.orderlist.request.OrderSignRequest
 import com.suxiunet.repair.util.ToastUtil
 
 /**
@@ -14,14 +19,20 @@ import com.suxiunet.repair.util.ToastUtil
  * time   : 2018/01/09
  * desc   : 订单详情
  */
-class OrderDetailPresenter(activity: Activity, view: OrderDetailContract.View, model: OrderDetailContract.Model) : BasicPresenter<OrderDetailContract.View, OrderDetailContract.Model>(activity, view, model) {
-    
+class OrderDetailPresenter : BasicPresenter<OrderDetailContract.View, OrderDetailContract.Model> {
+    var mProxy: OrderSignProxy
+    var mRequest: OrderSignRequest
+    constructor(activity: Activity, view: OrderDetailContract.View, model: OrderDetailContract.Model):super(activity, view, model){
+        mProxy = OrderSignProxy(mActivity)
+        mRequest = OrderSignRequest()
+    }
+
     /**
      * 联系客服
      */
     fun contactCustomerService() {
         try {
-            val url = "mqqwpa://im/chat?chat_type=wpa&uin="+ Constant.companyQQ+""
+            val url = "mqqwpa://im/chat?chat_type=wpa&uin=" + Constant.companyQQ + ""
             mActivity.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
         } catch (e: ActivityNotFoundException) {
             ToastUtil.showToast("您还没有安装手机QQ")
@@ -32,7 +43,28 @@ class OrderDetailPresenter(activity: Activity, view: OrderDetailContract.View, m
      * 联系工程师
      */
     fun contactMaster() {
-        val intent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:"+Constant.companyPhone+""))
+        val intent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + Constant.companyPhone + ""))
         mActivity.startActivity(intent)
+    }
+
+    /**
+     * 从后台获取订单验签
+     */
+    fun getOrderSign(orderNo: String,total: String,body: String,subject: String) {
+        mProxy.setCallBack(object : BasicProxy.ProxyCallBack<OrderSignRequest, OrderSignEntity>{
+            override fun onLoadSuccess(req: OrderSignRequest?, type: BasicProxy.ProxyType, data: OrderSignEntity?) {
+                mView.getSignSuccess(data)
+            }
+
+            override fun onLoadError(req: OrderSignRequest?, type: BasicProxy.ProxyType, e: ApiException?) {
+                mView.getSignError(e)
+            }
+        })
+        mRequest.orderNo = orderNo
+        mRequest.total_amount = total
+        mRequest.body = body
+        mRequest.subject = subject
+        
+        mProxy.request(mRequest,BasicProxy.ProxyType.REFRESH_DATA)
     }
 }

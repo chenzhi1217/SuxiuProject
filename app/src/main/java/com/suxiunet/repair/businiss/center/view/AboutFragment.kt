@@ -14,9 +14,7 @@ import com.suxiunet.repair.databinding.FragAboutBinding
  * desc   : 关于我们
  */
 class AboutFragment: NomalFragment<AboutPresenter, FragAboutBinding>(),AboutContract.View {
-    override fun initView() {
-    }
-
+    override fun initView() = Unit
     override fun getPresenter(): AboutPresenter? {
         return AboutPresenter(activity,this,AboutModel())
     }

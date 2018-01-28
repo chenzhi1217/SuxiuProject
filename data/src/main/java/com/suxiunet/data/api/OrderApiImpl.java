@@ -5,6 +5,7 @@ import android.content.Context;
 import com.suxiunet.data.entity.base.ApiResponse;
 import com.suxiunet.data.entity.order.OrderInfoEntity;
 import com.suxiunet.data.entity.order.OrderListEntity;
+import com.suxiunet.data.entity.order.OrderSignEntity;
 import com.suxiunet.data.factory.RetrofitFactory;
 
 import java.util.List;
@@ -27,5 +28,18 @@ public class OrderApiImpl implements OrderApi {
     @Override
     public Observable<ApiResponse<OrderListEntity>> getOrderList(String loginId, String status) {
         return mApi.getOrderList(loginId,status);
+    }
+
+    /**
+     * 
+     * @param orderNo
+     * @param total_amount
+     * @param body
+     * @param subject
+     * @return
+     */
+    @Override
+    public Observable<ApiResponse<OrderSignEntity>> getAliPayOrderInfo(String orderNo, String total_amount, String body, String subject) {
+        return mApi.getAliPayOrderInfo(orderNo,total_amount,body,subject);
     }
 }

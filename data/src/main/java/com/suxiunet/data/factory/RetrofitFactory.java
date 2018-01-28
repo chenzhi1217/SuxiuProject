@@ -34,7 +34,7 @@ public class RetrofitFactory {
                 .addConverterFactory(GsonConverterFactory.create())
                 .addConverterFactory(ScalarsConverterFactory.create())
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-                .baseUrl("http://119.28.52.119:8080/")
+                .baseUrl("http://119.28.52.119:80/")
                 .build();
         return retrofit.create(clazz);
     }

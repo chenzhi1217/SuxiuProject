@@ -1,5 +1,7 @@
 package com.suxiunet.data.intercepter;
 
+import com.suxiunet.data.exception.ApiException;
+
 import java.io.IOException;
 
 import okhttp3.Interceptor;
@@ -25,7 +27,7 @@ public class LogInterceptor implements Interceptor {
 //        LogUtils.i(request.toString());
 //        LogUtils.json(content);
         
-        /*if (response.code() != 200) {
+        /*if (response.code() != 000) {
             throw new ApiException(response.message(), response.code());
         }*/
         

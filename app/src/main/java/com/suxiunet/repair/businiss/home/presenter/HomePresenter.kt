@@ -8,7 +8,7 @@ import com.suxiunet.repair.base.BasicPresenter
 import com.suxiunet.repair.businiss.center.view.LoginActivity
 import com.suxiunet.repair.businiss.home.contract.HomeContract
 import com.suxiunet.repair.businiss.home.view.PlaceOrderActivity
-import com.suxiunet.repair.util.ToastUtil
+import org.jetbrains.anko.startActivity
 
 /**
  * author : chenzhi
@@ -24,10 +24,10 @@ class HomePresenter : BasicPresenter<HomeContract.View, HomeContract.Model> {
     fun placeOrder() {
         val token = SpUtil.getString(mActivity, SpUtil.TOKEN_KEY, "")
         if (TextUtils.isEmpty(token)) {
-            mActivity.startActivity(Intent(mActivity,LoginActivity::class.java))
+//            mActivity.startActivity(Intent(mActivity,LoginActivity::class.java))
+            mActivity.startActivity<LoginActivity>()
         } else {
             mActivity.startActivity(Intent(mActivity,PlaceOrderActivity::class.java))
         }
     }
-
 }
