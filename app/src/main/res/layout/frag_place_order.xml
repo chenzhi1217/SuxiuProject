@@ -50,9 +50,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/color_line"
-                android:paddingBottom="5dp"
+                android:paddingBottom="10dp"
                 android:paddingLeft="15dp"
-                android:paddingTop="5dp"
+                android:paddingTop="10dp"
                 android:text="故障描述"
                 android:textColor="@color/color_text_1"
                 android:textSize="@dimen/title_three"/>

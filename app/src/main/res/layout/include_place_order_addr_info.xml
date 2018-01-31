@@ -11,10 +11,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/color_line"
-            android:paddingBottom="5dp"
+            android:paddingBottom="10dp"
             android:paddingLeft="15dp"
             android:paddingRight="10dp"
-            android:paddingTop="5dp">
+            android:paddingTop="10dp">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -50,30 +50,54 @@
 
         </RelativeLayout>
         <!--地址-->
-        <EditText
-            android:id="@+id/et_place_order_addr"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@null"
-            android:gravity="start"
-            android:hint="省、市、区"
-            android:maxLines="2"
-            android:padding="15dp"
-            android:textColorHint="@color/color_hint"
-            android:textSize="@dimen/title_three"/>
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="15dp"
+                android:text="省市区："
+                android:textColor="@color/color_text_1"/>
+            <EditText
+                android:id="@+id/et_place_order_addr"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:gravity="start"
+                android:hint="省、市、区"
+                android:maxLines="2"
+                android:padding="15dp"
+                android:textColorHint="@color/color_hint"
+                android:textSize="@dimen/title_three"/>
+        </LinearLayout>
         <include layout="@layout/include_common_line"/>
-        <EditText
-            android:id="@+id/et_place_order_street"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@null"
-            android:gravity="start"
-            android:hint="详细地址"
-            android:lines="2"
-            android:maxLines="2"
-            android:padding="15dp"
-            android:textColorHint="@color/color_hint"
-            android:textSize="@dimen/title_three"/>
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="15dp"
+                android:text="街道："
+                android:textColor="@color/color_text_1"/>
+            <EditText
+                android:id="@+id/et_place_order_street"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:gravity="start"
+                android:hint="详细地址"
+                android:lines="2"
+                android:maxLines="2"
+                android:padding="15dp"
+                android:textColorHint="@color/color_hint"
+                android:textSize="@dimen/title_three"/>
+        </LinearLayout>
         <include layout="@layout/include_common_line"/>
     </LinearLayout>
 </layout>

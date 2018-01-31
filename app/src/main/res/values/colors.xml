@@ -11,7 +11,7 @@
     <color name="color_gray">#999999</color>
     <!--<color name="color_hint">#d4d4d4</color>-->
     <color name="color_hint">#c3c3c3</color>
-    <color name="color_line">#F0F0F0</color>
+    <color name="color_line">#f0eff5</color>
     <!--水波纹的颜色-->
     <color name="color_list_item_click_bg">#2000</color>
     

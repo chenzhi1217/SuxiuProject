@@ -11,64 +11,112 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/color_line"
-            android:paddingBottom="5dp"
+            android:paddingBottom="10dp"
             android:paddingLeft="15dp"
-            android:paddingTop="5dp"
+            android:paddingTop="10dp"
             android:text="基本信息"
             android:textColor="@color/color_text_1"
             android:textSize="@dimen/title_three"/>
 
-        <!--姓名-->
-        <EditText
-            android:id="@+id/et_place_company_name"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@null"
-            android:hint="请输入单位名称，个人可不填写"
-            android:maxLines="1"
-            android:padding="15dp"
-            android:textColorHint="@color/color_hint"
-            android:textSize="@dimen/title_three"/>
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="15dp"
+                android:textColor="@color/color_text_1"
+                android:text="单位："/>
+            <!--单位-->
+            <EditText
+                android:id="@+id/et_place_company_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:hint="请输入单位名称，个人可不填写"
+                android:maxLines="1"
+                android:padding="15dp"
+                android:textColorHint="@color/color_hint"
+                android:textSize="@dimen/title_three"/>
+        </LinearLayout>
         <include layout="@layout/include_common_line"/>
 
         <!--姓名-->
-        <EditText
-            android:id="@+id/et_place_order_name"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@null"
-            android:hint="请输入姓名"
-            android:maxLines="1"
-            android:padding="15dp"
-            android:textColorHint="@color/color_hint"
-            android:textSize="@dimen/title_three"/>
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="15dp"
+                android:textColor="@color/color_text_1"
+                android:text="姓名："/>
+            <EditText
+                android:id="@+id/et_place_order_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:hint="请输入姓名"
+                android:maxLines="1"
+                android:padding="15dp"
+                android:textColorHint="@color/color_hint"
+                android:textSize="@dimen/title_three"/>
+        </LinearLayout>
         <include layout="@layout/include_common_line"/>
 
         <!--手机号-->
-        <EditText
-            android:id="@+id/et_place_order_phone"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@null"
-            android:hint="请输入能联系到您的手机号"
-            android:inputType="phone"
-            android:maxLines="1"
-            android:padding="15dp"
-            android:textColorHint="@color/color_hint"
-            android:textSize="@dimen/title_three"/>
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="15dp"
+                android:textColor="@color/color_text_1"
+                android:text="手机："/>
+            <EditText
+                android:id="@+id/et_place_order_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:hint="请输入能联系到您的手机号"
+                android:inputType="phone"
+                android:maxLines="1"
+                android:padding="15dp"
+                android:textColorHint="@color/color_hint"
+                android:textSize="@dimen/title_three"/>
+        </LinearLayout>
         <include layout="@layout/include_common_line"/>
 
         <!--预约维修时间-->
-        <TextView
-            android:id="@+id/et_place_order_time"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="请选择预约上门时间"
-            android:maxLines="1"
-            android:padding="15dp"
-            android:textColorHint="@color/color_hint"
-            android:textColor="@color/color_text_1"
-            android:textSize="@dimen/title_three"/>
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="15dp"
+                android:textColor="@color/color_text_1"
+                android:text="预约："/>
+            <TextView
+                android:id="@+id/et_place_order_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="请选择预约上门时间"
+                android:maxLines="1"
+                android:padding="15dp"
+                android:textColor="@color/color_text_1"
+                android:textColorHint="@color/color_hint"
+                android:textSize="@dimen/title_three"/>
+        </LinearLayout>
         <include layout="@layout/include_common_line"/>
 
         <!--维修方式-->
