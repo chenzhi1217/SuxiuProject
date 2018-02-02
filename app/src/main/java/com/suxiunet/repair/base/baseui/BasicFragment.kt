@@ -92,7 +92,7 @@ abstract class BasicFragment<REQUEST : BasicRequest, PRESENT: IPresenter, DATA, 
     /**
      * 加载初始化数据
      */
-    private fun initLoadData() {
+    open fun initLoadData() {
         showLoadingView()
         if (!mDataProxy.isLoading()) {
             mDataProxy.request(getRequestData(), BasicProxy.ProxyType.LOAD_DATA)

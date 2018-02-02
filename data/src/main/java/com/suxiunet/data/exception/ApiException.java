@@ -52,6 +52,10 @@ public class ApiException extends RuntimeException {
         this.displayCode = code;
     }
 
+    public int getDisplayCode() {
+        return this.displayCode;
+    }
+
     public String getDisplayMessage() {
         return displayMessage;
     }

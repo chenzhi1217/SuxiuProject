@@ -3,9 +3,16 @@ package com.suxiunet.data.api;
 import com.suxiunet.data.entity.base.ApiResponse;
 import com.suxiunet.data.entity.user.UserInfoEntity;
 
+import java.util.Map;
+
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.Part;
+import retrofit2.http.PartMap;
 import rx.Observable;
 
 /**
@@ -31,8 +38,9 @@ public interface UserApi {
      * 退出登录
      * @return
      */
+    @FormUrlEncoded
     @POST("dnwx/app/user/loginout")
-    Observable<ApiResponse<Object>> quitLogin();
+    Observable<ApiResponse<Object>> quitLogin(@Field("loginId") String loginId,@Field("loginType") String loginType);
 
     /**
      * 意见返回
@@ -77,5 +85,23 @@ public interface UserApi {
     @FormUrlEncoded
     @POST("dnwx/app/order/order")
     Observable<ApiResponse<Object>> placeOrder(@Field("loginId") String loginId,@Field("company") String company,@Field("contacts") String contacts, @Field("contactTel") String contactTel, @Field("appointmentTime") String appointmentTime, @Field("serviceMode") String serviceMode, @Field("machineMode") String machineMode,@Field("machineType") String machineType, @Field("companyAdr") String companyAdr,@Field("faultDesc") String faultDesc);
+
+    /**
+     * 获取短信验证码
+     * @param mobile 电话号码
+     * @param smsMode 短信的类型
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("dnwx/app/sms/sendSms")
+    Observable<ApiResponse<Object>> sendSms(@Field("mobile") String mobile, @Field("smsMode") String smsMode);
+
+    /**
+     * 上传头像
+     * @return
+     */
+    @Multipart
+    @POST("/dnwx/app/userPic/changeHeadPortrait")
+    Observable<ApiResponse<Object>> upLoadImage(@PartMap Map<String,RequestBody> descMap, @Part MultipartBody.Part file);
     
 }

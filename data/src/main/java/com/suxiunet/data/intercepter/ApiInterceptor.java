@@ -76,7 +76,7 @@ public class ApiInterceptor implements Interceptor {
         info.put("device-name", getDeviceName());
         info.put("X-user-id", "6");*/
         String token = SpUtil.getString(DatasConstant.mApplication, SpUtil.TOKEN_KEY, "");
-        info.put("token", token);
+        info.put("TOKEN", token);
         return info;
     }
 

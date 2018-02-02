@@ -74,7 +74,9 @@
         <!--修改昵称-->
         <activity android:name=".businiss.center.view.ModifyNickNameActivity"/>
         <!--登录-->
-        <activity android:name=".businiss.center.view.LoginActivity"/>
+        <activity android:name=".businiss.center.view.LoginActivity"
+            android:launchMode="singleTask">
+        </activity>
         <!--修改性别-->
         <activity android:name=".businiss.center.view.ModifySexActivity"/>
         <!--用户反馈-->

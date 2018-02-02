@@ -14,6 +14,8 @@ interface LoginContract {
     interface View: IView{
         fun loginSuccess(data: UserInfoEntity?)
         fun loginError(e: ApiException?)
+        fun getVeriCodeSucess()
+        fun getVeriCodeError(e: ApiException?)
     }
     interface Model: IModel
 }

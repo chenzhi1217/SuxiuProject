@@ -19,6 +19,9 @@ import com.suxiunet.repair.businiss.order.orderlist.presenter.OrderListPresenter
 import com.suxiunet.repair.businiss.order.orderlist.proxy.OrderListProxy
 import com.suxiunet.repair.businiss.order.orderlist.request.OrderListRequest
 import com.suxiunet.repair.businiss.request.HomeRequest
+import com.suxiunet.repair.evententity.OrderEventEntity
+import com.suxiunet.repair.plugin.RxBus
+import rx.android.schedulers.AndroidSchedulers
 
 /**
  * author : chenzhi
@@ -43,7 +46,19 @@ class OrderListFragment() : BasicRecyclerViewFragment<OrderListRequest, OrderLis
         val loginId = SpUtil.getString(context, SpUtil.LOGIN_ID_KEY, "")
         mRequest.loginId = loginId
         mRequest.status = mCurStatus
+        initEvent()
+    }
 
+    /**
+     * 注册RxBus监听
+     */
+    private fun initEvent() {
+        RxBus.toObservable(OrderEventEntity::class.java)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe{
+                    //刷新页面
+                    initLoadData()
+                }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

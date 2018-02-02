@@ -1,6 +1,8 @@
 package com.suxiunet.repair.businiss.center.request
 
 import com.suxiunet.repair.base.BasicRequest
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 
 /**
  * author : chenzhi
@@ -19,4 +21,9 @@ class UserInfoRequest : BasicRequest() {
     var gender: String = ""
     
     var loginId: String = ""
+    
+    var file: MultipartBody.Part? = null
+    
+    var map: Map<String, RequestBody>? = null
+    
 }

@@ -81,7 +81,6 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
                 android:layout_marginLeft="15dp"
                 android:text="街道："
                 android:textColor="@color/color_text_1"/>

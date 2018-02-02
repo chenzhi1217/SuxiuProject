@@ -24,7 +24,7 @@ class OrderListProxy: RefreshProxy<OrderListRequest, OrderListEntity> {
     }
 
     override fun getObservable(request: OrderListRequest): Observable<OrderListEntity> {
-        return mOrderApiImpl.getOrderList(request.loginId,request.status)
+        return mOrderApiImpl.getOrderList(request.loginId,request.status,"C")
                 .map(object : Func1<ApiResponse<OrderListEntity>,OrderListEntity>{
                     override fun call(t: ApiResponse<OrderListEntity>?): OrderListEntity {
                         return t?.retData?:OrderListEntity()

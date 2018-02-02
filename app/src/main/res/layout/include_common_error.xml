@@ -24,6 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="30dp"
+            android:text="网络异常，点击重新加载"
             android:textColor="@color/color_text_1"/>
         
     </LinearLayout>

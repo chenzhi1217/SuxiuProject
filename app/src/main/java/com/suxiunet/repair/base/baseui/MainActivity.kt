@@ -12,6 +12,10 @@ import com.suxiunet.repair.businiss.center.view.CenterFragment
 import com.suxiunet.repair.businiss.home.view.HomeFragment
 import com.suxiunet.repair.businiss.order.orderhome.view.OrderHomeFragment
 import com.suxiunet.repair.databinding.ActMainBinding
+import com.suxiunet.repair.evententity.OrderEventEntity
+import com.suxiunet.repair.plugin.RxBus
+import com.suxiunet.repair.util.ToastUtil
+import rx.android.schedulers.AndroidSchedulers
 import java.util.*
 
 class MainActivity : AppCompatActivity() {

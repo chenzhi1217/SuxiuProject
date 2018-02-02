@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+    <android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_white">
+
+        <ImageView
+            android:id="@+id/iv_line"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/color_line"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <ImageView
+            android:id="@+id/iv_news"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginBottom="@dimen/bottom_margin"
+            android:layout_marginLeft="@dimen/left_margin"
+            android:layout_marginTop="10dp"
+            android:background="@color/color_red"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/textView"
+            app:layout_constraintLeft_toLeftOf="parent" 
+            app:layout_constraintTop_toBottomOf="@id/iv_line"/>
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginLeft="@dimen/left_margin"
+            android:layout_marginRight="@dimen/right_margin"
+            android:ellipsize="end"
+            android:maxLines="3"
+            android:text="埃里克森房间爱丽丝开发框架爱时空裂缝as登录的开发就埃里克森地方阿什顿发考试时间法拉盛地方"
+            app:layout_constraintBottom_toBottomOf="@id/iv_news"
+            app:layout_constraintLeft_toRightOf="@id/iv_news"
+            app:layout_constraintRight_toLeftOf="@id/iv_go"
+            app:layout_constraintTop_toTopOf="@id/iv_news"/>
+
+        <ImageView
+            android:id="@+id/iv_go"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginRight="@dimen/right_margin"
+            android:src="@mipmap/icon_arrow_right"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

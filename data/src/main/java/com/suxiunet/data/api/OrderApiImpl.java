@@ -25,9 +25,16 @@ public class OrderApiImpl implements OrderApi {
         mApi = RetrofitFactory.creat(OrderApi.class, context);
     }
 
+    /**
+     * 
+     * @param loginId
+     * @param status
+     * @param loginType
+     * @return
+     */
     @Override
-    public Observable<ApiResponse<OrderListEntity>> getOrderList(String loginId, String status) {
-        return mApi.getOrderList(loginId,status);
+    public Observable<ApiResponse<OrderListEntity>> getOrderList(String loginId, String status,String loginType) {
+        return mApi.getOrderList(loginId,status,loginType);
     }
 
     /**

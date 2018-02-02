@@ -3,6 +3,7 @@ package com.suxiunet.data.factory;
 import android.content.Context;
 import android.support.annotation.NonNull;
 
+import com.google.gson.Gson;
 import com.suxiunet.data.intercepter.ApiInterceptor;
 import com.suxiunet.data.intercepter.LogInterceptor;
 
@@ -31,6 +32,7 @@ public class RetrofitFactory {
     
         Retrofit retrofit = new Retrofit.Builder()
                 .client(client)
+                .addConverterFactory(ResponseConverterFactory.create(new Gson()))
                 .addConverterFactory(GsonConverterFactory.create())
                 .addConverterFactory(ScalarsConverterFactory.create())
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())

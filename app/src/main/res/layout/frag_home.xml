@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
-        <variable name="presenter" 
+        <variable name="presenter"
                   type="com.suxiunet.repair.businiss.home.presenter.HomePresenter"/>
     </data>
     <ScrollView
@@ -44,21 +44,44 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
+                android:layout_height="50dp">
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/shape_point_theme"
+                    android:layout_marginLeft="@dimen/left_margin"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/left_margin"
+                    android:text="服务产品"
+                    android:textColor="@color/color_text_1"
+                    android:textSize="@dimen/title_three"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+            <include layout="@layout/common_line_march"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:orientation="horizontal">
-
                 <!--一键下单-->
-
-
-                <!--联系客服-->
                 <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:gravity="center"
                     android:onClick="@{() ->presenter.placeOrder()}"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="?android:attr/selectableItemBackground"
-                    android:clickable="true"
-                    android:gravity="center">
+                    android:orientation="vertical">
 
                     <ImageView
                         android:layout_width="60dp"
@@ -69,24 +92,46 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:layout_marginLeft="@dimen/left_margin"
                         android:text="一键下单"
                         android:textColor="@color/color_text_1"
                         android:textSize="@dimen/title_three"/>
 
                 </LinearLayout>
 
-                <View android:layout_width="1dp"
-                      android:layout_height="match_parent"
-                      android:background="@color/color_line"/>
-
+                <!--官方网站-->
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="?android:attr/selectableItemBackground"
                     android:clickable="true"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:src="@mipmap/ic_home_daily_sign"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="官方网站"
+                        android:textColor="@color/color_text_1"
+                        android:textSize="@dimen/title_three"/>
+
+                </LinearLayout>
+
+                <!--客服热线-->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:orientation="vertical">
 
                     <ImageView
                         android:layout_width="60dp"
@@ -97,7 +142,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:layout_marginLeft="@dimen/left_margin"
                         android:text="联系客服"
                         android:textColor="@color/color_text_1"
                         android:textSize="@dimen/title_three"/>
@@ -106,144 +150,34 @@
 
 
             </LinearLayout>
+            
+            <include layout="@layout/incluce_common_line_rude"/>
 
-            <View android:layout_width="match_parent"
-                  android:layout_height="1dp"
-                  android:background="@color/color_line"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:orientation="horizontal">
+                android:layout_height="50dp">
 
-                <!--一键下单-->
-                <LinearLayout
-                    android:visibility="gone"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="?android:attr/selectableItemBackground"
-                    android:clickable="true"
-                    android:gravity="center">
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/shape_point_theme"
+                    android:layout_marginLeft="@dimen/left_margin"/>
 
-                    <ImageView
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:src="@mipmap/ic_home_daily_mission"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="@dimen/left_margin"
-                        android:text="一键下单"
-                        android:textColor="@color/color_text_1"
-                        android:textSize="@dimen/title_three"/>
-
-                </LinearLayout>
-
-                <View android:layout_width="1dp"
-                      android:visibility="gone"
-                      android:layout_height="match_parent"
-                      android:background="@color/color_line"/>
-
-
-                <!--联系客服-->
-                <LinearLayout
-                    android:visibility="gone"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="?android:attr/selectableItemBackground"
-                    android:clickable="true"
-                    android:gravity="center">
-
-                    <ImageView
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:src="@mipmap/ic_home_daily_sign"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="@dimen/left_margin"
-                        android:text="联系客服"
-                        android:textColor="@color/color_text_1"
-                        android:textSize="@dimen/title_three"/>
-
-                </LinearLayout>
-
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/left_margin"
+                    android:text="最新资讯"
+                    android:textColor="@color/color_text_1"
+                    android:textSize="@dimen/title_three"
+                    android:textStyle="bold"/>
 
             </LinearLayout>
 
-            <View android:layout_width="match_parent"
-                  android:layout_height="1dp"
-                  android:visibility="gone"
-                  android:background="@color/color_line"/>
-
-            <LinearLayout
-                android:visibility="gone"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:orientation="horizontal">
-
-                <!--一键下单-->
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="?android:attr/selectableItemBackground"
-                    android:clickable="true"
-                    android:gravity="center">
-
-                    <ImageView
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:src="@mipmap/ic_home_daily_mission"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="@dimen/left_margin"
-                        android:text="一键下单"
-                        android:textColor="@color/color_text_1"
-                        android:textSize="@dimen/title_three"/>
-
-                </LinearLayout>
-
-                <View android:layout_width="1dp"
-                      android:layout_height="match_parent"
-                      android:background="@color/color_line"/>
-
-                <!--联系客服-->
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="?android:attr/selectableItemBackground"
-                    android:clickable="true"
-                    android:gravity="center">
-
-                    <ImageView
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:src="@mipmap/ic_home_daily_sign"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="@dimen/left_margin"
-                        android:text="联系客服"
-                        android:textColor="@color/color_text_1"
-                        android:textSize="@dimen/title_three"/>
-
-                </LinearLayout>
-
-
-            </LinearLayout>
+            <include layout="@layout/common_line_march"/>
 
         </LinearLayout>
     </ScrollView>

@@ -2,15 +2,23 @@ package com.suxiunet.data.util;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.Environment;
 import android.support.annotation.DrawableRes;
 import android.text.Selection;
 import android.text.Spannable;
 import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.RadioButton;
+
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 /**
  * author : chenzhi
@@ -71,5 +79,33 @@ public class Utils {
             Spannable spanText = (Spannable) text;
             Selection.setSelection(spanText, text.length());
         }
+    }
+
+    /**
+     * 将Bitmap转换成File
+     */
+    public static File bitmap2File(Bitmap bitmap, File directory, String name) {
+        File descFile = null;
+        BufferedOutputStream bos = null;
+        String externalStorageState = Environment.getExternalStorageState();
+        if (!externalStorageState.equals(Environment.MEDIA_MOUNTED)) {
+            return null;
+        }
+        try {
+            descFile = new File(Environment.getExternalStorageDirectory(), "head.jpg");
+            bos = new BufferedOutputStream(new FileOutputStream(descFile));
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, bos);
+            try {
+                bos.flush();
+                if (bos != null) {
+                    bos.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        return descFile;
     }
 }

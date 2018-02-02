@@ -8,9 +8,10 @@ import com.suxiunet.repair.base.BasicRequest
  * desc   :
  */
 class LoginRequest : BasicRequest() {
+ 
     private var loginName = ""
     private var checkCode = ""
-
+    
     fun setLoginName(loginName: String) {
         this.loginName = loginName
     }

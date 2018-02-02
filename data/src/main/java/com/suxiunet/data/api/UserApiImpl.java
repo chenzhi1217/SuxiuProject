@@ -6,6 +6,10 @@ import com.suxiunet.data.entity.base.ApiResponse;
 import com.suxiunet.data.entity.user.UserInfoEntity;
 import com.suxiunet.data.factory.RetrofitFactory;
 
+import java.util.Map;
+
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import rx.Observable;
 
 /**
@@ -35,11 +39,13 @@ public class UserApiImpl implements UserApi {
 
     /**
      * 退出登录
+     * @param loginId 登录id
+     * @param loginType 用户类型
      * @return
      */
     @Override
-    public Observable<ApiResponse<Object>> quitLogin() {
-        return mApi.quitLogin();
+    public Observable<ApiResponse<Object>> quitLogin(String loginId, String loginType) {
+        return mApi.quitLogin(loginId,loginType);
     }
 
     /**
@@ -87,5 +93,24 @@ public class UserApiImpl implements UserApi {
     public Observable<ApiResponse<Object>> placeOrder(String loginId,String company,String contacts, String contactTel, String appointmentTime, String serviceMode,String machineMode, String machineType, String companyAdr,String desc) {
         return mApi.placeOrder(loginId,company,contacts,contactTel,appointmentTime,serviceMode,machineMode,machineType,companyAdr,desc);
     }
-    
+
+    /**
+     * 
+     * @param mobile 电话号码
+     * @param smsMode 短信的类型
+     * @return
+     */
+    @Override
+    public Observable<ApiResponse<Object>> sendSms(String mobile, String smsMode) {
+        return mApi.sendSms(mobile,smsMode);
+    }
+
+    /**
+     * 上传头像
+     */
+    @Override
+    public Observable<ApiResponse<Object>> upLoadImage(Map<String,RequestBody> descMap, MultipartBody.Part file) {
+        return mApi.upLoadImage(descMap,file);
+    }
+
 }
