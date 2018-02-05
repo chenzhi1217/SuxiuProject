@@ -35,5 +35,5 @@ public interface OrderApi {
      */
     @FormUrlEncoded
     @POST("dnwx/app/pay/alipay")
-    Observable<ApiResponse<OrderSignEntity>> getAliPayOrderInfo(@Field("orderNo") String orderNo, @Field("total_amount") String total_amount, @Field("body") String body, @Field("subject") String subject);
+    Observable<ApiResponse<OrderSignEntity>> getAliPayOrderInfo(@Field("loginId") String loginId,@Field("orderNo") String orderNo, @Field("total_amount") String total_amount, @Field("body") String body, @Field("subject") String subject);
 }

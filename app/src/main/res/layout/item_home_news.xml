@@ -21,10 +21,9 @@
             android:layout_marginBottom="@dimen/bottom_margin"
             android:layout_marginLeft="@dimen/left_margin"
             android:layout_marginTop="10dp"
-            android:background="@color/color_red"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/textView"
-            app:layout_constraintLeft_toLeftOf="parent" 
+            app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/iv_line"/>
 
         <TextView
@@ -35,7 +34,7 @@
             android:layout_marginRight="@dimen/right_margin"
             android:ellipsize="end"
             android:maxLines="3"
-            android:text="埃里克森房间爱丽丝开发框架爱时空裂缝as登录的开发就埃里克森地方阿什顿发考试时间法拉盛地方"
+            android:text="cup温度居高不下，反复重启，你有没有遇到过？让我们带你去了解内幕吧"
             app:layout_constraintBottom_toBottomOf="@id/iv_news"
             app:layout_constraintLeft_toRightOf="@id/iv_news"
             app:layout_constraintRight_toLeftOf="@id/iv_go"
@@ -43,8 +42,8 @@
 
         <ImageView
             android:id="@+id/iv_go"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
             android:layout_marginRight="@dimen/right_margin"
             android:src="@mipmap/icon_arrow_right"
             app:layout_constraintBottom_toBottomOf="parent"

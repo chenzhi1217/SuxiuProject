@@ -12,6 +12,7 @@ import com.suxiunet.repair.base.BasicPresenter
 import com.suxiunet.repair.base.Constant
 import com.suxiunet.repair.businiss.center.contract.CenterContract
 import com.suxiunet.repair.businiss.center.view.*
+import com.suxiunet.repair.businiss.order.orderlist.view.OrderActivity
 
 /**
  * author : chenzhi
@@ -68,6 +69,26 @@ class CenterPresenter(activity: Activity, view: CenterContract.View, model: Cent
         } catch (e: ActivityNotFoundException) {
             ToastUtil.showToast("您还没有安装手机QQ")
         }
+    }
+
+    /**
+     * 跳转到待付款订单页面
+     */
+    fun goWaitPayOrder() {
+        var intent = Intent(mActivity, OrderActivity::class.java)
+        intent.putExtra("title","待付款订单")
+        intent.putExtra("type","A")
+        mActivity.startActivity(intent)
+    }
+
+    /**
+     * 跳转到已完成订单页面
+     */
+    fun goCompanyOrder() {
+        var intent = Intent(mActivity, OrderActivity::class.java)
+        intent.putExtra("title","已完成订单")
+        intent.putExtra("type","D")
+        mActivity.startActivity(intent)
     }
 
 }

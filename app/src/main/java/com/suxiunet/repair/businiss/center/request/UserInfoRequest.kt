@@ -24,6 +24,6 @@ class UserInfoRequest : BasicRequest() {
     
     var file: MultipartBody.Part? = null
     
-    var map: Map<String, RequestBody>? = null
+    var map: Map<String, String>? = null
     
 }

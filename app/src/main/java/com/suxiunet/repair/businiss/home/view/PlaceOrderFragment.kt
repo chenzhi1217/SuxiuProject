@@ -1,6 +1,7 @@
 package com.suxiunet.repair.businiss.home.view
 
 import android.app.Dialog
+import android.content.Intent
 import android.databinding.DataBindingUtil
 import android.view.LayoutInflater
 import android.view.View
@@ -16,6 +17,7 @@ import com.suxiunet.repair.base.baseui.NomalFragment
 import com.suxiunet.repair.businiss.home.contract.PlaceOrderContract
 import com.suxiunet.repair.businiss.home.model.PlaceOrderModel
 import com.suxiunet.repair.businiss.home.presenter.PlaceOrderPresenter
+import com.suxiunet.repair.businiss.order.orderlist.view.OrderActivity
 import com.suxiunet.repair.databinding.DialogRepairStyleBinding
 import com.suxiunet.repair.databinding.DialogTimeBinding
 import com.suxiunet.repair.databinding.FragPlaceOrderBinding
@@ -47,6 +49,10 @@ class PlaceOrderFragment: NomalFragment<PlaceOrderPresenter,FragPlaceOrderBindin
      */
     override fun placeOrderSuccess() {
         ToastUtil.showToast("下单成功")
+        var intent = Intent(activity, OrderActivity::class.java)
+        intent.putExtra("title","待付款订单")
+        intent.putExtra("type","A")
+        activity.startActivity(intent)
         activity.finish()
     }
 

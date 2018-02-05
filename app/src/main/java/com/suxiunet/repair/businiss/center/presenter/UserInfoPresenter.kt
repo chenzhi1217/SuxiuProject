@@ -108,9 +108,9 @@ class UserInfoPresenter : BasicPresenter<UserInfoContract.View, UserInfoContract
         val loginIdDesc = RequestBody.create(MediaType.parse("multipart/form-data"), loginId)
         val loginTypeDesc = RequestBody.create(MediaType.parse("multipart/form-data"), "C")
 
-        val desMap = HashMap<String, RequestBody>()
-        desMap.put("loginId", loginIdDesc)
-        desMap.put("loginType", loginTypeDesc)
+        val desMap = HashMap<String, String>()
+        desMap.put("loginId", loginId)
+        desMap.put("loginType", "C")
         
         mUserInfoRequest.map = desMap
         mUserInfoRequest.file = body

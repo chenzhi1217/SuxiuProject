@@ -20,7 +20,7 @@ class SuggestionsProxy: RefreshProxy<SuggestionsRequest,Any>{
     }
     
     override fun getObservable(request: SuggestionsRequest): Observable<Any> {
-        return mUserApiImpl.submitSuggestions(request.suggestions,request.loginId)
+        return mUserApiImpl.submitSuggestions("C",request.suggestions,request.loginId)
                 .map(object : Func1<ApiResponse<Any>,Any>{
                     override fun call(t: ApiResponse<Any>?): Any {
                         return t?.retData?:Any()

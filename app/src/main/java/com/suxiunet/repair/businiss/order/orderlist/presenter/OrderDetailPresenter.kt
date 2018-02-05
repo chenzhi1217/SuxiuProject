@@ -6,6 +6,7 @@ import android.content.Intent
 import android.net.Uri
 import com.suxiunet.data.entity.order.OrderSignEntity
 import com.suxiunet.data.exception.ApiException
+import com.suxiunet.data.util.SpUtil
 import com.suxiunet.repair.base.BasicPresenter
 import com.suxiunet.repair.base.BasicProxy
 import com.suxiunet.repair.base.Constant
@@ -60,6 +61,8 @@ class OrderDetailPresenter : BasicPresenter<OrderDetailContract.View, OrderDetai
                 mView.getSignError(e)
             }
         })
+        val loginId = SpUtil.getString(mActivity, SpUtil.LOGIN_ID_KEY, "")
+        mRequest.loginId = loginId
         mRequest.orderNo = orderNo
         mRequest.total_amount = total
         mRequest.body = body

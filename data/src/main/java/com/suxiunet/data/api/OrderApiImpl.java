@@ -46,7 +46,7 @@ public class OrderApiImpl implements OrderApi {
      * @return
      */
     @Override
-    public Observable<ApiResponse<OrderSignEntity>> getAliPayOrderInfo(String orderNo, String total_amount, String body, String subject) {
-        return mApi.getAliPayOrderInfo(orderNo,total_amount,body,subject);
+    public Observable<ApiResponse<OrderSignEntity>> getAliPayOrderInfo(String loginId,String orderNo, String total_amount, String body, String subject) {
+        return mApi.getAliPayOrderInfo(loginId,orderNo,total_amount,body,subject);
     }
 }

@@ -10,6 +10,10 @@ import com.suxiunet.repair.base.BasicRequest
  */
 class OrderSignRequest : BasicRequest() {
     /**
+     * 登录id
+     */
+    var loginId = ""
+    /**
      * 订单号
      */
     var orderNo = ""

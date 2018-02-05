@@ -21,7 +21,7 @@ class OrderSignProxy : RefreshProxy<OrderSignRequest, OrderSignEntity> {
         mApiImpl = OrderApiImpl(context)
     }
     override fun getObservable(request: OrderSignRequest): Observable<OrderSignEntity> {
-        return mApiImpl.getAliPayOrderInfo(request.orderNo,request.total_amount,request.body,request.subject)
+        return mApiImpl.getAliPayOrderInfo(request.loginId,request.orderNo,request.total_amount,request.body,request.subject)
                 .map {
                     it.retData
                 }

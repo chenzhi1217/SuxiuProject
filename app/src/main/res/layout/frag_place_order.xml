@@ -31,7 +31,7 @@
             </RelativeLayout>
 
             <!--基本信息-->
-            <include 
+            <include
                 android:id="@+id/include_basic_info"
                 layout="@layout/include_place_order_baisc_info"/>
 

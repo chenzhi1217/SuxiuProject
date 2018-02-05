@@ -10,7 +10,7 @@ class Constant {
         /**
          * 公司电话
          */
-        val companyPhone = "18226189030"
+        val companyPhone = "4008-213-267"
         /**
          * 公司QQ
          */

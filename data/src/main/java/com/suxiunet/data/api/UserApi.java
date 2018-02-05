@@ -6,13 +6,12 @@ import com.suxiunet.data.entity.user.UserInfoEntity;
 import java.util.Map;
 
 import okhttp3.MultipartBody;
-import okhttp3.RequestBody;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
-import retrofit2.http.PartMap;
+import retrofit2.http.QueryMap;
 import rx.Observable;
 
 /**
@@ -51,7 +50,7 @@ public interface UserApi {
      */
     @FormUrlEncoded
     @POST("dnwx/app/user/suggestions")
-    Observable<ApiResponse<Object>> submitSuggestions(@Field("suggestions") String suggestions, @Field("loginId") String loginId);
+    Observable<ApiResponse<Object>> submitSuggestions(@Field("loginType") String loginType,@Field("suggestions") String suggestions, @Field("loginId") String loginId);
 
     /**
      * 修改昵称
@@ -102,6 +101,6 @@ public interface UserApi {
      */
     @Multipart
     @POST("/dnwx/app/userPic/changeHeadPortrait")
-    Observable<ApiResponse<Object>> upLoadImage(@PartMap Map<String,RequestBody> descMap, @Part MultipartBody.Part file);
+    Observable<ApiResponse<Object>> upLoadImage(@QueryMap Map<String,String> descMap, @Part MultipartBody.Part file);
     
 }

@@ -88,6 +88,8 @@
             android:windowSoftInputMode="stateHidden|stateUnchanged"/>
         <!--一键下单-->
         <activity android:name=".businiss.home.view.PlaceOrderActivity"/>
+        <!--订单列表页面-->
+        <activity android:name=".businiss.order.orderlist.view.OrderActivity"/>
     </application>
 
 </manifest>

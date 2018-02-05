@@ -11,14 +11,12 @@ import com.suxiunet.repair.base.BasicHolder
 import com.suxiunet.repair.base.RefreshProxy
 import com.suxiunet.repair.base.adapter.BaseRecyclerViewAdapter
 import com.suxiunet.repair.base.baseui.BasicRecyclerViewFragment
-import com.suxiunet.repair.businiss.home.proxy.HomeProxy
 import com.suxiunet.repair.businiss.order.orderlist.contract.OrderListContract
 import com.suxiunet.repair.businiss.order.orderlist.holder.OrderListHolder
 import com.suxiunet.repair.businiss.order.orderlist.model.OrderListModel
 import com.suxiunet.repair.businiss.order.orderlist.presenter.OrderListPresenter
 import com.suxiunet.repair.businiss.order.orderlist.proxy.OrderListProxy
 import com.suxiunet.repair.businiss.order.orderlist.request.OrderListRequest
-import com.suxiunet.repair.businiss.request.HomeRequest
 import com.suxiunet.repair.evententity.OrderEventEntity
 import com.suxiunet.repair.plugin.RxBus
 import rx.android.schedulers.AndroidSchedulers

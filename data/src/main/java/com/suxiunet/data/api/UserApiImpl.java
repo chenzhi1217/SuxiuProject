@@ -5,11 +5,8 @@ import android.content.Context;
 import com.suxiunet.data.entity.base.ApiResponse;
 import com.suxiunet.data.entity.user.UserInfoEntity;
 import com.suxiunet.data.factory.RetrofitFactory;
-
 import java.util.Map;
-
 import okhttp3.MultipartBody;
-import okhttp3.RequestBody;
 import rx.Observable;
 
 /**
@@ -55,8 +52,8 @@ public class UserApiImpl implements UserApi {
      * @return
      */
     @Override
-    public Observable<ApiResponse<Object>> submitSuggestions(String suggestions, String loginId) {
-        return mApi.submitSuggestions(suggestions,loginId);
+    public Observable<ApiResponse<Object>> submitSuggestions(String loginType,String suggestions, String loginId) {
+        return mApi.submitSuggestions(loginType,suggestions,loginId);
     }
 
     /**
@@ -109,7 +106,7 @@ public class UserApiImpl implements UserApi {
      * 上传头像
      */
     @Override
-    public Observable<ApiResponse<Object>> upLoadImage(Map<String,RequestBody> descMap, MultipartBody.Part file) {
+    public Observable<ApiResponse<Object>> upLoadImage(Map<String,String> descMap, MultipartBody.Part file) {
         return mApi.upLoadImage(descMap,file);
     }
 
