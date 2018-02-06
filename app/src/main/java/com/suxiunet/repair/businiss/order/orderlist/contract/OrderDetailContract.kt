@@ -14,6 +14,9 @@ interface OrderDetailContract {
     interface View: IView{
         fun getSignSuccess(data: OrderSignEntity?)
         fun getSignError(e: ApiException?)
+
+        fun payByAli()
+        fun payByWeixin()
     }
     interface Model: IModel
 }

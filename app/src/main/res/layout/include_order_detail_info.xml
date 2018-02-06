@@ -4,6 +4,8 @@
     <data>
         <variable name="data"
                   type="com.suxiunet.data.entity.order.OrderInfoEntity"/>
+        <variable name="presenter"
+                  type="com.suxiunet.repair.businiss.order.orderlist.presenter.OrderDetailPresenter"/>
     </data>
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -223,6 +225,7 @@
 
 
                 <TextView
+                    android:onClick="@{() ->presenter.choosePayType()}"
                     android:id="@+id/tv_order_detail_pay"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

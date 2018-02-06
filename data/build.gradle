@@ -50,4 +50,6 @@ dependencies {
     /*高德定位功能*/
     compile 'com.amap.api:location:3.6.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    //权限申请
+    compile 'com.tbruyelle.rxpermissions:rxpermissions:0.9.4@aar'
 }

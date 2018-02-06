@@ -89,7 +89,7 @@ class UserInfoFragment : NomalFragment<UserInfoPresenter, FragUserInfoBinding>()
                 //修改昵称的回调
                 REQUEST_MODIFY_NICK_NAME_CODE
                 -> {
-
+                    
                 }
             }
         }

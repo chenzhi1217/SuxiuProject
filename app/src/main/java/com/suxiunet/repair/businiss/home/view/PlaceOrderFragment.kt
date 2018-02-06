@@ -3,6 +3,7 @@ package com.suxiunet.repair.businiss.home.view
 import android.app.Dialog
 import android.content.Intent
 import android.databinding.DataBindingUtil
+import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
 import android.view.animation.Animation
@@ -23,6 +24,9 @@ import com.suxiunet.repair.databinding.DialogTimeBinding
 import com.suxiunet.repair.databinding.FragPlaceOrderBinding
 import com.suxiunet.repair.util.DialogUtils
 import com.suxiunet.repair.util.ToastUtil
+import com.tbruyelle.rxpermissions.Permission
+import com.tbruyelle.rxpermissions.RxPermissions
+import rx.Subscriber
 import java.util.*
 
 /**
@@ -35,6 +39,9 @@ class PlaceOrderFragment: NomalFragment<PlaceOrderPresenter,FragPlaceOrderBindin
     var mServiceType = "A" //A: 上门  B：送修 C：其它
     //地图图标的旋转动画
     lateinit var mAnima: Animation
+
+    var isCoarseGranted = false
+    var isFineGranted = false
     
     //机器类型的参数
     lateinit var mEquipTypeBinding: DialogRepairStyleBinding
@@ -89,9 +96,12 @@ class PlaceOrderFragment: NomalFragment<PlaceOrderPresenter,FragPlaceOrderBindin
     override fun initView() {
         //初始化动画
         mAnima = AnimationUtils.loadAnimation(context,R.anim.rotate_anim)
-        //调起定位功能
-        startAnima()
-        mPresenter?.startLocation()
+        //检测定位权限
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            checkLocationPermission()
+        } else {
+            initLocation()
+        }
         //点击下单按钮
         mBinding.btPlaceOrder.setOnClickListener(this)
         //重新定位
@@ -207,9 +217,42 @@ class PlaceOrderFragment: NomalFragment<PlaceOrderPresenter,FragPlaceOrderBindin
                 mPresenter?.placeOrder(company,name, phone, time, mServiceType,mEquipType, equipModel, addrs, street, describe)
             }
             R.id.ll_location_again ->{
-                startAnima()
-                mPresenter?.startLocation()
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    checkLocationPermission()
+                } else {
+                    initLocation()
+                }
             }
         }
+    }
+
+    /**
+     * 对定位权限检测
+     */
+    private fun checkLocationPermission() {
+        RxPermissions(activity).requestEach(
+                android.Manifest.permission.ACCESS_COARSE_LOCATION,
+                android.Manifest.permission.ACCESS_FINE_LOCATION
+        ).subscribe{ permission ->
+            if (permission.name == android.Manifest.permission.ACCESS_COARSE_LOCATION) {
+                isCoarseGranted = permission.granted
+            }
+            if (permission.name == android.Manifest.permission.ACCESS_FINE_LOCATION) {
+                isFineGranted = permission.granted
+            }
+            if (isCoarseGranted && isFineGranted) {
+                //开启定位功能
+                initLocation()
+            }
+        }
+    }
+
+
+    /**
+     * 调起定位功能
+     */
+    private fun initLocation() {
+        startAnima()
+        mPresenter?.startLocation()
     }
 }

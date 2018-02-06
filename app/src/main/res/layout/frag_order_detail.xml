@@ -28,6 +28,7 @@
             <include 
                 android:id="@+id/include_order_detail_info"
                 layout="@layout/include_order_detail_info"
+                app:presenter="@{presenter}"
                 app:data="@{data}"/>
 
             <!--维修信息-->

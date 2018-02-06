@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
         mFragments.add(centerFragment)
         
         supportFragmentManager.beginTransaction().add(R.id.main_framlayout,homeFragment).show(homeFragment).commit()
-        changeTitle("速修电脑")
+        changeTitle("快修")
     }
 
     private fun initView() {
@@ -85,7 +85,7 @@ class MainActivity : AppCompatActivity() {
 
     fun showHomeTitle() {
         mBinding?.llToolbarMain?.visibility = View.VISIBLE
-        changeTitle("速修电脑")
+        changeTitle("快修")
     }
 
     fun showOrderTitle() {

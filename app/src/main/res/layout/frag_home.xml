@@ -87,9 +87,9 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:layout_width="35dp"
-                        android:layout_height="35dp"
-                        android:src="@mipmap/icon_place_order"/>
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@mipmap/icon_speed_up"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -115,7 +115,7 @@
                     <ImageView
                         android:layout_width="35dp"
                         android:layout_height="35dp"
-                        android:src="@mipmap/icon_website"/>
+                        android:src="@mipmap/icon_hardware_up"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -141,14 +141,14 @@
                     <ImageView
                         android:layout_width="35dp"
                         android:layout_height="35dp"
-                        android:src="@mipmap/icon_contact_red"/>
+                        android:src="@mipmap/icon_home_clear"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:layout_marginTop="5dp"
-                        android:text="硬件清理"
+                        android:text="电脑清理"
                         android:textColor="@color/color_text_1"
                         android:textSize="@dimen/title_three"/>
 
@@ -156,6 +156,7 @@
                 
                 <!--客服热线-->
                 <LinearLayout
+                    android:visibility="visible"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -167,14 +168,14 @@
                     <ImageView
                         android:layout_width="35dp"
                         android:layout_height="35dp"
-                        android:src="@mipmap/icon_contact_red"/>
+                        android:src="@mipmap/icon_home_net"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:layout_marginTop="5dp"
-                        android:text="硬件清理"
+                        android:text="网络调试"
                         android:textColor="@color/color_text_1"
                         android:textSize="@dimen/title_three"/>
 
@@ -218,6 +219,7 @@
                 <!--免费咨询-->
                 <LinearLayout
                     android:onClick="@{() ->presenter.showCallDialog()}"
+                    android:background="?android:attr/selectableItemBackground"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -244,9 +246,10 @@
                     android:layout_height="match_parent"
                     android:background="@color/color_line"/>
 
-                <!--免费咨询-->
+                <!--数据恢复-->
                 <LinearLayout
                     android:onClick="@{() ->presenter.placeOrder()}"
+                    android:background="?android:attr/selectableItemBackground"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -256,13 +259,13 @@
                     <ImageView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:src="@mipmap/icon_home_book"/>
+                        android:src="@mipmap/icon_home_restore"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/top_margin"
-                        android:text="MacBook维修"
+                        android:text="电脑数据恢复"
                         android:textColor="@color/color_text_1"
                         android:textSize="@dimen/title_three"/>
 
@@ -278,6 +281,8 @@
                 android:layout_height="@dimen/home_item_height">
                 <!--window装系统-->
                 <LinearLayout
+                    android:onClick="@{() ->presenter.placeOrder()}"
+                    android:background="?android:attr/selectableItemBackground"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -306,6 +311,8 @@
 
                 <!--苹果装系统-->
                 <LinearLayout
+                    android:onClick="@{() ->presenter.placeOrder()}"
+                    android:background="?android:attr/selectableItemBackground"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -337,6 +344,8 @@
                 android:layout_height="@dimen/home_item_height">
                 <!--硬件维修-->
                 <LinearLayout
+                    android:onClick="@{() ->presenter.placeOrder()}"
+                    android:background="?android:attr/selectableItemBackground"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -346,13 +355,13 @@
                     <ImageView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:src="@mipmap/icon_home_repair"/>
+                        android:src="@mipmap/icon_home_coputer"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/top_margin"
-                        android:text="硬件维修"
+                        android:text="台式机维修"
                         android:textColor="@color/color_text_1"
                         android:textSize="@dimen/title_three"/>
 
@@ -363,8 +372,10 @@
                     android:layout_height="match_parent"
                     android:background="@color/color_line"/>
 
-                <!--数据恢复-->
+                <!--免费咨询-->
                 <LinearLayout
+                    android:onClick="@{() ->presenter.placeOrder()}"
+                    android:background="?android:attr/selectableItemBackground"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -374,13 +385,13 @@
                     <ImageView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:src="@mipmap/icon_home_restore"/>
+                        android:src="@mipmap/icon_home_book"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/top_margin"
-                        android:text="数据恢复"
+                        android:text="笔记本维修"
                         android:textColor="@color/color_text_1"
                         android:textSize="@dimen/title_three"/>
 

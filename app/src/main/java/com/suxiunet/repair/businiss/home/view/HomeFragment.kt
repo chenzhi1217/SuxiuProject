@@ -30,6 +30,7 @@ class HomeFragment : BasicFragment<HomeRequest, HomePresenter, Any, FragHomeBind
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        //设置轮播图
         setLunboData()
         setActivityData()
         //设置动画
@@ -66,8 +67,7 @@ class HomeFragment : BasicFragment<HomeRequest, HomePresenter, Any, FragHomeBind
      */
     fun setLunboData() {
         var images: ArrayList<String> = ArrayList()
-        images.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1515572537680&di=827c5986c6ecc778ed7ac8a65f0e0139&imgtype=0&src=http%3A%2F%2Fpic.90sjimg.com%2Fback_pic%2F00%2F00%2F69%2F40%2F9ecb5c0b6dd4471000559917b2c56d58.jpg")
-        images.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1515562245761&di=f0528f7502f46366496a4168fc1d5cbe&imgtype=0&src=http%3A%2F%2Fpic.90sjimg.com%2Fback_pic%2Fqk%2Fback_origin_pic%2F00%2F03%2F48%2F3847e4a7a58e5644768bdc34a0f09148.jpg")
+        images.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1517892853316&di=3dde0fe1c4fd43bb22aa8e6e7288e986&imgtype=0&src=http%3A%2F%2Fpic90.huitu.com%2Fres%2F20161119%2F732704_20161119114417229020_1.jpg")
         images.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1515572537680&di=12c10b2ac43a5194107a105ae2235cae&imgtype=0&src=http%3A%2F%2Fpic.90sjimg.com%2Fback_pic%2Fqk%2Fback_origin_pic%2F00%2F01%2F42%2F3c4a16697485ff3717379118de096f7e.jpg")
         mBinding.vphFragHome.setImageResource(images)
         mBinding.vphFragHome.show()

@@ -2,4 +2,13 @@
     <string name="app_name">速修电脑</string>
     
     <string name="data_is_empty">暂时没有数据</string>
+    
+    <!--OrderDetailFragment-->
+    <string name="desktop">台式机</string>
+    <string name="notebook">笔记本</string>
+    <string name="server">服务器</string>
+    <string name="other">其它</string>
+    <string name="pay_sucess">支付成功</string>
+    <string name="pay_error">支付失败</string>
+    <string name="signature_error">验签失败</string>
 </resources>
