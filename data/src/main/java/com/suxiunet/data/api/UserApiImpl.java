@@ -106,7 +106,7 @@ public class UserApiImpl implements UserApi {
      * 上传头像
      */
     @Override
-    public Observable<ApiResponse<Object>> upLoadImage(Map<String,String> descMap, MultipartBody.Part file) {
+    public Observable<ApiResponse<UserInfoEntity>> upLoadImage(Map<String,String> descMap, MultipartBody.Part file) {
         return mApi.upLoadImage(descMap,file);
     }
 

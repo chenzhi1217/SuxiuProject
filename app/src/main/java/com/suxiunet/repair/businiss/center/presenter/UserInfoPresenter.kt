@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.provider.MediaStore
 import android.support.v4.app.Fragment
+import com.suxiunet.data.entity.user.UserInfoEntity
 import com.suxiunet.data.exception.ApiException
 import com.suxiunet.data.util.SpUtil
 import com.suxiunet.repair.base.BasicPresenter
@@ -90,9 +91,10 @@ class UserInfoPresenter : BasicPresenter<UserInfoContract.View, UserInfoContract
      * 上传头像
      */
     fun upLoadImage(file: File) {
-        mUpLoadProxy.setCallBack(object :BasicProxy.ProxyCallBack<UserInfoRequest,Any>{
-            override fun onLoadSuccess(req: UserInfoRequest?, type: BasicProxy.ProxyType, data: Any?) {
+        mUpLoadProxy.setCallBack(object :BasicProxy.ProxyCallBack<UserInfoRequest, UserInfoEntity>{
+            override fun onLoadSuccess(req: UserInfoRequest?, type: BasicProxy.ProxyType, data: UserInfoEntity?) {
                 ToastUtil.showToast("上传成功")
+                mView.imageLoadSuccess(data?.image?:"")
             }
 
             override fun onLoadError(req: UserInfoRequest?, type: BasicProxy.ProxyType, e: ApiException?) {
@@ -101,7 +103,7 @@ class UserInfoPresenter : BasicPresenter<UserInfoContract.View, UserInfoContract
 
         })
         val loginId = SpUtil.getString(mActivity, SpUtil.LOGIN_ID_KEY, "")
-        
+
         var requestFile = RequestBody.create(MediaType.parse("multipart/form-data"), file)
         val body = MultipartBody.Part.createFormData("image", file.name, requestFile)
 

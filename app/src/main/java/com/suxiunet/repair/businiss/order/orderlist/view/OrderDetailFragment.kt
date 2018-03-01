@@ -43,6 +43,7 @@ class OrderDetailFragment: NomalFragment<OrderDetailPresenter,FragOrderDetailBin
                     if (TextUtils.equals(resultStatus, "9000")) {
                         // 该笔订单是否真实支付成功，需要依赖服务端的异步通知。
                         Toast.makeText(activity, getString(R.string.pay_sucess), Toast.LENGTH_SHORT).show()
+                        //TODO 开启轮询接口，拿服务端的支付结果
                     } else {
                         // 该笔订单真实的支付结果，需要依赖服务端的异步通知。
                         Toast.makeText(activity, getString(R.string.pay_error), Toast.LENGTH_SHORT).show()
@@ -69,6 +70,9 @@ class OrderDetailFragment: NomalFragment<OrderDetailPresenter,FragOrderDetailBin
         mOrderInfo = (activity as OrderDetailActivity).getOrderInfo()
         mBinding.presenter = mPresenter
         mBinding.data = mOrderInfo
+        //维修金额
+        mBinding.includeOrderDetailInfo.tvOrderPrice.text = "￥" + mOrderInfo?.getMaintenanceAmt()
+        
         initData(mOrderInfo)
         initLayout(mOrderInfo?.status)
     }
@@ -162,19 +166,19 @@ class OrderDetailFragment: NomalFragment<OrderDetailPresenter,FragOrderDetailBin
      */
     private fun initLayout(status: String?) {
         when (status) {
-        //待接单，已取消  设备类型、设备型号、故障描述
+            //待接单，已取消  设备类型、设备型号、故障描述
             "A","E" -> {
                 mBinding.includeOrderDetailInfo.rlOrderDetailMasterCode.visibility = View.GONE
                 mBinding.includeOrderDetailInfo.rlOrderDetailPrice.visibility = View.GONE
                 mBinding.includeOrderDetailInfo.rlOrderDetailPay.visibility = View.GONE
             }
-        //服务中  设备类型、设备型号、故障描述、工程师编号
+            //服务中  设备类型、设备型号、故障描述、工程师编号
             "B" -> {
                 mBinding.includeOrderDetailInfo.rlOrderDetailPrice.visibility = View.GONE
                 mBinding.includeOrderDetailInfo.rlOrderDetailPay.visibility = View.GONE
                 mBinding.includeOrderDetailContactUs.rlContantMaster.visibility = View.VISIBLE
             }
-        //待付款，已完成  设备类型、设备型号、故障描述、工程师编号、维修金额
+            //待付款，已完成  设备类型、设备型号、故障描述、工程师编号、维修金额
             "C" -> {
 
             }

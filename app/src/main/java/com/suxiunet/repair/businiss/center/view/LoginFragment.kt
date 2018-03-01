@@ -50,13 +50,13 @@ class LoginFragment: NomalFragment<LoginPresenter, FragLoginBinding>(),LoginCont
      * 登录成功
      */
     override fun loginSuccess(data: UserInfoEntity?) {
-        //通知订单页面刷新数据
-        RxBus.post(OrderEventEntity())
         //将用户信息保存到本地
         CacheUtil.getInstance().saveCacheData(data,CacheUtil.USER_INFO)
         //将token保存到本地
         SpUtil.putString(context,SpUtil.TOKEN_KEY,data?.token)
         SpUtil.putString(context,SpUtil.LOGIN_ID_KEY,data?.loginId)
+        //通知订单页面刷新数据
+        RxBus.post(OrderEventEntity())
         //销毁当前页面
         activity.finish()
     }

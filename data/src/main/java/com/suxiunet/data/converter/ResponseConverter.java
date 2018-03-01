@@ -42,7 +42,7 @@ public class ResponseConverter<T> implements Converter<ResponseBody, T> {
         if (data instanceof ApiResponse){
             ApiResponse result = (ApiResponse) data;
             int code = result.getRetCode();
-            if (code == 405) {
+            if (code != 000) {
                 throw new ApiException(result.getRetMsg(), code);
             }
         }

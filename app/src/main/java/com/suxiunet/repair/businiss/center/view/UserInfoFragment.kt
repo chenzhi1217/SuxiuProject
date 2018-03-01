@@ -29,6 +29,9 @@ import com.suxiunet.repair.util.ToastUtil
  * desc   : 用户信息页面
  */
 class UserInfoFragment : NomalFragment<UserInfoPresenter, FragUserInfoBinding>(), UserInfoContract.View {
+    override fun imageLoadSuccess(image: String) {
+    }
+
     //退出登录的Dialog
     lateinit var mDialogBinding: DialogQuitLoginBinding
     var mBottomDialog: Dialog? = null

@@ -77,7 +77,7 @@ class CenterPresenter(activity: Activity, view: CenterContract.View, model: Cent
     fun goWaitPayOrder() {
         var intent = Intent(mActivity, OrderActivity::class.java)
         intent.putExtra("title","待付款订单")
-        intent.putExtra("type","A")
+        intent.putExtra("type","C")
         mActivity.startActivity(intent)
     }
 

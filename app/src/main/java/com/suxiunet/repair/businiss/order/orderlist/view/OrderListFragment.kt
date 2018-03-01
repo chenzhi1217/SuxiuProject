@@ -33,6 +33,7 @@ class OrderListFragment() : BasicRecyclerViewFragment<OrderListRequest, OrderLis
      */
     var mCurStatus = "A"
     var mRequest = OrderListRequest()
+    lateinit var mProxy: OrderListProxy
 
     constructor(status: String):this() {
         this.mCurStatus = status
@@ -44,6 +45,7 @@ class OrderListFragment() : BasicRecyclerViewFragment<OrderListRequest, OrderLis
         val loginId = SpUtil.getString(context, SpUtil.LOGIN_ID_KEY, "")
         mRequest.loginId = loginId
         mRequest.status = mCurStatus
+        mProxy = OrderListProxy(context)
         initEvent()
     }
 
@@ -55,6 +57,7 @@ class OrderListFragment() : BasicRecyclerViewFragment<OrderListRequest, OrderLis
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe{
                     //刷新页面
+                    mProxy = OrderListProxy(context)
                     initLoadData()
                 }
     }
@@ -98,9 +101,10 @@ class OrderListFragment() : BasicRecyclerViewFragment<OrderListRequest, OrderLis
      * 创建代理对象
      */
     override fun onCreateProxy(): RefreshProxy<OrderListRequest, OrderListEntity> {
-        return OrderListProxy(context)
+        mProxy = OrderListProxy(context)
+        return mProxy
     }
-
+    
     /**
      * 返回条目类型
      */
@@ -116,6 +120,9 @@ class OrderListFragment() : BasicRecyclerViewFragment<OrderListRequest, OrderLis
      * 返回请求类对象
      */
     override fun getRequestData(): OrderListRequest {
+        //初始化请求参数的值
+        val loginId = SpUtil.getString(context, SpUtil.LOGIN_ID_KEY, "")
+        mRequest.loginId = loginId
         return mRequest
     }
 

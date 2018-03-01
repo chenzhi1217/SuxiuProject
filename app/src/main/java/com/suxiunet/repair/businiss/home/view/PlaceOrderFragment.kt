@@ -39,7 +39,7 @@ class PlaceOrderFragment: NomalFragment<PlaceOrderPresenter,FragPlaceOrderBindin
     var mServiceType = "A" //A: 上门  B：送修 C：其它
     //地图图标的旋转动画
     lateinit var mAnima: Animation
-
+    
     var isCoarseGranted = false
     var isFineGranted = false
     
@@ -56,10 +56,10 @@ class PlaceOrderFragment: NomalFragment<PlaceOrderPresenter,FragPlaceOrderBindin
      */
     override fun placeOrderSuccess() {
         ToastUtil.showToast("下单成功")
-        var intent = Intent(activity, OrderActivity::class.java)
+        /*var intent = Intent(activity, OrderActivity::class.java)
         intent.putExtra("title","待付款订单")
         intent.putExtra("type","A")
-        activity.startActivity(intent)
+        activity.startActivity(intent)*/
         activity.finish()
     }
 
@@ -246,7 +246,6 @@ class PlaceOrderFragment: NomalFragment<PlaceOrderPresenter,FragPlaceOrderBindin
             }
         }
     }
-
 
     /**
      * 调起定位功能

@@ -13,6 +13,8 @@ interface UserInfoContract {
     interface View: IView{
         fun quitLoginSuccess()
         fun quitLoginError(e: ApiException?)
+        
+        fun imageLoadSuccess(image: String)
     }
     
     interface Model:IModel

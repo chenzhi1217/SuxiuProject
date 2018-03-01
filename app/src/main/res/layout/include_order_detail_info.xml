@@ -207,7 +207,7 @@
                     android:layout_marginRight="@dimen/right_margin"
                     android:ellipsize="end"
                     android:maxLines="1"
-                    tools:text="￥588"
+                    android:text="￥588"
                     android:textColor="@color/color_red"
                     android:textSize="@dimen/title_four"/>
 

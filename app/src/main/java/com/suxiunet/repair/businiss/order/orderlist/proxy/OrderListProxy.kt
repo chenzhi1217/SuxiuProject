@@ -31,5 +31,4 @@ class OrderListProxy: RefreshProxy<OrderListRequest, OrderListEntity> {
                     }
                 })
     }
-    
 }

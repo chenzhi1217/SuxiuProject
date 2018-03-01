@@ -17,6 +17,8 @@ import com.suxiunet.repair.businiss.home.contract.HomeContract
 import com.suxiunet.repair.businiss.home.view.PlaceOrderActivity
 import com.suxiunet.repair.databinding.CallDialogBinding
 import com.suxiunet.repair.util.DialogUtils
+import com.suxiunet.repair.util.NetWorkUtil
+import com.suxiunet.repair.util.ToastUtil
 import org.jetbrains.anko.startActivity
 
 /**
@@ -32,19 +34,24 @@ class HomePresenter : BasicPresenter<HomeContract.View, HomeContract.Model> {
         mCallDialog = DialogUtils.getInstance().setCenterDialog(mActivity, mCallBinding.root, true)
         
         mCallBinding.commonDialogCancel.setOnClickListener { mCallDialog?.dismiss() }
-        mCallBinding.commonDialogOk.setOnClickListener { 
+        mCallBinding.commonDialogOk.setOnClickListener {
+            mCallDialog?.dismiss()
             val intent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + Constant.companyPhone + ""))
             mActivity.startActivity(intent) }
-    }
+    }   
 
     /**
      * 一键下单
      * 
      */
     fun placeOrder() {
+        if (!NetWorkUtil.getInstance().isNetWorkConnected(mActivity)) {
+            ToastUtil.showToast("请检车您手机的网络~~")
+            return
+        }
         val token = SpUtil.getString(mActivity, SpUtil.TOKEN_KEY, "")
         if (TextUtils.isEmpty(token)) {
-//            mActivity.startActivity(Intent(mActivity,LoginActivity::class.java))
+            mActivity.startActivity(Intent(mActivity,LoginActivity::class.java))
             mActivity.startActivity<LoginActivity>()
         } else {
             mActivity.startActivity(Intent(mActivity,PlaceOrderActivity::class.java))

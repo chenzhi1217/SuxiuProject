@@ -17,5 +17,7 @@ class Constant {
         var companyQQ = "3111678874"
         
         var companyWx = "suxiupc"
+        
+        var baseImage = "http://119.28.52.119/dnwx/userfiles/"
     }
 }

@@ -7,10 +7,12 @@ import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.bumptech.glide.Glide
 import com.suxiunet.data.entity.user.UserInfoEntity
 import com.suxiunet.data.util.CacheUtil
 import com.suxiunet.data.util.SpUtil
 import com.suxiunet.repair.R
+import com.suxiunet.repair.base.Constant
 import com.suxiunet.repair.base.baseui.MainActivity
 import com.suxiunet.repair.base.baseui.NomalFragment
 import com.suxiunet.repair.businiss.center.contract.CenterContract
@@ -68,5 +70,8 @@ class CenterFragment : NomalFragment<CenterPresenter, FragCenterBinding>(), Cent
         val token = SpUtil.getString(context, SpUtil.TOKEN_KEY, "")
         val userInfo = CacheUtil.getInstance().getCacheData(CacheUtil.USER_INFO, UserInfoEntity::class.java)
         mBinding.tvFragCenterNickName.text = if (TextUtils.isEmpty(token)) "立即登录" else userInfo?.loginName?:""
+        Glide.with(this)
+                .load(Constant.baseImage + userInfo?.url)
+                .into(mBinding.ivFragCenterUser)
     }
 }

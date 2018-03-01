@@ -101,6 +101,6 @@ public interface UserApi {
      */
     @Multipart
     @POST("/dnwx/app/userPic/changeHeadPortrait")
-    Observable<ApiResponse<Object>> upLoadImage(@QueryMap Map<String,String> descMap, @Part MultipartBody.Part file);
+    Observable<ApiResponse<UserInfoEntity>> upLoadImage(@QueryMap Map<String,String> descMap, @Part MultipartBody.Part file);
     
 }

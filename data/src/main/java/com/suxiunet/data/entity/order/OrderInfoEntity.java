@@ -40,8 +40,14 @@ public class OrderInfoEntity extends BasicDataEntity {
      * 机器型号
      */
     private String machineType;
+    /**
+     * 维修方案
+     */
     private String maintenancePlan;
     private String orderSource;
+    /**
+     * 维修金额
+     */
     private String maintenanceAmt;
     private String maintenanceMaster;
     private String warranty;
