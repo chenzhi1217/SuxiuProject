@@ -8,12 +8,15 @@ import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Environment
 import android.view.LayoutInflater
+import com.alipay.sdk.app.statistic.c.C
+import com.bumptech.glide.Glide
 import com.suxiunet.data.entity.user.UserInfoEntity
 import com.suxiunet.data.exception.ApiException
 import com.suxiunet.data.util.CacheUtil
 import com.suxiunet.data.util.SpUtil
 import com.suxiunet.data.util.Utils
 import com.suxiunet.repair.R
+import com.suxiunet.repair.base.Constant
 import com.suxiunet.repair.base.baseui.NomalFragment
 import com.suxiunet.repair.businiss.center.contract.UserInfoContract
 import com.suxiunet.repair.businiss.center.model.UserInfoModel
@@ -29,7 +32,19 @@ import com.suxiunet.repair.util.ToastUtil
  * desc   : 用户信息页面
  */
 class UserInfoFragment : NomalFragment<UserInfoPresenter, FragUserInfoBinding>(), UserInfoContract.View {
+    
     override fun imageLoadSuccess(image: String) {
+        //更新用户头像
+        Constant.baseImage + image
+        Glide.with(this)
+                .load(Constant.baseImage + image)
+                .error(R.mipmap.icon_user_default)
+                .placeholder(R.mipmap.icon_user_default)
+                .into(mBinding?.ivUserHead)
+        //更新本地url
+        val userInfo = CacheUtil.getInstance().getCacheData(CacheUtil.USER_INFO, UserInfoEntity::class.java)
+        userInfo.url = image
+        CacheUtil.getInstance().saveCacheData(userInfo,CacheUtil.USER_INFO)
     }
 
     //退出登录的Dialog
@@ -153,6 +168,13 @@ class UserInfoFragment : NomalFragment<UserInfoPresenter, FragUserInfoBinding>()
                 "1" -> mBinding.tvUserSex.text = "女"
                 else -> mBinding.tvUserSex.text = "保密"
             }
+            //设置头像
+            //更新用户头像
+            Glide.with(this)
+                    .load(Constant.baseImage + userInfo.url)
+                    .error(R.mipmap.icon_user_default)
+                    .placeholder(R.mipmap.icon_user_default)
+                    .into(mBinding.ivUserHead)
         } catch (e: Exception) {
         }
     }

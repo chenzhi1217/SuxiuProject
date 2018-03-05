@@ -34,7 +34,7 @@
             app:layout_constraintRight_toRightOf="parent">
 
 
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/iv_frag_center_user"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
@@ -186,7 +186,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="10dp"
                     android:layout_toEndOf="@+id/iv_about_us"
-                    android:text="关于速修"
+                    android:text="用户须知"
                     android:textColor="@color/color_text_1"
                     android:textSize="@dimen/title_three"/>
 
@@ -250,7 +250,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="10dp"
                     android:layout_toEndOf="@+id/iv_contact_us"
-                    android:text="联系客服"
+                    android:text="联系QQ客服"
                     android:textColor="@color/color_text_1"
                     android:textSize="@dimen/title_three"/>
 

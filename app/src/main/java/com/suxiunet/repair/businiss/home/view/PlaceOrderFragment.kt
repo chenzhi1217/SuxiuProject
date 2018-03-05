@@ -19,6 +19,7 @@ import com.suxiunet.repair.businiss.home.contract.PlaceOrderContract
 import com.suxiunet.repair.businiss.home.model.PlaceOrderModel
 import com.suxiunet.repair.businiss.home.presenter.PlaceOrderPresenter
 import com.suxiunet.repair.businiss.order.orderlist.view.OrderActivity
+import com.suxiunet.repair.databinding.DialogHourBinding
 import com.suxiunet.repair.databinding.DialogRepairStyleBinding
 import com.suxiunet.repair.databinding.DialogTimeBinding
 import com.suxiunet.repair.databinding.FragPlaceOrderBinding
@@ -50,6 +51,9 @@ class PlaceOrderFragment: NomalFragment<PlaceOrderPresenter,FragPlaceOrderBindin
     //预约时间选择的参数
     lateinit var mTimeBinding: DialogTimeBinding
     var mTimeDialog: Dialog?= null
+    
+    lateinit var mHourBinding: DialogHourBinding
+    var mHourDialog: Dialog?= null
 
     /**
      * 订单提交成功成功
@@ -92,6 +96,9 @@ class PlaceOrderFragment: NomalFragment<PlaceOrderPresenter,FragPlaceOrderBindin
     var mYear: Int = 0
     var mMonth: Int = 0
     var mDay: Int = 0
+    
+    var mHour: Int = 0
+    var mMin: Int = 0
 
     override fun initView() {
         //初始化动画
@@ -126,6 +133,24 @@ class PlaceOrderFragment: NomalFragment<PlaceOrderPresenter,FragPlaceOrderBindin
         mBinding.includeEquipmentInfo.tvPlaceOrderEquipmentModel.setOnClickListener { mEquipTypeDialog?.show() }
         
         //初始化时间选择的Dialog
+        mHourBinding = DataBindingUtil.inflate<DialogHourBinding>(LayoutInflater.from(context), R.layout.dialog_hour, null, false)
+        mHourDialog = DialogUtils.getInstance().setBottomDialog(activity, mHourBinding?.root, true, R.style.Dialog_animal)
+        mHourBinding.hourDialogCancel.setOnClickListener { mHourDialog?.dismiss() }
+        mHourBinding.hourDialogOk.setOnClickListener {
+            mBinding?.includeBasicInfo?.etPlaceOrderHoure?.text = mHour.toString() + "时" + mMin.toString() + "分"
+            mHourDialog?.dismiss()
+        }
+        mBinding.includeBasicInfo.etPlaceOrderHoure.setOnClickListener { 
+            //显示小时控件
+            mHourDialog?.show()
+        }
+        mHourBinding?.dialogHourDatapicker.setIs24HourView(true)
+        mHourBinding.dialogHourDatapicker.setOnTimeChangedListener { view, hourOfDay, minute ->
+            mHour = hourOfDay
+            mMin = minute
+        }
+        
+        //初始化日期选择的Dialog
         mTimeBinding = DataBindingUtil.inflate<DialogTimeBinding>(LayoutInflater.from(context), R.layout.dialog_time, null, false)
         mTimeDialog = DialogUtils.getInstance().setBottomDialog(activity, mTimeBinding?.root, true,R.style.Dialog_animal)
         mBinding.includeBasicInfo.etPlaceOrderTime.setOnClickListener { 
@@ -204,7 +229,7 @@ class PlaceOrderFragment: NomalFragment<PlaceOrderPresenter,FragPlaceOrderBindin
                 val company = mBinding.includeBasicInfo.etPlaceCompanyName.text.toString().trim()
                 val name = mBinding.includeBasicInfo.etPlaceOrderName.text.toString().trim()
                 val phone = mBinding.includeBasicInfo.etPlaceOrderPhone.text.toString().trim()
-                val time = mBinding.includeBasicInfo.etPlaceOrderTime.text.toString().trim()
+                val time = mBinding.includeBasicInfo.etPlaceOrderTime.text.toString().trim() + mBinding.includeBasicInfo.etPlaceOrderHoure.text.toString().trim()
                 //拿到设备信息
                 val equipModel = mBinding.includeEquipmentInfo.etPlaceOrderEquipmentModel.text.toString().trim()
                 //拿到地址信息

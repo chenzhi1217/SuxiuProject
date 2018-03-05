@@ -57,8 +57,8 @@ class OrderDetailPresenter : BasicPresenter<OrderDetailContract.View, OrderDetai
     /**
      * 联系工程师
      */
-    fun contactMaster() {
-        val intent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + Constant.companyPhone + ""))
+    fun contactMaster(masterPhone: String) {
+        val intent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + masterPhone))
         mActivity.startActivity(intent)
     }
 

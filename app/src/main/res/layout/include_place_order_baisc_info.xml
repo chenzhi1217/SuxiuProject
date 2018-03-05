@@ -94,6 +94,32 @@
         </LinearLayout>
         <include layout="@layout/include_common_line"/>
 
+        <!--发票抬头-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="15dp"
+                android:textColor="@color/color_text_1"
+                android:text="发票抬头："/>
+            <EditText
+                android:id="@+id/et_invoice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:hint="如不需开发票可不填写"
+                android:inputType="phone"
+                android:maxLines="1"
+                android:padding="15dp"
+                android:textColorHint="@color/color_hint"
+                android:textSize="@dimen/title_three"/>
+        </LinearLayout>
+        <include layout="@layout/include_common_line"/>
+
         <!--预约维修时间-->
         <LinearLayout
             android:layout_width="match_parent"
@@ -108,9 +134,28 @@
                 android:text="预约："/>
             <TextView
                 android:id="@+id/et_place_order_time"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="请选择预约上门时间"
+                android:hint="请选择预约上门日期"
+                android:maxLines="1"
+                android:padding="15dp"
+                android:textColor="@color/color_text_1"
+                android:textColorHint="@color/color_hint"
+                android:textSize="@dimen/title_three"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="15dp"
+                android:textColor="@color/color_text_1"
+                android:text="时段 "/>
+
+            <TextView
+                android:id="@+id/et_place_order_houre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="选择时段"
                 android:maxLines="1"
                 android:padding="15dp"
                 android:textColor="@color/color_text_1"
@@ -121,6 +166,7 @@
 
         <!--维修方式-->
         <LinearLayout
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView

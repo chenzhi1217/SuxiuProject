@@ -48,7 +48,6 @@ class OrderListFragment() : BasicRecyclerViewFragment<OrderListRequest, OrderLis
         mProxy = OrderListProxy(context)
         initEvent()
     }
-
     /**
      * 注册RxBus监听
      */
@@ -57,10 +56,13 @@ class OrderListFragment() : BasicRecyclerViewFragment<OrderListRequest, OrderLis
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe{
                     //刷新页面
-                    mProxy = OrderListProxy(context)
-                    initLoadData()
+                    if (activity != null) {
+                        mProxy = OrderListProxy(activity)
+                        initLoadData()
+                    }
                 }
     }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -109,11 +111,7 @@ class OrderListFragment() : BasicRecyclerViewFragment<OrderListRequest, OrderLis
      * 返回条目类型
      */
     override fun onCreateViewTypeMapper(): BaseRecyclerViewAdapter.ViewTypeMapper<OrderInfoEntity>? {
-        return object : BaseRecyclerViewAdapter.ViewTypeMapper<OrderInfoEntity>{
-            override fun onMapViewType(d: OrderInfoEntity?, position: Int): Int {
-                return TYPE_ITEM_ORDER_LIST
-            }
-        }
+        return BaseRecyclerViewAdapter.ViewTypeMapper<OrderInfoEntity> { d, position -> TYPE_ITEM_ORDER_LIST }
     }
 
     /**

@@ -67,7 +67,7 @@ public class OrderInfoEntity extends BasicDataEntity {
     /**
      * 师傅工号
      */
-    private String masterId;
+    public String masterId;
     
     
 

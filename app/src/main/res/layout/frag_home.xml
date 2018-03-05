@@ -77,6 +77,7 @@
             android:paddingTop="10dp">
             <!--一键下单-->
             <LinearLayout
+                android:onClick="@{() ->presenter.placeOrder()}"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -104,6 +105,7 @@
 
             <!--官方网站-->
             <LinearLayout
+                android:onClick="@{() ->presenter.placeOrder()}"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -130,6 +132,7 @@
 
             <!--客服热线-->
             <LinearLayout
+                android:onClick="@{() ->presenter.placeOrder()}"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -156,6 +159,7 @@
 
             <!--客服热线-->
             <LinearLayout
+                android:onClick="@{() ->presenter.placeOrder()}"
                 android:visibility="visible"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -400,7 +404,6 @@
         </LinearLayout>
 
         <include layout="@layout/common_line_march"/>
-
 
     </LinearLayout>
 </ScrollView>

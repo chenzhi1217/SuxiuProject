@@ -41,7 +41,8 @@
             <include 
                 android:id="@+id/include_order_detail_contact_us"
                 layout="@layout/include_order_contact_us"
-                app:presenter="@{presenter}"/>
+                app:presenter="@{presenter}"
+                app:data="@{data}"/>
 
         </LinearLayout>
     </ScrollView>

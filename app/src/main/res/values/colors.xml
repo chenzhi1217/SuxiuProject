@@ -42,4 +42,6 @@
     <color name="color_bbbbbb">#bbbbbb</color>
     <color name="black_alpha">#50000000</color>
     <color name="app_red">#e39bda</color>
+
+    <color name="black_altha">#50000000</color>
 </resources>

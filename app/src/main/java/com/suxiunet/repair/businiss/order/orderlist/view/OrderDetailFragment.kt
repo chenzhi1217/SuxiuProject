@@ -1,6 +1,10 @@
 package com.suxiunet.repair.businiss.order.orderlist.view
 
 import android.annotation.SuppressLint
+import android.app.Dialog
+import android.content.Intent
+import android.databinding.DataBindingUtil
+import android.databinding.ViewDataBinding
 import android.os.Handler
 import android.os.Message
 import android.view.View
@@ -14,9 +18,16 @@ import com.suxiunet.repair.businiss.order.orderlist.presenter.OrderDetailPresent
 import com.suxiunet.repair.databinding.FragOrderDetailBinding
 import android.widget.Toast
 import android.text.TextUtils
+import android.view.LayoutInflater
+import com.alipay.sdk.app.statistic.c.D
 import com.suxiunet.data.entity.order.OrderSignEntity
 import com.suxiunet.data.exception.ApiException
 import com.suxiunet.repair.ali.PayResult
+import com.suxiunet.repair.base.baseui.MainActivity
+import com.suxiunet.repair.databinding.DialogPaySuccessBinding
+import com.suxiunet.repair.evententity.OrderEventEntity
+import com.suxiunet.repair.plugin.RxBus
+import com.suxiunet.repair.util.DialogUtils
 import com.suxiunet.repair.util.ToastUtil
 
 
@@ -44,6 +55,9 @@ class OrderDetailFragment: NomalFragment<OrderDetailPresenter,FragOrderDetailBin
                         // 该笔订单是否真实支付成功，需要依赖服务端的异步通知。
                         Toast.makeText(activity, getString(R.string.pay_sucess), Toast.LENGTH_SHORT).show()
                         //TODO 开启轮询接口，拿服务端的支付结果
+                        /*mPayResultBinding?.payStatusValueTv?.text = "您的订单已支付成功"
+                        mPayResultDialog?.show()*/
+                        activity.finish()
                     } else {
                         // 该笔订单真实的支付结果，需要依赖服务端的异步通知。
                         Toast.makeText(activity, getString(R.string.pay_error), Toast.LENGTH_SHORT).show()
@@ -64,6 +78,8 @@ class OrderDetailFragment: NomalFragment<OrderDetailPresenter,FragOrderDetailBin
     }
     //当前的订单信息
     var mOrderInfo: OrderInfoEntity? = null
+    var mPayResultBinding: DialogPaySuccessBinding? = null
+    var mPayResultDialog: Dialog? = null
     
     override fun initView() {
         //拿到订单详情数据
@@ -75,6 +91,14 @@ class OrderDetailFragment: NomalFragment<OrderDetailPresenter,FragOrderDetailBin
         
         initData(mOrderInfo)
         initLayout(mOrderInfo?.status)
+       
+        //初始化支付结果的Dialog
+        mPayResultBinding = DataBindingUtil.inflate<DialogPaySuccessBinding>(LayoutInflater.from(context), R.layout.dialog_pay_success, null, false)
+        mPayResultDialog = DialogUtils.getInstance().setCenterDialog(activity, mPayResultBinding?.root, false)
+        mPayResultBinding?.paySuccessToHome?.setOnClickListener { 
+            RxBus.post(OrderEventEntity())
+            activity.finish()
+        }
     }
 
     /**
@@ -84,7 +108,11 @@ class OrderDetailFragment: NomalFragment<OrderDetailPresenter,FragOrderDetailBin
         mCurPayType = PAY_BY_ALI
         if (mOrderInfo != null) {
             val orderNo = mOrderInfo!!.orderNo
-            mPresenter?.getOrderSign(orderNo,"0.01","维修费用","维修费用")
+            //拿到金额
+            if (mOrderInfo != null && !mOrderInfo?.maintenanceAmt.isNullOrEmpty()) {
+//                mPresenter?.getOrderSign(orderNo,mOrderInfo?.maintenanceAmt!!,"维修费用","维修费用")
+                mPresenter?.getOrderSign(orderNo,"0.01","维修费用","维修费用")
+            }
         }
     }
 

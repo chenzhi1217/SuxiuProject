@@ -10,6 +10,7 @@ import com.suxiunet.data.exception.ApiException
 import com.suxiunet.repair.R
 import com.suxiunet.repair.base.*
 import com.suxiunet.repair.databinding.FragBasicBinding
+import com.suxiunet.repair.util.ToastUtil
 
 /**
  * author : chenzhi
@@ -204,6 +205,7 @@ abstract class BasicFragment<REQUEST : BasicRequest, PRESENT: IPresenter, DATA, 
      * 加载数据失败
      */
     open protected fun onLoadDataError(req: REQUEST?, e: ApiException?) {
+        ToastUtil.showToast(e?.displayMessage?:"网络异常")
         showErrorView()
     }
 
