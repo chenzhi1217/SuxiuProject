@@ -1,7 +1,6 @@
 package com.suxiunet.repair.businiss.home.view
 
 import android.app.Dialog
-import android.content.Intent
 import android.databinding.DataBindingUtil
 import android.os.Build
 import android.view.LayoutInflater
@@ -18,16 +17,13 @@ import com.suxiunet.repair.base.baseui.NomalFragment
 import com.suxiunet.repair.businiss.home.contract.PlaceOrderContract
 import com.suxiunet.repair.businiss.home.model.PlaceOrderModel
 import com.suxiunet.repair.businiss.home.presenter.PlaceOrderPresenter
-import com.suxiunet.repair.businiss.order.orderlist.view.OrderActivity
 import com.suxiunet.repair.databinding.DialogHourBinding
 import com.suxiunet.repair.databinding.DialogRepairStyleBinding
 import com.suxiunet.repair.databinding.DialogTimeBinding
 import com.suxiunet.repair.databinding.FragPlaceOrderBinding
 import com.suxiunet.repair.util.DialogUtils
 import com.suxiunet.repair.util.ToastUtil
-import com.tbruyelle.rxpermissions.Permission
 import com.tbruyelle.rxpermissions.RxPermissions
-import rx.Subscriber
 import java.util.*
 
 /**
@@ -237,9 +233,11 @@ class PlaceOrderFragment: NomalFragment<PlaceOrderPresenter,FragPlaceOrderBindin
                 val street = mBinding.includeAddrInfo.etPlaceOrderStreet.text.toString().trim()
                 //故障描述
                 val describe = mBinding.etPlaceOrderDescribe.text.toString().trim()
-                
+                //拿到发票信息
+                val invoiceHead = mBinding.includeBasicInfo.etInvoice.text.toString().trim()
                 //提交订单信息   style A:上门  B：送修  C：其他
-                mPresenter?.placeOrder(company,name, phone, time, mServiceType,mEquipType, equipModel, addrs, street, describe)
+                mPresenter?.placeOrder(company,name, phone, time, mServiceType,mEquipType, equipModel, addrs, street, describe,invoiceHead)
+                
             }
             R.id.ll_location_again ->{
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {

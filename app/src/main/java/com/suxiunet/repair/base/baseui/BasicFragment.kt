@@ -111,12 +111,12 @@ abstract class BasicFragment<REQUEST : BasicRequest, PRESENT: IPresenter, DATA, 
     open protected fun needNet(): Boolean {
         return true
     }
-
+    
     /**
      * 让子类创建Presenter
      */
     abstract fun getPresenter(): PRESENT?
-
+    
     /**
      * 失败页面的icon
      */

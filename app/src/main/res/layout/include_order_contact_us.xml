@@ -73,7 +73,7 @@
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:background="?android:attr/selectableItemBackground"
-            android:onClick="@{() ->presenter.contactMaster(data.masterId)}"
+            android:onClick="@{() ->presenter.contactMaster(data.contactTel)}"
             android:paddingBottom="10dp"
             android:paddingTop="10dp">
 

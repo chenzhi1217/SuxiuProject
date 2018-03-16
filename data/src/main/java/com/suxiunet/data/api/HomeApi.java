@@ -1,4 +1,7 @@
 package com.suxiunet.data.api;
+import com.suxiunet.data.entity.base.ApiResponse;
+import com.suxiunet.data.entity.user.HomeEntity;
+
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import rx.Observable;
@@ -9,6 +12,6 @@ import rx.Observable;
  * desc   : 首页模块的api
  */
 public interface HomeApi {
-    @POST("dnwx/app/user/loginout")
-    Observable<Object> fetchHomeData();
+    @POST("/dnwx/app/banner/getSlidShowList")
+    Observable<ApiResponse<HomeEntity>> fetchHomeData();
 }

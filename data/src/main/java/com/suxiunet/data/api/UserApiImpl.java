@@ -87,8 +87,8 @@ public class UserApiImpl implements UserApi {
      * @return
      */
     @Override
-    public Observable<ApiResponse<Object>> placeOrder(String loginId,String company,String contacts, String contactTel, String appointmentTime, String serviceMode,String machineMode, String machineType, String companyAdr,String desc) {
-        return mApi.placeOrder(loginId,company,contacts,contactTel,appointmentTime,serviceMode,machineMode,machineType,companyAdr,desc);
+    public Observable<ApiResponse<Object>> placeOrder(String loginId,String company,String contacts, String contactTel, String appointmentTime, String serviceMode,String machineMode, String machineType, String companyAdr,String desc,String isbilling,String billingHead) {
+        return mApi.placeOrder(loginId,company,contacts,contactTel,appointmentTime,serviceMode,machineMode,machineType,companyAdr,desc,isbilling,billingHead);
     }
 
     /**
@@ -109,5 +109,6 @@ public class UserApiImpl implements UserApi {
     public Observable<ApiResponse<UserInfoEntity>> upLoadImage(Map<String,String> descMap, MultipartBody.Part file) {
         return mApi.upLoadImage(descMap,file);
     }
+
 
 }

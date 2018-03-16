@@ -83,7 +83,11 @@ public interface UserApi {
      */
     @FormUrlEncoded
     @POST("dnwx/app/order/order")
-    Observable<ApiResponse<Object>> placeOrder(@Field("loginId") String loginId,@Field("company") String company,@Field("contacts") String contacts, @Field("contactTel") String contactTel, @Field("appointmentTime") String appointmentTime, @Field("serviceMode") String serviceMode, @Field("machineMode") String machineMode,@Field("machineType") String machineType, @Field("companyAdr") String companyAdr,@Field("faultDesc") String faultDesc);
+    Observable<ApiResponse<Object>> placeOrder(@Field("loginId") String loginId,@Field("company") String company,@Field("contacts") String contacts, 
+                                               @Field("contactTel") String contactTel, @Field("appointmentTime") String appointmentTime, 
+                                               @Field("serviceMode") String serviceMode, @Field("machineMode") String machineMode,
+                                               @Field("machineType") String machineType, @Field("companyAdr") String companyAdr,
+                                               @Field("faultDesc") String faultDesc,@Field("isbilling") String isbilling,@Field("billingHead") String billingHead);
 
     /**
      * 获取短信验证码
@@ -97,10 +101,12 @@ public interface UserApi {
 
     /**
      * 上传头像
+     *
      * @return
      */
     @Multipart
     @POST("/dnwx/app/userPic/changeHeadPortrait")
-    Observable<ApiResponse<UserInfoEntity>> upLoadImage(@QueryMap Map<String,String> descMap, @Part MultipartBody.Part file);
+    Observable<ApiResponse<UserInfoEntity>> upLoadImage(@QueryMap Map<String, String> descMap, @Part MultipartBody.Part file);
+    
     
 }

@@ -128,6 +128,7 @@
                 android:layout_height="@dimen/item_order_list_height">
 
                 <TextView
+                    android:id="@+id/tv_desc_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
@@ -138,12 +139,15 @@
 
                 <TextView
                     android:id="@+id/refund_record_status"
+                    android:layout_toRightOf="@+id/tv_desc_title"
+                    android:layout_marginLeft="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="@dimen/right_margin"
                     android:ellipsize="end"
+                    android:gravity="right"
                     android:maxLines="1"
                     android:text="@{data.faultDesc}"
                     android:textColor="@color/color_text_3"
@@ -183,6 +187,40 @@
 
             </RelativeLayout>
 
+            <!--维修方案-->
+            <RelativeLayout
+                android:visibility="gone"
+                android:id="@+id/rl_plan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tv_plan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="@dimen/left_margin"
+                    android:text="维修方案"
+                    android:textColor="@color/color_text_2"
+                    android:textSize="@dimen/title_four"/>
+
+                <TextView
+                    android:layout_toRightOf="@+id/tv_plan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="@dimen/right_margin"
+                    android:maxLines="5"
+                    android:text="@{data.maintenancePlan}"
+                    android:textColor="@color/color_text_3"
+                    android:textSize="@dimen/title_four"/>
+
+
+            </RelativeLayout>
+
             <!--维修金额-->
             <RelativeLayout
                 android:id="@+id/rl_order_detail_price"
@@ -207,14 +245,12 @@
                     android:layout_marginRight="@dimen/right_margin"
                     android:ellipsize="end"
                     android:maxLines="1"
-                    android:text="￥588"
+                    tools:text="￥588"
                     android:textColor="@color/color_red"
                     android:textSize="@dimen/title_four"/>
 
             </RelativeLayout>
-
-            <include layout="@layout/include_common_line"/>
-
+            
             <!--支付按钮-->
             <RelativeLayout
                 android:id="@+id/rl_order_detail_pay"

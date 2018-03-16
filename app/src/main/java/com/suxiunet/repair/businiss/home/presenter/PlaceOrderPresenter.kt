@@ -45,8 +45,8 @@ class PlaceOrderPresenter : BasicPresenter<PlaceOrderContract.View, PlaceOrderCo
     /**
      * 产生订单
      */
-    fun placeOrder(company:String,name: String, phone: String, time: String, style: String, machineType: String, equModel: String, addrs: String, street: String, desc: String) {
-        if (!checkData(name, phone, "2017-15-02", machineType,equModel, addrs, desc)) {
+    fun placeOrder(company: String, name: String, phone: String, time: String, style: String, machineType: String, equModel: String, addrs: String, street: String, desc: String, invoiceHead: String) {
+        if (!checkData(name, phone, time, machineType,equModel, addrs, desc)) {
             return
         }
         mProxy.setCallBack(object : BasicProxy.ProxyCallBack<OrderInfoRequest,Any>{
@@ -69,6 +69,8 @@ class PlaceOrderPresenter : BasicPresenter<PlaceOrderContract.View, PlaceOrderCo
         mRequest.machineType = equModel//机器型号
         mRequest.companyAdr = addrs + street//地址信息
         mRequest.desc = desc
+        mRequest.isNeedInvoice = if(invoiceHead.isNullOrEmpty()) "1" else "0"
+        mRequest.invoiceHead = invoiceHead
         
         mProxy.request(mRequest,BasicProxy.ProxyType.REFRESH_DATA)
         

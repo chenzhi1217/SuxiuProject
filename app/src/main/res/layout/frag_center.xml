@@ -168,7 +168,7 @@
 
             <include layout="@layout/include_common_line"/>
 
-            <!--关于我们-->
+            <!--用户须知-->
             <RelativeLayout
                 style="@style/StyleCenterHomeItem"
                 android:layout_alignParentTop="true" android:layout_centerHorizontal="true"
@@ -187,6 +187,39 @@
                     android:layout_marginLeft="10dp"
                     android:layout_toEndOf="@+id/iv_about_us"
                     android:text="用户须知"
+                    android:textColor="@color/color_text_1"
+                    android:textSize="@dimen/title_three"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:src="@mipmap/icon_arrow_right"/>
+
+            </RelativeLayout>
+
+            <include layout="@layout/include_common_line"/>
+
+            <RelativeLayout
+                style="@style/StyleCenterHomeItem"
+                android:layout_alignParentTop="true" 
+                android:layout_centerHorizontal="true"
+                android:onClick="@{() ->presenter.process()}">
+                <ImageView
+                    android:id="@+id/iv_process"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_centerVertical="true"
+                    android:src="@mipmap/icon_process"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toEndOf="@+id/iv_process"
+                    android:text="服务流程"
                     android:textColor="@color/color_text_1"
                     android:textSize="@dimen/title_three"/>
 

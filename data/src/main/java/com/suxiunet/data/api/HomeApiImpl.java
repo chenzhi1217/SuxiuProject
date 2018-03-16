@@ -2,6 +2,8 @@ package com.suxiunet.data.api;
 
 import android.content.Context;
 
+import com.suxiunet.data.entity.base.ApiResponse;
+import com.suxiunet.data.entity.user.HomeEntity;
 import com.suxiunet.data.factory.RetrofitFactory;
 
 import rx.Observable;
@@ -21,7 +23,7 @@ public class HomeApiImpl implements HomeApi {
     }
 
     @Override
-    public Observable<Object> fetchHomeData() {
+    public Observable<ApiResponse<HomeEntity>> fetchHomeData() {
         return mHomeApi.fetchHomeData();
     }
 }

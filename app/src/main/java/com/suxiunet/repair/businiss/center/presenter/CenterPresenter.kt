@@ -4,7 +4,6 @@ import android.app.Activity
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.net.Uri
-import android.provider.ContactsContract
 import android.text.TextUtils
 import com.suxiunet.data.util.SpUtil
 import com.suxiunet.repair.util.ToastUtil
@@ -13,6 +12,7 @@ import com.suxiunet.repair.base.Constant
 import com.suxiunet.repair.businiss.center.contract.CenterContract
 import com.suxiunet.repair.businiss.center.view.*
 import com.suxiunet.repair.businiss.order.orderlist.view.OrderActivity
+import com.suxiunet.repair.businiss.webview.WebViewActivity
 
 /**
  * author : chenzhi
@@ -45,11 +45,24 @@ class CenterPresenter(activity: Activity, view: CenterContract.View, model: Cent
     }
 
     /**
-     * 关于我们
+     * 用户须知
      */
     fun aboutUs() {
-//        mActivity.startActivity(Intent(mActivity,LoginActivity::class.java))
-        mActivity.startActivity(Intent(mActivity, AboutActivity::class.java))
+//        mActivity.startActivity(Intent(mActivity, AboutActivity::class.java))
+        val intent = Intent(mActivity, WebViewActivity::class.java)
+        intent.putExtra("title","用户须知")
+        intent.putExtra("url","https://www.baidu.com/")
+        mActivity.startActivity(intent)
+    }
+
+    /**
+     * 服务流程
+     */
+    fun process() {
+        val intent = Intent(mActivity, WebViewActivity::class.java)
+        intent.putExtra("title","服务流程")
+        intent.putExtra("url","https://www.baidu.com/")
+        mActivity.startActivity(intent)
     }
 
     /**

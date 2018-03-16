@@ -45,4 +45,12 @@ class OrderInfoRequest : BasicRequest() {
      * 描述
      */
     var desc = ""
+    /**
+     * 是否需要发票  0，需要，1，不需要
+     */
+    var isNeedInvoice = "1"
+    /**
+     * 发票抬头
+     */
+    var invoiceHead = ""
 }

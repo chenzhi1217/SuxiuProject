@@ -208,9 +208,10 @@ class OrderDetailFragment: NomalFragment<OrderDetailPresenter,FragOrderDetailBin
             }
             //待付款，已完成  设备类型、设备型号、故障描述、工程师编号、维修金额
             "C" -> {
-
             }
+            //已完成 维修方案
             "D" ->{
+                mBinding.includeOrderDetailInfo.rlPlan.visibility = View.VISIBLE
                 mBinding.includeOrderDetailInfo.rlOrderDetailPay.visibility = View.GONE
             }
         }

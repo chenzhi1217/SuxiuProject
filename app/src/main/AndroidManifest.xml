@@ -90,6 +90,8 @@
         <activity android:name=".businiss.home.view.PlaceOrderActivity"/>
         <!--订单列表页面-->
         <activity android:name=".businiss.order.orderlist.view.OrderActivity"/>
+        <!--webview页面-->
+        <activity android:name=".businiss.webview.WebViewActivity"/>
     </application>
 
 </manifest>

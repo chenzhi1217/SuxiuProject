@@ -19,6 +19,7 @@
             android:textSize="@dimen/title_three"/>
 
         <LinearLayout
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -41,7 +42,7 @@
                 android:textColorHint="@color/color_hint"
                 android:textSize="@dimen/title_three"/>
         </LinearLayout>
-        <include layout="@layout/include_common_line"/>
+        <!--<include layout="@layout/include_common_line"/>-->
 
         <!--姓名-->
         <LinearLayout
@@ -111,8 +112,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@null"
-                android:hint="如不需开发票可不填写"
-                android:inputType="phone"
+                android:hint="无需开发票可不填写"
+                android:inputType="text"
                 android:maxLines="1"
                 android:padding="15dp"
                 android:textColorHint="@color/color_hint"

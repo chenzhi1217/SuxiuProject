@@ -27,7 +27,7 @@ public interface OrderApi {
      */
     @FormUrlEncoded
     @POST("dnwx/app/order/queryOrderList")
-    Observable<ApiResponse<OrderListEntity>> getOrderList(@Field("userId") String loginId, @Field("status") String status,@Field("loginType") String loginType);
+    Observable<ApiResponse<OrderListEntity>> getOrderList(@Field("loginId") String loginId, @Field("status") String status,@Field("loginType") String loginType);
 
     /**
      * 获取验签
