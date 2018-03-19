@@ -19,5 +19,9 @@ class Constant {
         var companyWx = "suxiupc"
         
         var baseImage = "http://119.28.52.119/dnwx/userfiles/"
+        
+        val SERVICE_URL = "http://119.28.52.119/dnwx/service.html"
+         
+        val USER_URL = "http://119.28.52.119/dnwx/service.html"
     }
 }

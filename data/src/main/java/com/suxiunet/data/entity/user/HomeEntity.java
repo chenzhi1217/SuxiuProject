@@ -11,8 +11,16 @@ import java.util.List;
  */
 public class HomeEntity extends BasicDataEntity {
 
-
+    private String notice;
     private List<BannerDtosBean> bannerDtos;
+
+    public String getNotice() {
+        return notice;
+    }
+
+    public void setNotice(String notice) {
+        this.notice = notice;
+    }
 
     public List<BannerDtosBean> getBannerDtos() {
         return bannerDtos;

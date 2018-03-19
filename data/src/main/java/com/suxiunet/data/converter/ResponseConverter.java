@@ -37,7 +37,7 @@ public class ResponseConverter<T> implements Converter<ResponseBody, T> {
         String response = value.string();
         T data = gson.fromJson(response, type);
         if (data == null) {
-            throw new JsonSyntaxException("数据解析错误");
+            throw new ApiException("数据解析错误");
         }
         if (data instanceof ApiResponse){
             ApiResponse result = (ApiResponse) data;

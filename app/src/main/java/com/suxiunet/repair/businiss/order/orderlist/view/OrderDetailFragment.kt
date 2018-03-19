@@ -195,24 +195,39 @@ class OrderDetailFragment: NomalFragment<OrderDetailPresenter,FragOrderDetailBin
     private fun initLayout(status: String?) {
         when (status) {
             //待接单，已取消  设备类型、设备型号、故障描述
-            "A","E" -> {
+            "A" -> {
                 mBinding.includeOrderDetailInfo.rlOrderDetailMasterCode.visibility = View.GONE
                 mBinding.includeOrderDetailInfo.rlOrderDetailPrice.visibility = View.GONE
                 mBinding.includeOrderDetailInfo.rlOrderDetailPay.visibility = View.GONE
+                mBinding.includeOrderTitleInfo.tvOrderDetailState.text = "待接单订单"
+                
+            }
+            
+            "E" ->{
+                mBinding.includeOrderDetailInfo.rlOrderDetailMasterCode.visibility = View.GONE
+                mBinding.includeOrderDetailInfo.rlOrderDetailPrice.visibility = View.GONE
+                mBinding.includeOrderDetailInfo.rlOrderDetailPay.visibility = View.GONE
+                mBinding.includeOrderTitleInfo.tvOrderDetailState.text = "已取消订单"
             }
             //服务中  设备类型、设备型号、故障描述、工程师编号
             "B" -> {
                 mBinding.includeOrderDetailInfo.rlOrderDetailPrice.visibility = View.GONE
                 mBinding.includeOrderDetailInfo.rlOrderDetailPay.visibility = View.GONE
                 mBinding.includeOrderDetailContactUs.rlContantMaster.visibility = View.VISIBLE
+                mBinding.includeOrderTitleInfo.tvOrderDetailState.text = "服务中订单"
             }
             //待付款，已完成  设备类型、设备型号、故障描述、工程师编号、维修金额
             "C" -> {
+                mBinding.includeOrderTitleInfo.tvOrderDetailState.text = "待付款订单"
             }
             //已完成 维修方案
             "D" ->{
+                //维修方案
                 mBinding.includeOrderDetailInfo.rlPlan.visibility = View.VISIBLE
+                //保修时间
+                mBinding.includeOrderDetailInfo.rlOrderDetailWarranty.visibility = View.VISIBLE
                 mBinding.includeOrderDetailInfo.rlOrderDetailPay.visibility = View.GONE
+                mBinding.includeOrderTitleInfo.tvOrderDetailState.text = "已完成订单"
             }
         }
     }

@@ -147,7 +147,7 @@ abstract class BasicFragment<REQUEST : BasicRequest, PRESENT: IPresenter, DATA, 
      * 显示加载中的布局
      */
     protected fun showLoadingView() {
-        switchView(mLoadingView, mContentView, mErrorView)
+        switchView(mLoadingView, mErrorView)
     }
 
     /**

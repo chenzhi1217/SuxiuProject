@@ -58,6 +58,10 @@ class OrderDetailPresenter : BasicPresenter<OrderDetailContract.View, OrderDetai
      * 联系工程师
      */
     fun contactMaster(masterPhone: String) {
+        if (masterPhone.isNullOrEmpty()) {
+            ToastUtil.showToast("暂时无法获取师傅的联系方式")
+            return
+        }
         val intent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + masterPhone))
         mActivity.startActivity(intent)
     }

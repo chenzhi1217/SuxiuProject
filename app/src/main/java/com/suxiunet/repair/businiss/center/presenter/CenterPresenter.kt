@@ -51,7 +51,7 @@ class CenterPresenter(activity: Activity, view: CenterContract.View, model: Cent
 //        mActivity.startActivity(Intent(mActivity, AboutActivity::class.java))
         val intent = Intent(mActivity, WebViewActivity::class.java)
         intent.putExtra("title","用户须知")
-        intent.putExtra("url","https://www.baidu.com/")
+        intent.putExtra("url",Constant.USER_URL)
         mActivity.startActivity(intent)
     }
 
@@ -61,7 +61,7 @@ class CenterPresenter(activity: Activity, view: CenterContract.View, model: Cent
     fun process() {
         val intent = Intent(mActivity, WebViewActivity::class.java)
         intent.putExtra("title","服务流程")
-        intent.putExtra("url","https://www.baidu.com/")
+        intent.putExtra("url",Constant.SERVICE_URL)
         mActivity.startActivity(intent)
     }
 

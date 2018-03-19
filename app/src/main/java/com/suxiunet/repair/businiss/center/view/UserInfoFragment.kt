@@ -34,13 +34,11 @@ import com.suxiunet.repair.util.ToastUtil
 class UserInfoFragment : NomalFragment<UserInfoPresenter, FragUserInfoBinding>(), UserInfoContract.View {
     
     override fun imageLoadSuccess(image: String) {
-        //更新用户头像
-        Constant.baseImage + image
         Glide.with(this)
                 .load(Constant.baseImage + image)
                 .error(R.mipmap.icon_user_default)
                 .placeholder(R.mipmap.icon_user_default)
-                .into(mBinding?.ivUserHead)
+                .into(mBinding.ivUserHead)
         //更新本地url
         val userInfo = CacheUtil.getInstance().getCacheData(CacheUtil.USER_INFO, UserInfoEntity::class.java)
         userInfo.url = image

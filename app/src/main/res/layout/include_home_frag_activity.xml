@@ -30,7 +30,7 @@
             android:focusable="true"
             android:marqueeRepeatLimit="-1"
             android:singleLine="true"
-            android:text="公告：春节期间下单，全部八折优惠 春节期间下单，全部八折优惠"
+            tools:text="公告：春节期间下单，全部八折优惠 春节期间下单，全部八折优惠"
             android:textColor="@color/theme_bg"/>
 
     </RelativeLayout>

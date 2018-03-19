@@ -68,8 +68,19 @@ public class OrderInfoEntity extends BasicDataEntity {
      * 师傅工号
      */
     public String masterId;
-    
-    
+
+    /**
+     * 维修师傅的联系方式
+     */
+    private String masterMp;
+
+    public String getMasterMp() {
+        return masterMp;
+    }
+
+    public void setMasterMp(String masterMp) {
+        this.masterMp = masterMp;
+    }
 
     public String getMasterId() {
         return masterId;

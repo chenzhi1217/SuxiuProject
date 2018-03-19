@@ -14,7 +14,7 @@ class UserInfoRequest : BasicRequest() {
      * 昵称
      */
     var nickName: String = ""
-
+    
     /**
      * 性别
      */

@@ -150,7 +150,7 @@
                     android:gravity="right"
                     android:maxLines="1"
                     android:text="@{data.faultDesc}"
-                    android:textColor="@color/color_text_3"
+                    android:textColor="@color/color_text_2"
                     android:textSize="@dimen/title_four"/>
 
 
@@ -180,9 +180,40 @@
                     android:layout_marginRight="@dimen/right_margin"
                     android:ellipsize="end"
                     android:maxLines="1"
-                    android:textColor="@color/color_text_3"
+                    android:textColor="@color/color_text_2"
                     android:textSize="@dimen/title_four"
                     tools:text="@{data.masterId}"/>
+
+
+            </RelativeLayout>
+
+            <!--保修时间-->
+            <RelativeLayout
+                android:visibility="gone"
+                android:id="@+id/rl_order_detail_warranty"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/item_order_list_height">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/left_margin"
+                    android:text="保修时间"
+                    android:textColor="@color/color_text_2"
+                    android:textSize="@dimen/title_four"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/right_margin"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:textColor="@color/color_text_2"
+                    android:textSize="@dimen/title_four"
+                    tools:text="@{data.warranty}"/>
 
 
             </RelativeLayout>
@@ -214,8 +245,9 @@
                     android:layout_marginTop="5dp"
                     android:layout_marginRight="@dimen/right_margin"
                     android:maxLines="5"
+                    android:gravity="right"
                     android:text="@{data.maintenancePlan}"
-                    android:textColor="@color/color_text_3"
+                    android:textColor="@color/color_text_2"
                     android:textSize="@dimen/title_four"/>
 
 

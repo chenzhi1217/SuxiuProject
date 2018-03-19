@@ -22,6 +22,7 @@
 
             <!--订单状态-->
             <include 
+                android:id="@+id/include_order_title_info"
                 layout="@layout/include_order_detail_status"/>
 
             <!--订单详细信息-->

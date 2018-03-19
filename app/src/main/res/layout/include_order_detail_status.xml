@@ -21,7 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/iv_order_detail_logo"
-            android:text="待付款订单"
+            tools:text="待付款订单"
             android:textColor="@color/theme_bg"
             android:textSize="16dp"
             android:textStyle="bold"/>
