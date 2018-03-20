@@ -2,6 +2,7 @@ package com.suxiunet.data.entity.user;
 
 import com.suxiunet.data.entity.base.BasicDataEntity;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -30,7 +31,7 @@ public class HomeEntity extends BasicDataEntity {
         this.bannerDtos = bannerDtos;
     }
 
-    public static class BannerDtosBean {
+    public static class BannerDtosBean implements Serializable {
         /**
          * id : 1
          * isShow : Y

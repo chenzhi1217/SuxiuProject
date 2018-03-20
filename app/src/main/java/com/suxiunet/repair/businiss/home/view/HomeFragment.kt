@@ -11,6 +11,7 @@ import android.view.ViewTreeObserver
 import android.view.animation.Animation
 import com.suxiunet.data.entity.user.HomeEntity
 import com.suxiunet.data.exception.ApiException
+import com.suxiunet.data.util.CacheUtil
 import com.suxiunet.repair.R
 import com.suxiunet.repair.anim.YAnimation
 import com.suxiunet.repair.base.Constant
@@ -35,7 +36,7 @@ class HomeFragment : BasicFragment<HomeRequest, HomePresenter, HomeEntity, FragH
         return super.onCreateView(inflater, container, savedInstanceState)
     }
 
-    @RequiresApi(Build.VERSION_CODES.M)
+    @RequiresApi(Build.VERSION_CODES.M) 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         //设置动画
@@ -43,26 +44,19 @@ class HomeFragment : BasicFragment<HomeRequest, HomePresenter, HomeEntity, FragH
         animation.repeatCount = Animation.INFINITE
         mBinding.includeOrderCount.ivFragHomeLogo.startAnimation(animation)
         mBinding.presenter = mPresenter
-        mParentBinding.sfBasicFrag.setOnRefreshListener {
-            //拉下刷新的逻辑
-            initLoadData()
-        }
-        mBinding.svHomeFrag.setOnScrollChangeListener { v, scrollX, scrollY, oldScrollX, oldScrollY -> 
+  
+        /*mBinding.svHomeFrag.setOnScrollChangeListener { v, scrollX, scrollY, oldScrollX, oldScrollY -> 
             if (scrollY == 0) {
                 mParentBinding.sfBasicFrag.setEnabled(true)
             } else {
                 mParentBinding.sfBasicFrag.setEnabled(false)
             }
-        }
+        }*/
     }
 
     override fun onLoadDataError(req: HomeRequest?, e: ApiException?) {
         super.onLoadDataError(req, e)
         mParentBinding.sfBasicFrag.isRefreshing = false
-    }
-
-    override fun setSwipeRefreshEnable(): Boolean {
-        return true
     }
     
     override fun onCreateProxy(): RefreshProxy<HomeRequest, HomeEntity> {
@@ -94,9 +88,11 @@ class HomeFragment : BasicFragment<HomeRequest, HomePresenter, HomeEntity, FragH
         //设置轮播图
         if (data?.bannerDtos != null) {
             setLunboData(data?.bannerDtos)
+            CacheUtil.getInstance().saveCacheData(data,"homeData")
         }
         //设置活动
         mBinding?.includeActivity?.itemHomePostTv?.text = data?.notice
+        
     }
 
     /**
@@ -113,5 +109,10 @@ class HomeFragment : BasicFragment<HomeRequest, HomePresenter, HomeEntity, FragH
 
     override fun showErrorView() {
         showContentView()
+        //设置轮播图
+        val homeEntity = CacheUtil.getInstance().getCacheData("homeData", HomeEntity::class.java)
+        if (homeEntity != null && homeEntity.bannerDtos != null) {
+            setLunboData(homeEntity.bannerDtos)
+        }
     }
 }

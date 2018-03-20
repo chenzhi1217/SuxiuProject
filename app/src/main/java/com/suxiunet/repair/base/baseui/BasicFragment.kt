@@ -70,9 +70,6 @@ abstract class BasicFragment<REQUEST : BasicRequest, PRESENT: IPresenter, DATA, 
         mPresenter = getPresenter()
         
         showContentView()
-        
-        
-
         return mParentBinding?.root
     }
 
@@ -147,7 +144,7 @@ abstract class BasicFragment<REQUEST : BasicRequest, PRESENT: IPresenter, DATA, 
      * 显示加载中的布局
      */
     protected fun showLoadingView() {
-        switchView(mLoadingView, mErrorView)
+        switchView(mLoadingView, mErrorView,mContentView)
     }
 
     /**

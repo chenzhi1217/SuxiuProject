@@ -1,9 +1,11 @@
 package com.suxiunet.repair.base.baseui
 
+import android.app.ActivityManager
 import android.databinding.DataBindingUtil
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.view.KeyEvent
 import android.view.View
 import android.widget.RadioGroup
 import com.suxiunet.data.util.Utils
@@ -120,5 +122,21 @@ class MainActivity : AppCompatActivity() {
         //提交事务
         transaction.commit()
         mIndex = index
+    }
+
+    private var exitTime: Long = 0
+    override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
+        //监听返回键
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            if (System.currentTimeMillis() - exitTime > 2000) {
+                ToastUtil.showToast("再按一次退出程序")
+                exitTime = System.currentTimeMillis()
+            } else {
+                finish()
+                System.exit(0)
+                android.os.Process.killProcess(android.os.Process.myPid())
+            }
+        }
+        return false
     }
 }
