@@ -35,7 +35,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/button_alpha_bg"
-                    android:text="知道了"
+                    android:text="回到首页"
                     android:textColor="@color/color_white"/>
 
                 <Button

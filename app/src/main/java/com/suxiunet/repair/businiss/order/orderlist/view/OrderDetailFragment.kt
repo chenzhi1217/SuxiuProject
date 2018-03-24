@@ -18,7 +18,9 @@ import com.suxiunet.repair.businiss.order.orderlist.presenter.OrderDetailPresent
 import com.suxiunet.repair.databinding.FragOrderDetailBinding
 import android.widget.Toast
 import android.text.TextUtils
+import android.view.Gravity
 import android.view.LayoutInflater
+import android.view.ViewGroup
 import com.alipay.sdk.app.statistic.c.D
 import com.suxiunet.data.entity.order.OrderSignEntity
 import com.suxiunet.data.exception.ApiException
@@ -55,12 +57,13 @@ class OrderDetailFragment: NomalFragment<OrderDetailPresenter,FragOrderDetailBin
                         // 该笔订单是否真实支付成功，需要依赖服务端的异步通知。
                         Toast.makeText(activity, getString(R.string.pay_sucess), Toast.LENGTH_SHORT).show()
                         //TODO 开启轮询接口，拿服务端的支付结果
-                        /*mPayResultBinding?.payStatusValueTv?.text = "您的订单已支付成功"
-                        mPayResultDialog?.show()*/
-                        activity.finish()
+                        mPayResultBinding?.payStatusValueTv?.text = "您已成功付款，订单已成功"
+                        mPayResultDialog?.show()
                     } else {
                         // 该笔订单真实的支付结果，需要依赖服务端的异步通知。
                         Toast.makeText(activity, getString(R.string.pay_error), Toast.LENGTH_SHORT).show()
+                        mPayResultBinding?.payStatusValueTv?.text = "您的订单支付失败"
+                        mPayResultDialog?.show()
                     }
                 }
             }
@@ -94,7 +97,8 @@ class OrderDetailFragment: NomalFragment<OrderDetailPresenter,FragOrderDetailBin
        
         //初始化支付结果的Dialog
         mPayResultBinding = DataBindingUtil.inflate<DialogPaySuccessBinding>(LayoutInflater.from(context), R.layout.dialog_pay_success, null, false)
-        mPayResultDialog = DialogUtils.getInstance().setCenterDialog(activity, mPayResultBinding?.root, false)
+//        mPayResultDialog = DialogUtils.getInstance().setCenterDialog(activity, mPayResultBinding?.root, false)
+        mPayResultDialog = DialogUtils.getInstance().initCommonDialog(activity,mPayResultBinding?.root,Gravity.CENTER,false,ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT,0)
         mPayResultBinding?.paySuccessToHome?.setOnClickListener { 
             RxBus.post(OrderEventEntity())
             activity.finish()

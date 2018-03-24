@@ -4,7 +4,7 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/theme_bg</item>
-        <item name="colorPrimaryDark">@color/color_black</item>
+        <item name="colorPrimaryDark">@color/theme_bg</item>
         <item name="colorAccent">@color/theme_bg</item>
         <!--设置页面跳转的动画-->
         <item name="android:windowAnimationStyle">@style/activityAnimation</item>
