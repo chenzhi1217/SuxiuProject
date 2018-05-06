@@ -29,12 +29,15 @@ class ModifySexPresenter : BasicPresenter<ModifySexContract.View, ModifySexContr
      * 修改性别
      */
     fun modifyGendent(gendent: String) {
+        loading?.show()
         mProxy.setCallBack(object : BasicProxy.ProxyCallBack<UserInfoRequest,Any>{
             override fun onLoadSuccess(req: UserInfoRequest?, type: BasicProxy.ProxyType, data: Any?) {
+                loading?.dismiss()
                 mView.modifyGendentSuccess(gendent)
             }
 
             override fun onLoadError(req: UserInfoRequest?, type: BasicProxy.ProxyType, e: ApiException?) {
+                loading?.dismiss()
                 mView.modifyGendentError(e)
             }
         })

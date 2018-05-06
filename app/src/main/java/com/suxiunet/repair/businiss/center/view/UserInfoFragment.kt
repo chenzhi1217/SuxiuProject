@@ -36,8 +36,8 @@ class UserInfoFragment : NomalFragment<UserInfoPresenter, FragUserInfoBinding>()
     override fun imageLoadSuccess(image: String) {
         Glide.with(this)
                 .load(Constant.baseImage + image)
-                .error(R.mipmap.icon_user_default)
-                .placeholder(R.mipmap.icon_user_default)
+                .error(R.mipmap.icon_user)
+//                .placeholder(R.mipmap.icon_user_default)
                 .into(mBinding.ivUserHead)
         //更新本地url
         val userInfo = CacheUtil.getInstance().getCacheData(CacheUtil.USER_INFO, UserInfoEntity::class.java)
@@ -170,8 +170,8 @@ class UserInfoFragment : NomalFragment<UserInfoPresenter, FragUserInfoBinding>()
             //更新用户头像
             Glide.with(this)
                     .load(Constant.baseImage + userInfo.url)
-                    .error(R.mipmap.icon_user_default)
-                    .placeholder(R.mipmap.icon_user_default)
+                    .error(R.mipmap.icon_user)
+//                    .placeholder(R.mipmap.icon_user_default)
                     .into(mBinding.ivUserHead)
         } catch (e: Exception) {
         }

@@ -52,7 +52,6 @@ class HomePresenter : BasicPresenter<HomeContract.View, HomeContract.Model> {
         val token = SpUtil.getString(mActivity, SpUtil.TOKEN_KEY, "")
         if (TextUtils.isEmpty(token)) {
             mActivity.startActivity(Intent(mActivity,LoginActivity::class.java))
-            mActivity.startActivity<LoginActivity>()
         } else {
             mActivity.startActivity(Intent(mActivity,PlaceOrderActivity::class.java))
         }

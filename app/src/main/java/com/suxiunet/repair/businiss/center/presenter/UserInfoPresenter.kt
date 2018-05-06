@@ -72,12 +72,15 @@ class UserInfoPresenter : BasicPresenter<UserInfoContract.View, UserInfoContract
      * 退出登录
      */
     fun quitLogin() {
+        loading?.show()
         mQuitLoginProxy.setCallBack(object : BasicProxy.ProxyCallBack<LoginRequest,Any>{
             override fun onLoadSuccess(req: LoginRequest?, type: BasicProxy.ProxyType, data: Any?) {
+                loading?.dismiss()
                 mView.quitLoginSuccess()
             }
 
             override fun onLoadError(req: LoginRequest?, type: BasicProxy.ProxyType, e: ApiException?) {
+                loading?.dismiss()
                 mView.quitLoginError(e)
             }
         })

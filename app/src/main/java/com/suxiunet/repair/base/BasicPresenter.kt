@@ -1,6 +1,7 @@
 package com.suxiunet.repair.base
 
 import android.app.Activity
+import com.suxiunet.repair.view.LoadingDialog
 
 /**
  * author : chenzhi
@@ -14,6 +15,7 @@ open class BasicPresenter<VIEW: IView,MODEL: IModel>(): IPresenter {
     protected lateinit var mActivity: Activity
     protected lateinit var mView: VIEW
     protected lateinit var mModel: MODEL
+    protected val loading by lazy { LoadingDialog(mActivity!!) }
     
     constructor(activity:Activity,view: VIEW,model: MODEL):this(){
         this.mActivity = activity

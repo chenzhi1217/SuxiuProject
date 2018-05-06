@@ -31,6 +31,8 @@ public class AliMapCode {
                         if (aMapLocation.getLatitude() == 0 || aMapLocation.getLongitude() == 0) {
                             locationChangeListener.locationDataFail(0, "定位数据异常");
                         }
+
+                        float speed = aMapLocation.getSpeed();
                         locationChangeListener.locationDataSuccess(String.valueOf(aMapLocation.getLatitude()), String.valueOf(aMapLocation.getLongitude()), aMapLocation.getProvince(), aMapLocation.getCity(), aMapLocation.getDistrict(), aMapLocation.getStreet() + aMapLocation.getStreetNum());
                     }
                 } else {

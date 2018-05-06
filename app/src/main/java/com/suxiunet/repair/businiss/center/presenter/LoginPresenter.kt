@@ -38,14 +38,17 @@ class LoginPresenter : BasicPresenter<LoginContract.View, LoginContract.Model> {
         if (!checkValue(phone,checkCode)) {
             return
         }
+        loading?.show()
         //设置网络请求结果的接口回调
         mLoginProxy.setCallBack(object : BasicProxy.ProxyCallBack<LoginRequest, UserInfoEntity>{
             //登录成功
             override fun onLoadSuccess(req: LoginRequest?, type: BasicProxy.ProxyType, data: UserInfoEntity?) {
+                loading?.dismiss()
                 mView.loginSuccess(data)
             }
             //登录失败
             override fun onLoadError(req: LoginRequest?, type: BasicProxy.ProxyType, e: ApiException?) {
+                loading?.dismiss()
                 mView.loginError(e)
             }
         })

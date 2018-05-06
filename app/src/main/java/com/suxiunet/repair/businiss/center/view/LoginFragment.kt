@@ -5,6 +5,7 @@ import com.suxiunet.data.exception.ApiException
 import com.suxiunet.data.util.CacheUtil
 import com.suxiunet.data.util.SpUtil
 import com.suxiunet.repair.R
+import com.suxiunet.repair.base.Constant
 import com.suxiunet.repair.base.baseui.NomalFragment
 import com.suxiunet.repair.businiss.center.contract.LoginContract
 import com.suxiunet.repair.businiss.center.model.LoginModel
@@ -55,6 +56,7 @@ class LoginFragment: NomalFragment<LoginPresenter, FragLoginBinding>(),LoginCont
         //将token保存到本地
         SpUtil.putString(context,SpUtil.TOKEN_KEY,data?.token)
         SpUtil.putString(context,SpUtil.LOGIN_ID_KEY,data?.loginId)
+        SpUtil.putString(context,SpUtil.USER_LOGO,Constant.baseImage + data?.url)
         //通知订单页面刷新数据
         RxBus.post(OrderEventEntity())
         //销毁当前页面

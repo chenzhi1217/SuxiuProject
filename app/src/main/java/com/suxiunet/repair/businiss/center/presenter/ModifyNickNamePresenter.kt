@@ -28,12 +28,15 @@ class ModifyNickNamePresenter : BasicPresenter<ModifyNickNameContract.View, Modi
      * 修改昵称
      */
     fun modifyNickName(newName: String) {
+        loading?.show()
         mProxy.setCallBack(object : BasicProxy.ProxyCallBack<UserInfoRequest,Any>{
             override fun onLoadSuccess(req: UserInfoRequest?, type: BasicProxy.ProxyType, data: Any?) {
+                loading?.dismiss()
                 mView.modifySuccess(newName)
             }
 
             override fun onLoadError(req: UserInfoRequest?, type: BasicProxy.ProxyType, e: ApiException?) {
+                loading?.dismiss()
                 mView.modifyError(e)
             }
         })

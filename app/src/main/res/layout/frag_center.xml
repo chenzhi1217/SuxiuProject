@@ -39,7 +39,7 @@
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:onClick="@{() ->presenter.goUserInfo(fragment)}"
-                android:src="@mipmap/icon_user_default"
+                android:src="@mipmap/icon_user"
             />
 
             <TextView

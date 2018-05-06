@@ -243,7 +243,22 @@ public class ViewPagerHelper extends FrameLayout {
             iv.setLayoutParams(params);
             iv.setScaleType(ImageView.ScaleType.FIT_XY);
 //            ImageUtil.getInstance().setViewPagerImage(container.getContext(),images.get(newPosition),iv);
-            Glide.with(container.getContext()).load(images.get(newPosition)).into(iv);
+            int resId = R.mipmap.banner_one;
+            switch (newPosition) {
+                case 0:
+                    resId = R.mipmap.banner_one;
+                    break;
+                case 1:
+                    resId = R.mipmap.banner_two;
+                    break;
+                case 2:
+                    resId = R.mipmap.banner_three;
+                    break;
+                case 3:
+                    resId = R.mipmap.banner_four;
+                    break;
+            }
+            Glide.with(container.getContext()).load(resId).into(iv);
             container.addView(iv);
             return iv;
         }

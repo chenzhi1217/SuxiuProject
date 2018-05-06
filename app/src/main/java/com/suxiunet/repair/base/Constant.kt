@@ -14,7 +14,7 @@ class Constant {
         /**
          * 公司QQ
          */
-        var companyQQ = "3111678874"
+        var companyQQ = "3232585028"
         
         var companyWx = "suxiupc"
         
@@ -22,6 +22,6 @@ class Constant {
         
         val SERVICE_URL = "http://119.28.52.119/dnwx/service.html"
          
-        val USER_URL = "http://119.28.52.119/dnwx/service.html"
+        val USER_URL = "http://119.28.52.119/dnwx/user.html"
     }
 }

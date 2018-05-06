@@ -14,6 +14,7 @@ import com.suxiunet.data.exception.ApiException
 import com.suxiunet.data.util.CacheUtil
 import com.suxiunet.repair.R
 import com.suxiunet.repair.anim.YAnimation
+import com.suxiunet.repair.base.BasicProxy
 import com.suxiunet.repair.base.Constant
 import com.suxiunet.repair.base.baseui.BasicFragment
 import com.suxiunet.repair.base.baseui.MainActivity
@@ -36,6 +37,12 @@ class HomeFragment : BasicFragment<HomeRequest, HomePresenter, HomeEntity, FragH
         return super.onCreateView(inflater, container, savedInstanceState)
     }
 
+    override fun initLoadData() {
+        if (!mDataProxy.isLoading()) {
+            mDataProxy.request(getRequestData(), BasicProxy.ProxyType.LOAD_DATA)
+        }
+    }
+
     @RequiresApi(Build.VERSION_CODES.M) 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -44,6 +51,8 @@ class HomeFragment : BasicFragment<HomeRequest, HomePresenter, HomeEntity, FragH
         animation.repeatCount = Animation.INFINITE
         mBinding.includeOrderCount.ivFragHomeLogo.startAnimation(animation)
         mBinding.presenter = mPresenter
+        
+        setLunboData()
   
         /*mBinding.svHomeFrag.setOnScrollChangeListener { v, scrollX, scrollY, oldScrollX, oldScrollY -> 
             if (scrollY == 0) {
@@ -87,7 +96,7 @@ class HomeFragment : BasicFragment<HomeRequest, HomePresenter, HomeEntity, FragH
         mParentBinding.sfBasicFrag.isRefreshing = false
         //设置轮播图
         if (data?.bannerDtos != null) {
-            setLunboData(data?.bannerDtos)
+//            setLunboData()
             CacheUtil.getInstance().saveCacheData(data,"homeData")
         }
         //设置活动
@@ -98,11 +107,15 @@ class HomeFragment : BasicFragment<HomeRequest, HomePresenter, HomeEntity, FragH
     /**
      * 初始化轮播图数据
      */
-    fun setLunboData(bannerDtos: MutableList<HomeEntity.BannerDtosBean>) {
+    fun setLunboData() {
         var images: ArrayList<String> = ArrayList()
-        for (bannerDto in bannerDtos) {
+        /*for (bannerDto in bannerDtos) {
             images.add(Constant.baseImage + bannerDto.img)
+        }*/
+        for (i in 0..3) {
+            images.add("")
         }
+        
         mBinding.vphFragHome.setImageResource(images)
         mBinding.vphFragHome.show()
     }
@@ -112,7 +125,9 @@ class HomeFragment : BasicFragment<HomeRequest, HomePresenter, HomeEntity, FragH
         //设置轮播图
         val homeEntity = CacheUtil.getInstance().getCacheData("homeData", HomeEntity::class.java)
         if (homeEntity != null && homeEntity.bannerDtos != null) {
-            setLunboData(homeEntity.bannerDtos)
+//            setLunboData(homeEntity.bannerDtos)
+            //设置活动
+            mBinding?.includeActivity?.itemHomePostTv?.text = homeEntity?.notice
         }
     }
 }

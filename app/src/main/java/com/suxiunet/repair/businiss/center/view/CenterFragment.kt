@@ -39,7 +39,7 @@ class CenterFragment : NomalFragment<CenterPresenter, FragCenterBinding>(), Cent
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setUserInfo()
+//        setUserInfo()
     }
 
     override fun onResume() {
@@ -68,13 +68,13 @@ class CenterFragment : NomalFragment<CenterPresenter, FragCenterBinding>(), Cent
      */
     fun setUserInfo() {
         val token = SpUtil.getString(context, SpUtil.TOKEN_KEY, "")
-        val userInfo = CacheUtil.getInstance().getCacheData(CacheUtil.USER_INFO, UserInfoEntity::class.java)
+        val userInfo: UserInfoEntity? = CacheUtil.getInstance().getCacheData(CacheUtil.USER_INFO, UserInfoEntity::class.java)
         mBinding.tvFragCenterNickName.text = if (TextUtils.isEmpty(token)) "立即登录" else userInfo?.loginName?:""
 
         Glide.with(this)
                 .load(Constant.baseImage + userInfo?.url)
-                .error(R.mipmap.icon_user_default)
-                .placeholder(R.mipmap.icon_user_default)
+                .error(R.mipmap.icon_user)
+//                .placeholder(R.mipmap.icon_user_default)
                 .into(mBinding.ivFragCenterUser)
     }
 }

@@ -13,6 +13,7 @@ public class SpUtil {
 
     public static final String TOKEN_KEY = "token_key";
     public static final String LOGIN_ID_KEY = "login_id_key";
+    public static final String USER_LOGO = "user_logo";
 
     /**
      * 向SP中保存String类型数据

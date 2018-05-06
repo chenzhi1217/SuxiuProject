@@ -46,15 +46,18 @@ class PlaceOrderPresenter : BasicPresenter<PlaceOrderContract.View, PlaceOrderCo
      * 产生订单
      */
     fun placeOrder(company: String, name: String, phone: String, time: String, style: String, machineType: String, equModel: String, addrs: String, street: String, desc: String, invoiceHead: String) {
-        if (!checkData(name, phone, time, machineType,equModel, addrs, desc)) {
+        if (!checkData(name, phone, time, machineType, equModel, addrs, desc)) {
             return
         }
-        mProxy.setCallBack(object : BasicProxy.ProxyCallBack<OrderInfoRequest,Any>{
+        loading?.show()
+        mProxy.setCallBack(object : BasicProxy.ProxyCallBack<OrderInfoRequest, Any> {
             override fun onLoadSuccess(req: OrderInfoRequest?, type: BasicProxy.ProxyType, data: Any?) {
+                loading?.dismiss()
                 mView.placeOrderSuccess()
             }
 
             override fun onLoadError(req: OrderInfoRequest?, type: BasicProxy.ProxyType, e: ApiException?) {
+                loading?.dismiss()
                 mView.placeOrderError(e)
             }
         })
@@ -69,11 +72,11 @@ class PlaceOrderPresenter : BasicPresenter<PlaceOrderContract.View, PlaceOrderCo
         mRequest.machineType = equModel//机器型号
         mRequest.companyAdr = addrs + street//地址信息
         mRequest.desc = desc
-        mRequest.isNeedInvoice = if(invoiceHead.isNullOrEmpty()) "1" else "0"
+        mRequest.isNeedInvoice = if (invoiceHead.isNullOrEmpty()) "1" else "0"
         mRequest.invoiceHead = invoiceHead
-        
-        mProxy.request(mRequest,BasicProxy.ProxyType.REFRESH_DATA)
-        
+
+        mProxy.request(mRequest, BasicProxy.ProxyType.REFRESH_DATA)
+
     }
 
     /**

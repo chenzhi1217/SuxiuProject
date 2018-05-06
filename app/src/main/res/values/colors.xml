@@ -36,7 +36,8 @@
     <color name="color_button_bg">#fe0036</color>
     <!--<color name="theme_bg">#ff6602</color>-->
     <!--<color name="theme_bg">#53cac3</color>-->
-    <color name="theme_bg">#fe0036</color>
+    <!--<color name="theme_bg">#fe0036</color>-->
+    <color name="theme_bg">#56b1fd</color>
     <color name="color_toobar_title">#FFFFFF</color>
     
     <color name="color_bbbbbb">#bbbbbb</color>
