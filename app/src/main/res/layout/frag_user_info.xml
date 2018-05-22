@@ -48,10 +48,9 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="@dimen/right_margin"
-                android:layout_toLeftOf="@+id/iv_user_head_next"
-                android:src="@mipmap/icon_user_default"
-                android:onClick="@{() ->presenter.checkHeadIcon()}"/>
+                android:layout_toStartOf="@+id/iv_user_head_next"
+                android:onClick="@{() ->presenter.checkHeadIcon()}"
+                android:src="@mipmap/icon_user_default"/>
 
         </RelativeLayout>
 
